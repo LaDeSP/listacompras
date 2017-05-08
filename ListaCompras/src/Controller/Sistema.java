@@ -5,7 +5,7 @@ package Controller;
 
 /**
  * @author laboratorio
- *
+ * 
  */
 public class Sistema {
 
