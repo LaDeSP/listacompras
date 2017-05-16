@@ -1,11 +1,11 @@
 package módulos;
 
-public class ADM {
+public class Administrador {
 	private String Senha;
 	private String Email;
 	private int Id_supermercado;
 	
-	public ADM(String senha, String email, int id_supermercado) {
+	public Administrador(String senha, String email, int id_supermercado) {
 		Senha = senha;
 		Email = email;
 		Id_supermercado = id_supermercado;
@@ -33,8 +33,6 @@ public class ADM {
 
 	public void setId_supermercado(int id_supermercado) {
 		Id_supermercado = id_supermercado;
-	}
-	
-	
+	}	
 
 }

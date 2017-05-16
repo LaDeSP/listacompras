@@ -2,8 +2,10 @@ package controller;
 
 public class AdministradorDAO {
 
-	/**
-	 * @param args
-	 */
+	Criar(Administrador): Boolean
 	
+	Atualizar(Administrador): Boolean
+	Deletar(Administrador): Boolean
+	getAdministrador(int: id): Administrador
+	Procurar(String: Nome): Administrador[ 
 }
