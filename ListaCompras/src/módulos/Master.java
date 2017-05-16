@@ -2,9 +2,9 @@ package módulos;
 
 public class Master {
 	
-	String senha;
-	String email;
-	int id_supermercado;
+	private String senha;
+	private String email;
+	private int id_supermercado;
 	
 	public Master(String senha, String email, int id_supermercado) {
 	this.senha = senha;
