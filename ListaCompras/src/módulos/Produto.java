@@ -5,6 +5,12 @@ public class Produto {
 	private int id;
 	private String Marca;
 	private int Preco[];
+	
+	
+	public Produto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	/**
 	 * @param args
 	 */
@@ -32,4 +38,5 @@ public class Produto {
 	public void setPreco(int[] preco) {
 		Preco = preco;
 	}
+	
 }
