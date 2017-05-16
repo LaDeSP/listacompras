@@ -1,35 +1,14 @@
 package módulos;
 
 public class ADM {
-	private String Nome;
-	private int id;
 	private String Senha;
 	private String Email;
 	private int Id_supermercado;
 	
-	public ADM(String nome, int id, String senha, String email,
-			int id_supermercado) {
-		Nome = nome;
-		this.id = id;
+	public ADM(String senha, String email, int id_supermercado) {
 		Senha = senha;
 		Email = email;
 		Id_supermercado = id_supermercado;
-	}
-
-	public String getNome() {
-		return Nome;
-	}
-
-	public void setNome(String nome) {
-		Nome = nome;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getSenha() {
