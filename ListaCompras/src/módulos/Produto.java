@@ -8,5 +8,28 @@ public class Produto {
 	/**
 	 * @param args
 	 */
-	
+	public String getNome() {
+		return Nome;
+	}
+	public void setNome(String nome) {
+		Nome = nome;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getMarca() {
+		return Marca;
+	}
+	public void setMarca(String marca) {
+		Marca = marca;
+	}
+	public int[] getPreco() {
+		return Preco;
+	}
+	public void setPreco(int[] preco) {
+		Preco = preco;
+	}
 }
