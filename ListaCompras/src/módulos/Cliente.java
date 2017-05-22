@@ -1,13 +1,18 @@
 package módulos;
 
 public class Cliente {
+	private int id;
+	private String Nome;
 	private String Senha;
 	private String Email;
 	private int Listas[];
 	
-	public Cliente(String senha, String email) {
+	public Cliente(String nome, String senha, String email) {
+		id = 1;
+		Nome = nome;
 		Senha = senha;
 		Email = email;
+		System.out.printf("Nome: %s\nEmail: %s\nSenha: %s", Nome, Email, Senha);
 	}
 
 	public String getSenha() {
