@@ -35,6 +35,11 @@ public class Supermercado {
 	public void setId_local(int id_local) {
 		this.id_local = id_local;
 	}
-	
+	public void show() {
+		// TODO Auto-generated method stub
+		System.out.println("Dados do Supermercado");
+		System.out.println(this.nome+"\n"+this.id_local);
+		
+	}
 
 }
