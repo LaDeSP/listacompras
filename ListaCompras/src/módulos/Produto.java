@@ -38,5 +38,11 @@ public class Produto {
 	public void setPreco(int[] preco) {
 		Preco = preco;
 	}
+	public void show() {
+		// TODO Auto-generated method stub
+		System.out.println("Dados do Produto");
+		System.out.println(this.Nome+"\n"+this.Marca);
+		
+	}
 	
 }
