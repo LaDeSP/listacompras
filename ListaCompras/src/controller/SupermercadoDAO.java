@@ -12,7 +12,7 @@ public class SupermercadoDAO {
 	Supermercado supermercado = null;
 	public void criar() {
 		ViewSupermercado vCP = new ViewSupermercado();
-		this.supermercado = vCP.showAndSet();
+		//this.supermercado = vCP.showAndSet();
 		SupermercadoDAO.listadeSupermercados.add(this.supermercado);
 	}
 	public Supermercado getLastSupermercado(){
@@ -38,7 +38,4 @@ public class SupermercadoDAO {
 		}
 	}
 
-}
-
-	
 }

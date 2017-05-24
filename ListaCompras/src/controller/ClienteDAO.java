@@ -1,21 +1,29 @@
 package controller;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
 import módulos.Cliente;
+import view.ViewCadastrarcliente;
+
 public class ClienteDAO {
-	static void criarCliente()
+	
+	private static List<Cliente> listadeclientes = new ArrayList<Cliente>();
+	Cliente cliente = null;
+	
+	public void criarCliente(){
+		ViewCadastrarcliente viewcadastro = new ViewCadastrarcliente();
+		this.cliente = viewcadastro.view();
+		ClienteDAO.listadeclientes.add(this.cliente);
+	}
+	
+	
+	public void Listar()
 	{
-		Scanner ler = new Scanner(System.in);
-		String Nome, Email, Senha;
-		System.out.printf("\nNome: ");
-		Nome = ler.nextLine();
-		System.out.printf("Email: ");
-		Email = ler.nextLine();
-		System.out.printf("Senha: ");
-		Senha = ler.nextLine();
-		
-		
-		Cliente p = new Cliente(Nome, Senha, Email);
+		for(Cliente cliente : listadeclientes)
+		{
+			cliente.show();
+		}
 	}
 	
 }

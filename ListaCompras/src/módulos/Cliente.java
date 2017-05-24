@@ -12,7 +12,6 @@ public class Cliente {
 		Nome = nome;
 		Senha = senha;
 		Email = email;
-		System.out.printf("Nome: %s\nEmail: %s\nSenha: %s", Nome, Email, Senha);
 	}
 
 	public String getSenha() {
@@ -37,5 +36,10 @@ public class Cliente {
 
 	public void setListas(int[] listas) {
 		Listas = listas;
+	}
+
+	public void show() {
+		System.out.print("Nome: "+Nome+"\nSenha: "+Senha+"\nEmail: "+Email+"\nId: "+id+"\n");
+		
 	}
 }
