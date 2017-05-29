@@ -12,7 +12,7 @@ public class SupermercadoDAO {
 	Supermercado supermercado = null;
 	public void criar() {
 		ViewSupermercado vCP = new ViewSupermercado();
-		//this.supermercado = vCP.showAndSet();
+		this.supermercado = vCP.showAndSet();
 		SupermercadoDAO.listadeSupermercados.add(this.supermercado);
 	}
 	public Supermercado getLastSupermercado(){
@@ -27,15 +27,18 @@ public class SupermercadoDAO {
 	/**
 	 * @param listadeProdutos the listadeProdutos to set
 	 */
-	//////////////// falta os de baixo
-	public static void setListadeProdutos(List<Produto> listadeProdutos) {
-		ProdutoDAO.listadeProdutos = listadeProdutos;
+	
+	public static void setListadeSupermercados(List<Supermercado> listadeSupermercados) {
+		SupermercadoDAO.listadeSupermercado = listadeSupermercado;
 	}
 	
-	public void listarProdutos(){
-		for (Produto produto : listadeProdutos) {
-			produto.show();
+	public void listarSupermercados(){
+		for (Supermercado supermercado : listadeSupermercados) {
+			supermercardo.show();
 		}
 	}
 
+}
+
+	
 }
