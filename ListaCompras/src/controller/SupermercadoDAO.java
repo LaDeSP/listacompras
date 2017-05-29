@@ -29,7 +29,7 @@ public class SupermercadoDAO {
 	 */
 	
 	public static void setListadeSupermercados(List<Supermercado> listadeSupermercados) {
-		SupermercadoDAO.listadeSupermercado = listadeSupermercado;
+		SupermercadoDAO.listadeSupermercados = listadeSupermercados;
 	}
 	
 	public void listarSupermercados(){

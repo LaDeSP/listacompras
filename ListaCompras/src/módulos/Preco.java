@@ -66,5 +66,11 @@ public class Preco {
 	public void setPrecoProduto(double precoProduto) {
 		this.precoProduto = precoProduto;
 	}
+	public void show() {
+		// TODO Auto-generated method stub
+		System.out.println("Dados do Preço");
+		System.out.println(this.id_produto+"\n"+this.status+"\n"this.id_cliente+"\n"this.id_supermercado+"\n"this.precoProduto);
+		
+	}
 	
 }
