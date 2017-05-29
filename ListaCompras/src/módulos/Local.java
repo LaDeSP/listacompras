@@ -44,6 +44,10 @@ public class Local {
 	public void setEstado(String estado) {
 		Estado = estado;
 	}
-	
+	public void show() {
+		// TODO Auto-generated method stub
+		System.out.println("Dados do local");
+		System.out.println(this.CEP+"\n"+this.Cidade+"\n"this.Estado);
+	}
 	
 }
