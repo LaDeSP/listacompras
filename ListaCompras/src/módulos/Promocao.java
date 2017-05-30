@@ -9,7 +9,7 @@ public class Promocao {
 	
 	public Promocao(int id, int id_preco, int id_endereco, int id_supermercado,
 			int id_produto) {
-		super();
+	
 		this.id = id;
 		this.id_preco = id_preco;
 		this.id_endereco = id_endereco;
@@ -57,4 +57,3 @@ public class Promocao {
 		this.id_produto = id_produto;
 	}
 }
-
