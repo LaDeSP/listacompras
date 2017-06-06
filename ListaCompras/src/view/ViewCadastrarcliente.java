@@ -1,7 +1,8 @@
 package view;
 
 import java.util.Scanner;
-import módulos.Cliente;
+
+import modelo.Cliente;
 
 public class ViewCadastrarcliente {
 	Cliente cliente;
@@ -9,6 +10,7 @@ public class ViewCadastrarcliente {
 	
 	public ViewCadastrarcliente(){
 	}
+	
 	
 	public Cliente view()
 	{

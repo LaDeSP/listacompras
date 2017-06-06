@@ -2,7 +2,7 @@ package view;
 
 import java.util.Scanner;
 
-import módulos.Local;
+import modelo.Local;
 
 public class ViewCadastrarLocal {
 	Scanner entrada = new Scanner(System.in);
@@ -22,10 +22,10 @@ public class ViewCadastrarLocal {
 		this.local.setCEP(entrada.nextLine());	
 		
 		System.out.print("Cidade:");
-		this.cidade.setCidade(entrada.nextLine());
+		this.local.setCidade(entrada.nextLine());
 		
 		System.out.print("Estado:");
-		this.estado.setEstado(entrada.nextLine());
+		this.local.setEstado(entrada.nextLine());
 		
 		return this.local;
 		

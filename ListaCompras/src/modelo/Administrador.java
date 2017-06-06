@@ -1,16 +1,29 @@
-package módulos;
+package modelo;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Administrador {
+	int id;
 	private String Senha;
 	private String Email;
 	private int Id_supermercado;
 	private String Nome;
+	private static final AtomicInteger count = new AtomicInteger(0);
 	
 	public Administrador(String Nome, String senha, String email, int id_supermercado) {
 		Senha = senha;
 		Email = email;
 		Id_supermercado = id_supermercado;
 		this.Nome = Nome;
+		id = count.incrementAndGet();
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getSenha() {

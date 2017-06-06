@@ -1,4 +1,4 @@
-package módulos;
+package modelo;
 
 public class Usuario {
 	private String nome;

@@ -3,17 +3,18 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import módulos.Local;
+import modelo.Local;
 import view.ViewCadastrarLocal;
 
 
 public class LocalDAO {
 	private static List<Local> listadeLocal = new ArrayList<Local>();
 	Local local = null;
-	public void criar() {
+	public Local criar() {
 		ViewCadastrarLocal vCP = new ViewCadastrarLocal();
 		this.local = vCP.showAndSet();
 		LocalDAO.listadeLocal.add(this.local);
+		return local;
 	}
 	public Local getLastLocal(){
 		return this.local;
@@ -32,13 +33,34 @@ public class LocalDAO {
 		LocalDAO.listadeLocal = listadeLocal;
 	}
 	
-	public void listarLocal(){
+	public void listar(){
 		for (Local local : listadeLocal) {
 			local.show();
 		}
 	}
+	public boolean OKLocal(String CEP)
+	{
+		for(Local local : listadeLocal)
+		{
+			if(CEP.equals(local.getCEP()))
+			{
+				return true;
+			}
+		}
+		return false;
+		
+	}
+	public Local GetLocal(String CEP)
+	{
+		for(Local local : listadeLocal)
+		{
+			if(CEP.equals(local.getCEP()))
+			{
+				return local;
+			}
+		}
+		return null;
+		
+	}
 
-}
-
-	
 }

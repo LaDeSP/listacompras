@@ -1,15 +1,22 @@
-package módulos;
+package modelo;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Supermercado {
    
 	private int id;
 	private String nome;
 	private int id_local;
+	private static final AtomicInteger count = new AtomicInteger(0);
 	
-	public Supermercado(int id, String nome, int id_local) {
-		this.id = id;
+	public Supermercado(String nome, int id_local) {
+		id = count.incrementAndGet();
 		this.nome = nome;
 		this.id_local = id_local;
+	}
+
+	public Supermercado() {
+		id = count.incrementAndGet();
 	}
 
 	public int getId() {
@@ -38,7 +45,7 @@ public class Supermercado {
 	public void show() {
 		// TODO Auto-generated method stub
 		System.out.println("Dados do Supermercado");
-		System.out.println(this.nome+"\n"+this.id_local);
+		System.out.println(id+"\n"+this.nome+"\n"+this.id_local);
 		
 	}
 

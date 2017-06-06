@@ -1,4 +1,6 @@
-package módulos;
+package modelo;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Preco {
 	private int id;
@@ -7,16 +9,21 @@ public class Preco {
 	private int id_supermercado;
 	private int id_cliente;
 	private double precoProduto;
+	private static final AtomicInteger count = new AtomicInteger(0);
 	
-	public Preco(int id, int id_produto, boolean status, int id_supermercado,
+	public Preco(int id_produto, boolean status, int id_supermercado,
 			int id_cliente, double precoProduto) {
 		super();
-		this.id = id;
+		id = count.incrementAndGet();
 		this.id_produto = id_produto;
 		this.status = status;
 		this.id_supermercado = id_supermercado;
 		this.id_cliente = id_cliente;
 		this.precoProduto = precoProduto;
+	}
+
+	public Preco() {
+		id = count.incrementAndGet();
 	}
 
 	public int getId() {
@@ -69,7 +76,7 @@ public class Preco {
 	public void show() {
 		// TODO Auto-generated method stub
 		System.out.println("Dados do Preço");
-		System.out.println(this.id_produto+"\n"+this.status+"\n"this.id_cliente+"\n"this.id_supermercado+"\n"this.precoProduto);
+		System.out.println(id+"\n"+id_produto+"\n"+status+"\n"+id_cliente+"\n"+id_supermercado+"\n"+precoProduto);
 		
 	}
 	

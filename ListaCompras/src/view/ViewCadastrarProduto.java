@@ -2,7 +2,7 @@ package view;
 
 import java.util.Scanner;
 
-import módulos.Produto;
+import modelo.Produto;
 
 public class ViewCadastrarProduto {
 	Scanner entrada = new Scanner(System.in);

@@ -3,7 +3,7 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import módulos.Produto;
+import modelo.Produto;
 import view.ViewCadastrarProduto;
 
 public class ProdutoDAO {
@@ -33,6 +33,56 @@ public class ProdutoDAO {
 		for (Produto produto : listadeProdutos) {
 			produto.show();
 		}
+	}
+	
+	public boolean OKProduto(String Nome)
+	{
+		for(Produto produto : listadeProdutos)
+		{
+			if(Nome.equals(produto.getNome()))
+			{
+				return true;
+			}
+		}
+		return false;
+		
+	}
+	public Produto GetProduto(String Nome)
+	{
+		for(Produto produto : listadeProdutos)
+		{
+			if(Nome.equals(produto.getNome()))
+			{
+				return produto;
+			}
+		}
+		return null;
+		
+	}
+	public Produto GetProduto(int id)
+	{
+		for(Produto produto : listadeProdutos)
+		{
+			if(id == produto.getId())
+			{
+				return produto;
+			}
+		}
+		return null;
+		
+	}
+	
+	public void RemoveProduto(int id)
+	{
+		for(Produto produto : listadeProdutos)
+		{
+			if(id == produto.getId())
+			{
+				ProdutoDAO.listadeProdutos.remove(produto);
+				return ;
+			}
+		}
+		
 	}
 
 }

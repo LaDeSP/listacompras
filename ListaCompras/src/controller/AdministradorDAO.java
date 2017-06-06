@@ -3,7 +3,7 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import módulos.Administrador;
+import modelo.Administrador;
 import view.ViewCadastrarAdministrador;
 
 public class AdministradorDAO{
@@ -24,19 +24,52 @@ public class AdministradorDAO{
 			adm.show();
 		}
 	}
-	public boolean getAdm(String Nome)
+	public boolean OKAdm(String Nome)
 	{
 		for(Administrador adm : listadeadms)
 		{
-			if(Nome == adm.getNome())
+			if(Nome.equals(adm.getNome()))
 			{
-				System.out.println("Achou:\n");
-				adm.show();
 				return true;
 			}
 		}
-		System.out.println("Não Achou:\n");
 		return false;
+		
+	}
+	public Administrador GetAdm(String Nome)
+	{
+		for(Administrador adm : listadeadms)
+		{
+			if(Nome.equals(adm.getNome()))
+			{
+				return adm;
+			}
+		}
+		return null;
+		
+	}
+	public Administrador GetAdm(int id)
+	{
+		for(Administrador adm : listadeadms)
+		{
+			if(id == adm.getId())
+			{
+				return adm;
+			}
+		}
+		return null;
+		
+	}
+	public void RemoverADM(int id)
+	{
+		for(Administrador adm : listadeadms)
+		{
+			if(id == adm.getId())
+			{
+				AdministradorDAO.listadeadms.remove(adm);
+				return ;
+			}
+		}
 		
 	}
 }

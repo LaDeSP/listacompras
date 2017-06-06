@@ -1,15 +1,18 @@
-package módulos;
+package modelo;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Produto {
 	private String Nome;
 	private int id;
 	private String Marca;
 	private int Preco[];
+	private static final AtomicInteger count = new AtomicInteger(0);
 	
 	
 	public Produto() {
 		super();
-		// TODO Auto-generated constructor stub
+		id = count.incrementAndGet();
 	}
 	/**
 	 * @param args
@@ -40,8 +43,7 @@ public class Produto {
 	}
 	public void show() {
 		// TODO Auto-generated method stub
-		System.out.println("Dados do Produto");
-		System.out.println(this.Nome+"\n"+this.Marca);
+		System.out.println(this.id+"- "+this.Nome+" "+this.Marca);
 		
 	}
 	

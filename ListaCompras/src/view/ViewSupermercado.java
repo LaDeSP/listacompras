@@ -2,7 +2,8 @@ package view;
 
 import java.util.Scanner;
 
-import módulos.Supermercado;
+import controller.LocalDAO;
+import modelo.Supermercado;
 
 public class ViewSupermercado {
 	Scanner entrada = new Scanner(System.in);
@@ -13,15 +14,13 @@ public class ViewSupermercado {
 
 	}
 
-	public Supermercado showAndSet() {
+	public Supermercado showAndSet(LocalDAO localDAO) {
 		
 		this.supermercado = new Supermercado();
 		
 		System.out.print("Nome:");
 		this.supermercado.setNome(entrada.nextLine());	
-		
-		System.out.print("ID local:");
-		this.id_local.setId_local(entrada.nextInt());
+		this.supermercado.setId_local(localDAO.criar().getId());
 		
 		return this.supermercado;
 		

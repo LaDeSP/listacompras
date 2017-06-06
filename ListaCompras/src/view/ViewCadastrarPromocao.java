@@ -1,41 +1,55 @@
 package view;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Scanner;
 
-import módulos.Promocao;
+import modelo.Promocao;
 
 public class ViewCadastrarPromocao {
 	Scanner leitura = new Scanner(System.in);
-		int id;
-		int id_preco;
-		int id_endereco;
-		int id_supermercado;
-		int id_produto;
-		
-	Promocao promocao;
+		private Calendar inicio = Calendar.getInstance();
+		private Calendar fim = Calendar.getInstance();
+		private Promocao promocao;
+	
+	
 	
 	 	public ViewCadastrarPromocao(){
 	 		
 	 	}
 
-		public Promocao criar(){
-			this.promocao = new Promocao(id, id_preco, id_endereco, id_supermercado, id_produto);
+		public Promocao criar(int id){
 			
-			System.out.print("Id");
-			this.id = leitura.nextInt();
+			System.out.println("Data de Inicio da promocao: dd/M/Y");
 			
-			System.out.print("Id preco:");
-			this.id_preco=leitura.nextInt();	
-		
-			System.out.print("Id endereco:");
-			this.id_endereco=leitura.nextInt();	
-		
-			System.out.print("Id supermercado:");
-			this.id_supermercado=leitura.nextInt();	
-		
-			System.out.print("Id produto:");
-			this.id_produto=leitura.nextInt();	
-		
+			//SimpleDateFormat dateFormat = new SimpleDateFormat("dd/M/Y");
+			
+			
+			/*try {
+				this.inicio.setTime(dateFormat.parse(leitura.nextLine()));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} */
+			System.out.print("Dia: "); inicio.set(Calendar.DAY_OF_MONTH, leitura.nextInt());
+			System.out.print("Mês: "); inicio.set(Calendar.MONTH, leitura.nextInt());
+			System.out.print("Ano: "); inicio.set(Calendar.YEAR, leitura.nextInt());
+			System.out.println("Data de FIM da promocao: dd/M/Y");
+			
+			
+			/*try {
+				this.fim.setTime(dateFormat.parse(leitura.nextLine()));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} */
+			
+			System.out.print("Dia: "); fim.set(Calendar.DAY_OF_MONTH, leitura.nextInt());
+			System.out.print("Mês: "); fim.set(Calendar.MONTH, leitura.nextInt());
+			System.out.print("Ano: "); fim.set(Calendar.YEAR, leitura.nextInt());
+			
+			this.promocao = new Promocao(id, this.inicio, this.fim);
 			return this.promocao;
 		}
 

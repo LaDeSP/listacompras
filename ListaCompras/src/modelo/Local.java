@@ -1,16 +1,23 @@
-package módulos;
+package modelo;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Local {
 	private String CEP;
 	private int id;
 	private String Cidade;
 	private String Estado;
+	private static final AtomicInteger count = new AtomicInteger(0);
 	
-	public Local(String cEP, int id, String cidade, String estado) {
+	public Local(String cEP, String cidade, String estado) {
 		CEP = cEP;
-		this.id = id;
+		this.id = count.incrementAndGet();
 		Cidade = cidade;
 		Estado = estado;
+	}
+
+	public Local() {
+		this.id = count.incrementAndGet();
 	}
 
 	public String getCEP() {
@@ -20,13 +27,9 @@ public class Local {
 	public void setCEP(String cEP) {
 		CEP = cEP;
 	}
-
+	
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getCidade() {
@@ -47,7 +50,7 @@ public class Local {
 	public void show() {
 		// TODO Auto-generated method stub
 		System.out.println("Dados do local");
-		System.out.println(this.CEP+"\n"+this.Cidade+"\n"this.Estado);
+		System.out.println(id+"\n"+CEP+"\n"+Cidade+"\n"+Estado);
 	}
 	
 }

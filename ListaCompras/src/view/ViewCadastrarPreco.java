@@ -2,7 +2,10 @@ package view;
 
 import java.util.Scanner;
 
-import módulos.Preco;
+import controller.ProdutoDAO;
+import controller.PromocaoDAO;
+import controller.SupermercadoDAO;
+import modelo.Preco;
 
 public class ViewCadastrarPreco {
 	Scanner entrada = new Scanner(System.in);
@@ -16,25 +19,43 @@ public class ViewCadastrarPreco {
 
 	}
 
-	public Preco showAndSet() {
+	public Preco showAndSet(ProdutoDAO produtoDAO, int id, SupermercadoDAO supermercadoDAO) {
 		
+		String Nome;
 		this.preco = new Preco();
+		produtoDAO.listarProdutos();
+		if(produtoDAO.GetProduto(1) == null)
+		{
+			System.out.println("Não existe Produto");
+			return null;
+		}
+		System.out.print("\nQual Produto:");
+		this.preco.setId_produto(entrada.nextInt()); entrada.nextLine();
+
+		this.preco.setStatus(true);
 		
-		System.out.print("Id Produto:");
-		this.preco.setId_produto(entrada.nextInt());	
+		//Buscar Supermercado
+		if(supermercadoDAO.GetSupermercado(1) == null)
+		{
+			System.out.println("Não existe Supermercado");
+			return null;
+		}
+		System.out.print("Supermercado:");
+		Nome = entrada.nextLine();
+		while(supermercadoDAO.GetSupermercado(Nome) == null){
+			System.out.println("Digite Novamente: ");
+			Nome = entrada.nextLine();
+		}
+		this.preco.setId_supermercado(supermercadoDAO.GetSupermercado(Nome).getId());
 		
-		System.out.print("Status:");
-		this.preco.setStatus(entrada.nextBoolean());
-		
-		System.out.print("Id Supermercado:");
-		this.preco.setId_supermercado(entrada.nextInt());
-		
-		System.out.print("Id Cliente:");
-		this.preco.setId_cliente(entrada.nextInt());
+		this.preco.setId_cliente(id);
 		
 		System.out.print("Preço Produto:");
 		this.preco.setPrecoProduto(entrada.nextDouble());	
 		
+		//Criar Promocao
+		PromocaoDAO promocaoDAO = new PromocaoDAO();
+		promocaoDAO.criarPromocao(this.preco.getId());
 		return this.preco;
 		
 	}
