@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,9 @@ import view.ViewCadastrarLocal;
 
 public class LocalDAO {
 	private static List<Local> listadeLocal = new ArrayList<Local>();
+	FileOutputStream fos= new FileOutputStream("LocalDAO");//criar serialização. Salvar e ler dados. Output e input Stream 
+	ObjectOutputStream oos= new ObjectOutputStream(fos);
+	
 	Local local = null;
 	public Local criar() {
 		ViewCadastrarLocal vCP = new ViewCadastrarLocal();
