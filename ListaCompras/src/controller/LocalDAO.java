@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,16 +12,30 @@ import view.ViewCadastrarLocal;
 
 public class LocalDAO {
 	private static List<Local> listadeLocal = new ArrayList<Local>();
-	FileOutputStream fos= new FileOutputStream("LocalDAO");//criar serialização. Salvar e ler dados. Output e input Stream 
-	ObjectOutputStream oos= new ObjectOutputStream(fos);
-	
 	Local local = null;
+	//FileOutputStream fos= new FileOutputStream("LocalDAO");//criar serialização. Salvar e ler dados. Output e input Stream 
+	//ObjectOutputStream oos= new ObjectOutputStream(fos);
+	
 	public Local criar() {
 		ViewCadastrarLocal vCP = new ViewCadastrarLocal();
 		this.local = vCP.showAndSet();
 		LocalDAO.listadeLocal.add(this.local);
+		try {
+			FileOutputStream fos = new FileOutputStream("LocalDAO");
+	    	ObjectOutputStream oos = new ObjectOutputStream(fos);
+	    	oos.writeObject(this.local);
+	    	oos.flush();
+	    	oos.close();
+	    	fos.flush();
+	    	fos.close();
+		}
+		catch(IOException e){
+			e.printStackTrace();	
+		}
 		return local;
 	}
+	 
+
 	public Local getLastLocal(){
 		return this.local;
 	}

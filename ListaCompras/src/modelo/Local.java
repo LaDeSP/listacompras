@@ -1,8 +1,9 @@
 package modelo;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.io.Serializable;
 
-public class Local {
+public class Local implements Serializable {
 	private String CEP;
 	private int id;
 	private String Cidade;
