@@ -19,7 +19,11 @@ public class LocalDAO {
 	public Local criar() {
 		ViewCadastrarLocal vCP = new ViewCadastrarLocal();
 		this.local = vCP.showAndSet();
-		LocalDAO.listadeLocal.add(this.local);
+		if(local != null)
+		{
+			LocalDAO.listadeLocal.add(this.local);
+			System.out.println("\nLocal criado com sucesso");
+		}
 		try {
 			FileOutputStream fos = new FileOutputStream("LocalDAO");
 	    	ObjectOutputStream oos = new ObjectOutputStream(fos);

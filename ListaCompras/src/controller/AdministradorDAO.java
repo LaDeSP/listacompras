@@ -15,7 +15,11 @@ public class AdministradorDAO{
 	{
 		ViewCadastrarAdministrador viewadm = new ViewCadastrarAdministrador();
 		this.adm = viewadm.show();
-		AdministradorDAO.listadeadms.add(this.adm);
+		if(adm != null)
+		{
+			AdministradorDAO.listadeadms.add(this.adm);
+			System.out.println("\nAdministrador criado com sucesso");
+		}
 	}
 	public void Listar()
 	{

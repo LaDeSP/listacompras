@@ -25,7 +25,11 @@ public class MasterDAO {
 	{
 		ViewCadastrarMaster view = new ViewCadastrarMaster();
 		master = view.show();
-		MasterDAO.listademasters.add(master);
+		if(master != null)
+		{
+			MasterDAO.listademasters.add(master);
+			System.out.println("\nMaster criado com sucesso");
+		}
 	}
 	
 	public void Listar()

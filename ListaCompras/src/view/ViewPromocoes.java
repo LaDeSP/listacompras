@@ -23,19 +23,23 @@ public class ViewPromocoes {
 		System.out.print("\n");
 		while(i != 0)
 		{
-			System.out.print("   1 - Nova Promoção\n   2 - Listar Promoções\n   0 - Sair\n");
+			System.out.print("   1 - Nova Promoção\n   2 - Listar Promoções\n   3 - Criar Pre�o\n   0 - Sair\n");
 			i = ler.nextInt();
 			switch(i)
 			{
 				case 1:
 				{
-					precoDAO.criar(produtoDAO, id, supermercadoDAO);
+					precoDAO.criarPromocao(produtoDAO, id, supermercadoDAO);
 					break;
 				}
 				case 2:
 				{
 					promocaoDAO.listar();
 					break;
+				}
+				case 3:
+				{
+					precoDAO.criarPreco(produtoDAO, id, supermercadoDAO);
 				}
 				case 0:
 				{

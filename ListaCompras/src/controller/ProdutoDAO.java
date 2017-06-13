@@ -14,7 +14,11 @@ public class ProdutoDAO {
 	public void criar() {
 		ViewCadastrarProduto vCP = new ViewCadastrarProduto();
 		this.produto = vCP.showAndGet();
-		ProdutoDAO.listadeProdutos.add(this.produto);
+		if(produto != null)
+		{
+			System.out.println("\nProduto criado com sucesso");
+			ProdutoDAO.listadeProdutos.add(this.produto);
+		}
 	}
 	
 	public Produto getLastProduto(){

@@ -30,7 +30,7 @@ public class TelaInicial {
 		System.out.println("Bem Vindo!! "+clienteDAO.GetCliente(id).getNome());
 		while(i != 0)
 		{
-			System.out.println("1 - Produto\n2 - Promoções\n3 - Supermercado\n4 - Clientes");
+			System.out.println("1 - Produto\n2 - Promoções\n3 - Supermercado\n4 - Clientes\n0 - Sair");
 			i = ler.nextInt();
 			switch(i)
 			{
@@ -54,8 +54,9 @@ public class TelaInicial {
 					viewclientes.MenuCliente(clienteDAO, id, promocaoDAO);
 					break;
 				}
-				default: {
-					i = 0;	
+				case 0: {
+					i = 0;
+					System.out.println("\nAt� logo "+clienteDAO.GetCliente(id).getNome()+"!!");
 					break;
 				}
 				
@@ -72,7 +73,7 @@ public class TelaInicial {
 		System.out.println("Bem Vindo!! "+administradorDAO.GetAdm(id).getNome());
 		while(i != 0)
 		{
-			System.out.println("1 - Produto\n2 - Promoções\n3 - Supermercado\n");
+			System.out.println("1 - Produto\n2 - Promoções\n3 - Supermercado\n0 - Sair");
 			i = ler.nextInt();
 			switch(i)
 			{
@@ -91,10 +92,12 @@ public class TelaInicial {
 					viewsupermercado.Menu(supermercadoDAO, localDAO);
 					break;
 				}
-				default: {
-					i = 0;				
+				case 0: {
+					i = 0;
+					System.out.println("\nAt� logo "+administradorDAO.GetAdm(id).getNome()+"!!");
 					break;
 				}
+
 			}
 		}
 	}
@@ -110,7 +113,7 @@ public class TelaInicial {
 		System.out.println("Bem Vindo!! Master");
 		while(i != 0)
 		{
-			System.out.println("1 - Produto\n2 - Promoções\n3 - Supermercado\n4 - Clientes\n5 - Administradores");
+			System.out.println("1 - Produto\n2 - Promoções\n3 - Supermercado\n4 - Clientes\n5 - Administradores\n0 - Sair");
 			i = ler.nextInt();
 			switch(i)
 			{
@@ -139,8 +142,9 @@ public class TelaInicial {
 					viewadms.MenuMaster(administradorDAO);
 					break;
 				}
-				default: {
-					i = 0;	
+				case 0: {
+					i = 0;
+					System.out.println("\nAt� logo Master!!");
 					break;
 				}
 			}
@@ -153,7 +157,7 @@ public class TelaInicial {
 		System.out.println("Bem Vindo!!");
 		while(i != 0)
 		{
-			System.out.println("1 - Cadastrar\n2 - Ver Promoções");
+			System.out.println("1 - Cadastrar\n2 - Ver Promoções\n0 - Sair");
 			i = ler.nextInt();
 			switch(i)
 			{
@@ -167,8 +171,9 @@ public class TelaInicial {
 					promocaoDAO.listar();
 					break;
 				}
-				default: {
+				case 0: {
 					i = 0;
+					System.out.println("\nAt� logo!!");
 					break;
 				}
 			}

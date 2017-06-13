@@ -13,7 +13,12 @@ public class SupermercadoDAO {
 	public void criar(LocalDAO localDAO) {
 		ViewSupermercado vCP = new ViewSupermercado();
 		this.supermercado = vCP.showAndSet(localDAO);
-		SupermercadoDAO.listadeSupermercados.add(this.supermercado);
+		if(supermercado != null)
+		{
+			SupermercadoDAO.listadeSupermercados.add(this.supermercado);
+			System.out.println("\nSupermercado criado com sucesso");
+		}
+			
 	}
 	public Supermercado getLastSupermercado(){
 		return this.supermercado;

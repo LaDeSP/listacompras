@@ -18,7 +18,11 @@ public class PromocaoDAO {
 	public void criarPromocao(int id){
 		ViewCadastrarPromocao vcap = new ViewCadastrarPromocao();
 		this.promocao=vcap.criar(id);
-		PromocaoDAO.listadePromocao.add(this.promocao);
+		if(promocao != null)
+		{
+			PromocaoDAO.listadePromocao.add(this.promocao);
+			System.out.println("\nPromoão criada com sucesso");
+		}
 	}
 	
 	public Promocao getLastPromocao(){

@@ -21,7 +21,11 @@ public class ListaDeProdutosDAO {
 	public void Inserir(Promocao promocao, int id)
 	{
 		listadeprodutos = new ListaDeProdutos(promocao, id);
-		ListaDeProdutosDAO.listadepromocao.add(listadeprodutos);
+		if(listadeprodutos != null)
+		{
+			ListaDeProdutosDAO.listadepromocao.add(listadeprodutos);
+			System.out.println("\nProduto inserido com sucesso");
+		}
 	}
 	
 	public void Listar(int id)

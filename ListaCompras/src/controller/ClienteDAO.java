@@ -17,7 +17,11 @@ public class ClienteDAO {
 	public void criarCliente(){
 		ViewCadastrarcliente viewcadastro = new ViewCadastrarcliente();
 		this.cliente = viewcadastro.view();
-		ClienteDAO.listadeclientes.add(this.cliente);
+		if(cliente != null)
+		{
+			ClienteDAO.listadeclientes.add(this.cliente);
+			System.out.println("\nCliente criado com sucesso");
+		}
 	}
 	
 	

@@ -12,7 +12,7 @@ public class Preco {
 	private static final AtomicInteger count = new AtomicInteger(0);
 	
 	public Preco(int id_produto, boolean status, int id_supermercado,
-			int id_cliente, double precoProduto) {
+			int id_cliente, double precoProduto){
 		super();
 		id = count.incrementAndGet();
 		this.id_produto = id_produto;

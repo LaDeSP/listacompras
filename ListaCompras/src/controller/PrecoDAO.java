@@ -10,11 +10,21 @@ import view.ViewCadastrarPreco;
 public class PrecoDAO {
 	private static List<Preco> listadePrecos = new ArrayList<Preco>();
 	Preco preco = null;
-	public void criar(ProdutoDAO produtoDAO, int id, SupermercadoDAO supermercadoDAO) {
+	public void criarPreco(ProdutoDAO produtoDAO, int id, SupermercadoDAO supermercadoDAO) {
 		ViewCadastrarPreco vCP = new ViewCadastrarPreco();
 		this.preco = vCP.showAndSet(produtoDAO, id, supermercadoDAO);
 		if(preco != null)
 		{
+			System.out.println("\nPreço criado com sucesso!!\n");
+			PrecoDAO.listadePrecos.add(this.preco);
+		}
+	}
+	public void criarPromocao(ProdutoDAO produtoDAO, int id, SupermercadoDAO supermercadoDAO) {
+		ViewCadastrarPreco vCP = new ViewCadastrarPreco();
+		this.preco = vCP.showAndSetPromocao(produtoDAO, id, supermercadoDAO);
+		if(preco != null)
+		{
+			System.out.println("\nPromoção criado com sucesso!!\n");
 			PrecoDAO.listadePrecos.add(this.preco);
 		}
 	}
