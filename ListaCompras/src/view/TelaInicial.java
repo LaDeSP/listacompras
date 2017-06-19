@@ -3,6 +3,7 @@ package view;
 import java.util.Scanner;
 
 import controller.*;
+import modelo.Local;
 
 public class TelaInicial {
 	Scanner ler = new Scanner(System.in);
@@ -20,7 +21,7 @@ public class TelaInicial {
 	public TelaInicial(){
 		masterDAO.criarPrimeiro();
 	}
-	public void MenuCliente()
+	public void MenuCliente() throws ClassNotFoundException
 	{
 		ViewProdutos viewprodutos = new ViewProdutos();
 		ViewPromocoes viewpromocoes = new ViewPromocoes();
@@ -54,7 +55,8 @@ public class TelaInicial {
 					viewclientes.MenuCliente(clienteDAO, id, promocaoDAO);
 					break;
 				}
-				case 0: {
+				case 0: 
+				{
 					i = 0;
 					System.out.println("\nAté logo "+clienteDAO.GetCliente(id).getNome()+"!!");
 					break;
@@ -180,8 +182,10 @@ public class TelaInicial {
 		}
 	}
 	
-	public void Antesdoinicial(int x)
+	public void Antesdoinicial(int x) throws ClassNotFoundException
 	{
+		//localDAO.lerArquivo();
+		//supermercadoDAO.lerArquivo();
 		if(x == 1)
 		{
 			MenuCliente();

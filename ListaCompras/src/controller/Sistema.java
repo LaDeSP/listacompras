@@ -9,8 +9,9 @@ import view.TelaInicial;
 public class Sistema {
 	/**
 	 * @param args
+	 * @throws ClassNotFoundException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException{
 		int i = 0, j = 1;
 		while(j != 0)
 		{

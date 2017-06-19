@@ -1,8 +1,5 @@
 package controller;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +7,7 @@ import modelo.Local;
 import view.ViewCadastrarLocal;
 
 
-public class LocalDAO {
+public class LocalDAO extends DAO{
 	private static List<Local> listadeLocal = new ArrayList<Local>();
 	Local local = null;
 	//FileOutputStream fos= new FileOutputStream("LocalDAO");//criar serialização. Salvar e ler dados. Output e input Stream 
@@ -24,19 +21,15 @@ public class LocalDAO {
 			LocalDAO.listadeLocal.add(this.local);
 			System.out.println("\nLocal criado com sucesso");
 		}
-		try {
-			FileOutputStream fos = new FileOutputStream("LocalDAO");
-	    	ObjectOutputStream oos = new ObjectOutputStream(fos);
-	    	oos.writeObject(this.local);
-	    	oos.flush();
-	    	oos.close();
-	    	fos.flush();
-	    	fos.close();
-		}
-		catch(IOException e){
-			e.printStackTrace();	
-		}
+			
+		Escrever(Constantes.LocalDs, listadeLocal);
 		return local;
+	}
+	
+	public boolean lerArquivo() throws ClassNotFoundException
+	{
+		this.listadeLocal = (List<Local>) Ler(Constantes.LocalDs, listadeLocal);
+		return true;
 	}
 	 
 

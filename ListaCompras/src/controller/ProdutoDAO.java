@@ -6,7 +6,7 @@ import java.util.List;
 import modelo.Produto;
 import view.ViewCadastrarProduto;
 
-public class ProdutoDAO {
+public class ProdutoDAO extends DAO{
 	
 	private static List<Produto> listadeProdutos = new ArrayList<Produto>();
 	Produto produto = null;
@@ -19,6 +19,7 @@ public class ProdutoDAO {
 			System.out.println("\nProduto criado com sucesso");
 			ProdutoDAO.listadeProdutos.add(this.produto);
 		}
+		Escrever(Constantes.ProdutoDs, listadeProdutos);
 	}
 	
 	public Produto getLastProduto(){
