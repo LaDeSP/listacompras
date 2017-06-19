@@ -28,6 +28,7 @@ public class ViewSupermercados {
 				{
 					
 					supermercadoDAO.criar(localDAO);
+					supermercadoDAO.EscreverArquivo();
 					break;
 				}
 				case 2:

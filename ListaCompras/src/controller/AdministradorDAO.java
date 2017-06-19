@@ -6,7 +6,7 @@ import java.util.List;
 import modelo.Administrador;
 import view.ViewCadastrarAdministrador;
 
-public class AdministradorDAO{
+public class AdministradorDAO extends DAO{
 	
 	private static List<Administrador> listadeadms = new ArrayList<Administrador>();
 	Administrador adm = null;
@@ -20,6 +20,10 @@ public class AdministradorDAO{
 			AdministradorDAO.listadeadms.add(this.adm);
 			System.out.println("\nAdministrador criado com sucesso");
 		}
+	}
+	public void lerArquivo()
+	{
+		AdministradorDAO.listadeadms = (List<Administrador>) Ler(Constantes.AdministradorDs, listadeadms);
 	}
 	public void Listar()
 	{

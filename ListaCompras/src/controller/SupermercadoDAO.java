@@ -20,9 +20,14 @@ public class SupermercadoDAO extends DAO{
 			System.out.println("\nSupermercado criado com sucesso");
 			
 		}
-		Escrever(Constantes.SupermercadoDs, listadeSupermercados);
+		super.Escrever(Constantes.SupermercadoDs, listadeSupermercados);
 		return supermercado;
 			
+	}
+	public boolean EscreverArquivo()
+	{
+		Escrever(Constantes.SupermercadoDs, listadeSupermercados);
+		return true;
 	}
 	
 	public boolean lerArquivo() throws ClassNotFoundException

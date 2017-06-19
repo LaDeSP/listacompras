@@ -21,9 +21,12 @@ public class LocalDAO extends DAO{
 			LocalDAO.listadeLocal.add(this.local);
 			System.out.println("\nLocal criado com sucesso");
 		}
-			
-		Escrever(Constantes.LocalDs, listadeLocal);
 		return local;
+	}
+	
+	public void Escrever()
+	{
+		Escrever(Constantes.LocalDs, listadeLocal);
 	}
 	
 	public boolean lerArquivo() throws ClassNotFoundException

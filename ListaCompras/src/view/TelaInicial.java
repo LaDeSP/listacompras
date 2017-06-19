@@ -1,5 +1,6 @@
 package view;
 
+import java.io.File;
 import java.util.Scanner;
 
 import controller.*;
@@ -21,6 +22,26 @@ public class TelaInicial {
 	public TelaInicial(){
 		masterDAO.criarPrimeiro();
 	}
+	
+	public void LerArquivo() throws ClassNotFoundException
+	{
+		File f = new File(Constantes.LocalDs);
+		if(f.exists())
+		{
+			localDAO.lerArquivo();
+		}
+		f = new File(Constantes.AdministradorDs);
+		if(f.exists())
+		{
+			administradorDAO.lerArquivo();
+		}
+	}
+	
+	public void EscreverArquivo() throws ClassNotFoundException
+	{
+		localDAO.Escrever();
+	}
+	
 	public void MenuCliente() throws ClassNotFoundException
 	{
 		ViewProdutos viewprodutos = new ViewProdutos();
