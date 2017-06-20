@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class DAO {
+public class DAO{
 	
 	public static boolean Escrever(String Nome, Object objeto)
 	{
@@ -23,7 +23,7 @@ public class DAO {
 		return false;
 	}
 	
-	public Object Ler(String Nome, Object objeto)
+	public static Object Ler(String Nome, Object objeto)
 	{
 		try {
 			FileInputStream fos = new FileInputStream(Nome);

@@ -1,6 +1,5 @@
 package controller;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,14 +31,10 @@ public class ListaDeProdutosDAO extends DAO implements Serializable{
 	public void Inserir(Promocao promocao, int id)
 	{
 		listadeprodutos = new ListaDeProdutos(promocao, id);
-		//if(listadeprodutos != null)
-		try
+		if(listadeprodutos != null)
 		{
 			ListaDeProdutosDAO.listadepromocao.add(listadeprodutos);
 			System.out.println("\nProduto inserido com sucesso");
-		}
-		catch(IOException e){
-			e.printStackTrace();	
 		}
 	}
 	

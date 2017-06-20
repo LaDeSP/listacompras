@@ -2,6 +2,8 @@ package view;
 
 import java.util.Scanner;
 
+import modelo.Cliente;
+
 import controller.ClienteDAO;
 import controller.PromocaoDAO;
 
@@ -13,6 +15,28 @@ public class ViewClientes {
 	{
 		
 	}
+			
+		
+		public void cadastrar() throws Exception
+		{
+			String nome, senha, email;
+			
+			System.out.print("Nome: ");
+			nome = ler.nextLine();
+			System.out.print("Senha: ");
+			senha = ler.nextLine();
+			System.out.print("Email: ");
+			email = ler.nextLine();
+			
+			if(ClienteDAO.criarCliente(nome, email, senha)){
+				System.out.println("Cliente cadastrado com sucesso");
+			}else{
+				System.out.println("Erro ao cadastrar cliente");
+			}
+			
+			
+	}
+	
 	
 	public void Menu(ClienteDAO clienteDAO)
 	{
@@ -27,7 +51,7 @@ public class ViewClientes {
 			{
 				case 1:
 				{
-					clienteDAO.Listar();
+					clienteDAO.listar();
 					break;
 				}
 				case 2:
@@ -38,11 +62,7 @@ public class ViewClientes {
 					{
 						System.out.print("Existe esse Cliente\n");
 					}
-					else {
-						System.out.print("Cliente não existente\n");
-					}
 					break;
-					
 				}
 				case 0:
 				{
@@ -50,14 +70,10 @@ public class ViewClientes {
 					break;
 						
 				}
-				default: {
-					System.out.print("Opção Inexistente. Tente novamente\n");
-					break;
-				}
 			}
 		}
 	}
-	public void MenuMaster(ClienteDAO clienteDAO)
+	public void MenuMaster()
 	{
 		int i = 1, j;
 		boolean z;
@@ -70,7 +86,7 @@ public class ViewClientes {
 			{
 				case 1:
 				{
-					clienteDAO.Listar();
+					ClienteDAO.listar();
 					break;
 				}
 				case 2:
@@ -81,14 +97,11 @@ public class ViewClientes {
 					{
 						System.out.print("Existe esse Cliente\n");
 					}
-					else {
-						System.out.print("Cliente Inexistente\n");
-					}
 					break;
 				}
 				case 3:
 				{
-					clienteDAO.Listar();
+					clienteDAO.listar();
 					System.out.print("Opção: ");
 					j = ler.nextInt();
 					clienteDAO.RemoverCliente(j);
@@ -100,14 +113,10 @@ public class ViewClientes {
 					break;
 						
 				}
-				default: {
-					System.out.print("Opção Inexistente. Tente novamente\n");
-					break;
-				}
 			}
 		}
 	}
-	public void MenuCliente(ClienteDAO clienteDAO, int id, PromocaoDAO promocaoDAO)
+	public void MenuCliente(int id, PromocaoDAO promocaoDAO)
 	{
 		int i = 1;
 		System.out.print("\n");
@@ -119,12 +128,12 @@ public class ViewClientes {
 			{
 				case 1:
 				{
-					clienteDAO.InserirNaLista(promocaoDAO, id);
+					ClienteDAO.InserirNaLista(promocaoDAO, id);
 					break;
 				}
 				case 2:
 				{
-					clienteDAO.GetCliente(id).show(id);
+					ClienteDAO.GetCliente(id).show(id);
 					break;
 				}
 				case 0:
@@ -132,10 +141,6 @@ public class ViewClientes {
 					i = 0;
 					break;
 						
-				}
-				default:{
-					System.out.print("Opção Inexistente. Tente novamente\n");
-					break;
 				}
 			}
 		}

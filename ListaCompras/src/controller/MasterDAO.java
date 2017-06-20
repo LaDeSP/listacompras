@@ -1,6 +1,5 @@
 package controller;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,14 +38,10 @@ public class MasterDAO extends DAO{
 	{
 		ViewCadastrarMaster view = new ViewCadastrarMaster();
 		master = view.show();
-		//if(master != null)
-		try
+		if(master != null)
 		{
 			MasterDAO.listademasters.add(master);
 			System.out.println("\nMaster criado com sucesso");
-		}
-		catch(IOException e){
-			e.printStackTrace();	
 		}
 	}
 	

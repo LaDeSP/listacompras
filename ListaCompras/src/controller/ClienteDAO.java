@@ -1,49 +1,48 @@
 package controller;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import modelo.Cliente;
-import modelo.Local;
-import view.ViewCadastrarcliente;
 import view.ViewListarPromocoes;
 
 public class ClienteDAO extends DAO{
 	
 	private static List<Cliente> listadeclientes = new ArrayList<Cliente>();
-	Cliente cliente = null;
-	Scanner leitura = new Scanner(System.in);
-	
-	public void criarCliente(){
-		ViewCadastrarcliente viewcadastro = new ViewCadastrarcliente();
-		this.cliente = viewcadastro.view();
-		//if(cliente != null)
-		try
-		{
-			ClienteDAO.listadeclientes.add(this.cliente);
-			System.out.println("\nCliente criado com sucesso");
-		}
-		catch(IOException e){
-			e.printStackTrace();	
-		}
-		Escrever();
+	Cliente cliente = null; //provavelmente deve ser excluída
+	static Scanner leitura = new Scanner(System.in);
+	/**
+	 * 
+	 * @param nome Nome do Cliente
+	 * @param email E-mail do Cliente
+	 * @param senha Senha do Cliente
+	 * @return True se cadastro foi realizado, False se cadastro do cliente não foi executado
+	 * @throws Exception 
+	 */
+	public static boolean criarCliente(String nome, String email, String senha) throws Exception{
+		senha = MD5.criptografar(senha);
+		//provavelmente deve ter uma validação dos dados 
+		Cliente cliente = new Cliente(nome, senha, email);
+		ClienteDAO.listadeclientes.add(cliente);
+
+		return true;
+		
 	}
 	
-	public void Escrever()
+	public static void Escrever()
 	{
-		super.Escrever(Constantes.ClienteDs, listadeclientes);
+		DAO.Escrever(Constantes.ClienteDs, listadeclientes);
 	}
 	
-	public boolean lerArquivo() throws ClassNotFoundException
+	public static boolean lerArquivo() throws ClassNotFoundException
 	{
-		this.listadeclientes = (List<Cliente>) Ler(Constantes.ClienteDs, listadeclientes);
+		listadeclientes = (List<Cliente>) DAO.Ler(Constantes.ClienteDs, listadeclientes);
 		return true;
 	}
 	
 	
-	public void Listar()
+	public static void listar()
 	{
 		for(Cliente cliente : listadeclientes)
 		{
@@ -62,7 +61,7 @@ public class ClienteDAO extends DAO{
 		return false;
 		
 	}
-	public Cliente GetCliente(String Nome)
+	public static Cliente GetCliente(String Nome)
 	{
 		for(Cliente cliente : listadeclientes)
 		{
@@ -74,7 +73,7 @@ public class ClienteDAO extends DAO{
 		return null;
 		
 	}
-	public Cliente GetCliente(int id)
+	public static Cliente GetCliente(int id)
 	{
 		for(Cliente cliente : listadeclientes)
 		{
@@ -97,7 +96,7 @@ public class ClienteDAO extends DAO{
 			}
 		}
 	}
-	public void InserirNaLista(PromocaoDAO promocaoDAO, int id)
+	public static void InserirNaLista(PromocaoDAO promocaoDAO, int id)
 	{
 		ViewListarPromocoes viewlistarpromocoes = new ViewListarPromocoes();
 		int i;

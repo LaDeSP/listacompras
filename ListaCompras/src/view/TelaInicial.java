@@ -9,7 +9,7 @@ import modelo.Local;
 public class TelaInicial {
 	Scanner ler = new Scanner(System.in);
 	ProdutoDAO produtoDAO = new ProdutoDAO();
-	ClienteDAO clienteDAO = new ClienteDAO();
+
 	AdministradorDAO administradorDAO = new AdministradorDAO();
 	PromocaoDAO promocaoDAO = new PromocaoDAO();
 	LocalDAO localDAO = new LocalDAO();
@@ -39,7 +39,7 @@ public class TelaInicial {
 		f = new File(Constantes.ClienteDs);
 		if(f.exists())
 		{
-			clienteDAO.lerArquivo();
+			ClienteDAO.lerArquivo();
 		}
 		f = new File(Constantes.HistoricoCDs);
 		if(f.exists())
@@ -77,7 +77,7 @@ public class TelaInicial {
 	public void EscreverArquivo() throws ClassNotFoundException
 	{
 		produtoDAO.Escrever();
-		clienteDAO.Escrever();
+		ClienteDAO.Escrever();
 		administradorDAO.Escrever();
 		promocaoDAO.Escrever();
 		precoDAO.Escrever();
@@ -95,7 +95,7 @@ public class TelaInicial {
 		ViewSupermercados viewsupermercado = new ViewSupermercados();
 		ViewClientes viewclientes = new ViewClientes();
 		int i = 1;
-		System.out.println("Bem Vindo!! "+clienteDAO.GetCliente(id).getNome());
+		System.out.println("Bem Vindo!! "+ClienteDAO.GetCliente(id).getNome());
 		while(i != 0)
 		{
 			System.out.println("1 - Produto\n2 - Promoções\n3 - Supermercado\n4 - Clientes\n0 - Sair");
@@ -119,17 +119,13 @@ public class TelaInicial {
 				}
 				case 4:
 				{
-					viewclientes.MenuCliente(clienteDAO, id, promocaoDAO);
+					viewclientes.MenuCliente(id, promocaoDAO);
 					break;
 				}
 				case 0: 
 				{
 					i = 0;
-					System.out.println("\nAt� logo "+clienteDAO.GetCliente(id).getNome()+"!!");
-					break;
-				}
-				default:{
-					System.out.print("Opção Inexistente. Tente novamente\n");
+					System.out.println("\nAt� logo "+ClienteDAO.GetCliente(id).getNome()+"!!");
 					break;
 				}
 				
@@ -170,10 +166,6 @@ public class TelaInicial {
 					System.out.println("\nAt� logo "+administradorDAO.GetAdm(id).getNome()+"!!");
 					break;
 				}
-				default: {
-					System.out.print("Opção Inexistente. Tente novamente\n");
-					break;
-				}
 
 			}
 		}
@@ -211,7 +203,7 @@ public class TelaInicial {
 				}
 				case 4:
 				{
-					viewclientes.MenuMaster(clienteDAO);
+					viewclientes.MenuMaster();
 					break;
 				}
 				case 5:
@@ -221,18 +213,14 @@ public class TelaInicial {
 				}
 				case 0: {
 					i = 0;
-					System.out.println("\nAt� logo Master!!");
-					break;
-				}
-				default: {
-					System.out.print("Opção Inexistente. Tente novamente\n");
+					System.out.println("\nAté logo Master!!");
 					break;
 				}
 			}
 		}
 	}
 	
-	public void MenuUsuario()
+	public void MenuUsuario() throws Exception
 	{
 		int i = 1;
 		System.out.println("Bem Vindo!!");
@@ -244,7 +232,8 @@ public class TelaInicial {
 			{
 				case 1:
 				{
-					clienteDAO.criarCliente();
+					ViewClientes viewClientes = new ViewClientes();
+					viewClientes.cadastrar();
 					break;
 				}
 				case 2:
@@ -257,15 +246,11 @@ public class TelaInicial {
 					System.out.println("\nAt� logo!!");
 					break;
 				}
-				default: {
-					System.out.print("Opção Inexistente. Tente novamente\n");
-					break;
-				}
 			}
 		}
 	}
 	
-	public void Antesdoinicial(int x) throws ClassNotFoundException
+	public void Antesdoinicial(int x) throws Exception
 	{
 		//localDAO.lerArquivo();
 		//supermercadoDAO.lerArquivo();
@@ -288,7 +273,7 @@ public class TelaInicial {
 		
 	}
 	
-	public int TelaLogin()
+	public int TelaLogin() throws Exception
 	{
 		ViewLogin view = new ViewLogin();
 		int i = 0, x = 0;
@@ -300,7 +285,7 @@ public class TelaInicial {
 			{
 				case 1:
 				{
-					id = view.ViewloginCliente(clienteDAO);
+					id = view.ViewloginCliente();
 					if(id != 0)
 					{
 						x = 1;
@@ -332,16 +317,13 @@ public class TelaInicial {
 				}
 				case 5:
 				{
-					clienteDAO.criarCliente();
+					ViewClientes viewClientes = new ViewClientes();
+					viewClientes.cadastrar();
 					break;
 				}
 				case 0:
 				{
 					x = -1;
-					break;
-				}
-				default: {
-					System.out.print("Opção Inexistente. Tente novamente\n");
 					break;
 				}
 			}

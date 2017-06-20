@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import controller.AdministradorDAO;
 import controller.ClienteDAO;
+import controller.MD5;
 import controller.MasterDAO;
 import modelo.Administrador;
 import modelo.Cliente;
@@ -14,7 +15,7 @@ public class ViewLogin {
 	Scanner ler = new Scanner(System.in);
 	public ViewLogin()
 	{}
-	public int ViewloginCliente(ClienteDAO clienteDAO)
+	public int ViewloginCliente() throws Exception
 	{
 		Cliente cliente;
 		int x = 0;
@@ -23,9 +24,9 @@ public class ViewLogin {
 		Nome = ler.nextLine();
 		System.out.print("Senha: ");
 		Senha = ler.nextLine();
-		cliente = clienteDAO.GetCliente(Nome);
+		cliente = ClienteDAO.GetCliente(Nome);
 		
-		if(cliente != null && cliente.getSenha().equals(Senha))
+		if(cliente != null && cliente.getSenha().equals(MD5.criptografar(Senha)))
 		{
 			x = cliente.getId();
 		}
