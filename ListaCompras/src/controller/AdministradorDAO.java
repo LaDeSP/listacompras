@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Administrador;
+import modelo.Cliente;
+import modelo.HistoricoCliente;
 import view.ViewCadastrarAdministrador;
 
 public class AdministradorDAO extends DAO{
@@ -21,6 +23,12 @@ public class AdministradorDAO extends DAO{
 			System.out.println("\nAdministrador criado com sucesso");
 		}
 	}
+	
+	public void Escrever()
+	{
+		Escrever(Constantes.AdministradorDs, listadeadms);
+	}
+	
 	public void lerArquivo()
 	{
 		AdministradorDAO.listadeadms = (List<Administrador>) Ler(Constantes.AdministradorDs, listadeadms);

@@ -21,6 +21,7 @@ public class LocalDAO extends DAO{
 			LocalDAO.listadeLocal.add(this.local);
 			System.out.println("\nLocal criado com sucesso");
 		}
+		Escrever();
 		return local;
 	}
 	

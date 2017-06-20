@@ -16,8 +16,19 @@ public class Sistema {
 		while(j != 0)
 		{
 			TelaInicial inicio = new TelaInicial();
+			inicio.LerArquivo();
 			i = inicio.TelaLogin();
-			inicio.Antesdoinicial(i);
+			if(i != -1)
+			{
+				inicio.Antesdoinicial(i);
+			}
+			else
+			{
+				j = 0;
+				System.out.println("Adeus");
+			}
+			inicio.EscreverArquivo();
+			
 		}
 		//inicio.Inicial(i);
 	}

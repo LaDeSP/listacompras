@@ -5,10 +5,11 @@ import java.util.List;
 import java.util.Scanner;
 
 import modelo.Cliente;
+import modelo.Local;
 import view.ViewCadastrarcliente;
 import view.ViewListarPromocoes;
 
-public class ClienteDAO {
+public class ClienteDAO extends DAO{
 	
 	private static List<Cliente> listadeclientes = new ArrayList<Cliente>();
 	Cliente cliente = null;
@@ -22,6 +23,18 @@ public class ClienteDAO {
 			ClienteDAO.listadeclientes.add(this.cliente);
 			System.out.println("\nCliente criado com sucesso");
 		}
+		Escrever();
+	}
+	
+	public void Escrever()
+	{
+		super.Escrever(Constantes.ClienteDs, listadeclientes);
+	}
+	
+	public boolean lerArquivo() throws ClassNotFoundException
+	{
+		this.listadeclientes = (List<Cliente>) Ler(Constantes.ClienteDs, listadeclientes);
+		return true;
 	}
 	
 	

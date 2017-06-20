@@ -1,10 +1,11 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import controller.ListaDeProdutosDAO;
 
-public class Cliente {
+public class Cliente implements Serializable{
 	private int id;
 	private String Nome;
 	private String Senha;

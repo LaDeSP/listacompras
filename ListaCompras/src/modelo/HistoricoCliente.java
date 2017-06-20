@@ -1,6 +1,9 @@
 package modelo;
+
+import java.io.Serializable;
+
 /*aaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
-public class HistoricoCliente {
+public class HistoricoCliente implements Serializable{
     private int Id;
     private int Id_produto;
     private int Id_cliente;

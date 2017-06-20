@@ -3,13 +3,27 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.Cliente;
 import modelo.Preco;
 import view.ViewCadastrarPreco;
 
 
-public class PrecoDAO {
+public class PrecoDAO extends DAO{
 	private static List<Preco> listadePrecos = new ArrayList<Preco>();
 	Preco preco = null;
+	
+	public void Escrever()
+	{
+		Escrever(Constantes.PrecoDs, listadePrecos);
+	}
+	
+	public boolean lerArquivo() throws ClassNotFoundException
+	{
+		this.listadePrecos = (List<Preco>) Ler(Constantes.PrecoDs, listadePrecos);
+		return true;
+	}
+	
+	
 	public void criarPreco(ProdutoDAO produtoDAO, int id, SupermercadoDAO supermercadoDAO) {
 		ViewCadastrarPreco vCP = new ViewCadastrarPreco();
 		this.preco = vCP.showAndSet(produtoDAO, id, supermercadoDAO);
@@ -28,6 +42,7 @@ public class PrecoDAO {
 			PrecoDAO.listadePrecos.add(this.preco);
 		}
 	}
+	
 	public Preco getLastPreco(){
 		return this.preco;
 	}

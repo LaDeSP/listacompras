@@ -3,10 +3,11 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.Cliente;
 import modelo.Master;
 import view.ViewCadastrarMaster;
 
-public class MasterDAO {
+public class MasterDAO extends DAO{
 	
 	private Master master = null;
 	private static List<Master> listademasters = new ArrayList<Master>();
@@ -15,6 +16,18 @@ public class MasterDAO {
 	{
 		
 	}
+	
+	public void Escrever()
+	{
+		Escrever(Constantes.MasterDs, listademasters);
+	}
+	
+	public boolean lerArquivo() throws ClassNotFoundException
+	{
+		this.listademasters = (List<Master>) Ler(Constantes.MasterDs, listademasters);
+		return true;
+	}
+	
 	public void criarPrimeiro()
 	{
 		ViewCadastrarMaster view = new ViewCadastrarMaster();

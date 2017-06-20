@@ -20,7 +20,8 @@ public class SupermercadoDAO extends DAO{
 			System.out.println("\nSupermercado criado com sucesso");
 			
 		}
-		super.Escrever(Constantes.SupermercadoDs, listadeSupermercados);
+		//super.Escrever(Constantes.SupermercadoDs, listadeSupermercados);
+		//EscreverArquivo();
 		return supermercado;
 			
 	}

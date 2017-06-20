@@ -17,6 +17,7 @@ public class TelaInicial {
 	MasterDAO masterDAO = new MasterDAO();
 	SupermercadoDAO supermercadoDAO = new SupermercadoDAO();
 	HistoricoClienteDAO historicoDAO = new HistoricoClienteDAO();
+	ListaDeProdutosDAO listaDAO = new ListaDeProdutosDAO();
 	int id; // id de quem está logado
 	
 	public TelaInicial(){
@@ -35,10 +36,55 @@ public class TelaInicial {
 		{
 			administradorDAO.lerArquivo();
 		}
+		f = new File(Constantes.ClienteDs);
+		if(f.exists())
+		{
+			clienteDAO.lerArquivo();
+		}
+		f = new File(Constantes.HistoricoCDs);
+		if(f.exists())
+		{
+			historicoDAO.lerArquivo();
+		}
+		f = new File(Constantes.ListaDeProdutoDs);
+		if(f.exists())
+		{
+			listaDAO.lerArquivo();
+		}
+		f = new File(Constantes.MasterDs);
+		if(f.exists())
+		{
+			masterDAO.lerArquivo();
+		}
+		
+		f = new File(Constantes.PrecoDs);
+		if(f.exists())
+		{
+			precoDAO.lerArquivo();
+		}
+		f = new File(Constantes.ProdutoDs);
+		if(f.exists())
+		{
+			produtoDAO.lerArquivo();
+		}
+		f = new File(Constantes.PromocaoDs);
+		if(f.exists())
+		{
+			promocaoDAO.lerArquivo();
+		}
 	}
 	
 	public void EscreverArquivo() throws ClassNotFoundException
 	{
+		produtoDAO.Escrever();
+		clienteDAO.Escrever();
+		administradorDAO.Escrever();
+		promocaoDAO.Escrever();
+		precoDAO.Escrever();
+		masterDAO.Escrever();
+		supermercadoDAO.EscreverArquivo();
+		historicoDAO.Escrever();
+		listaDAO.Escrever();
 		localDAO.Escrever();
 	}
 	
@@ -232,7 +278,7 @@ public class TelaInicial {
 		int i = 0, x = 0;
 		while(x == 0)
 		{
-			System.out.println("Sign in\n   1 - Cliente\n   2 - Administrador\n   3 - Master\n   4 - Entrar sem cadastro\nSign up\n   5 - Criar Cliente");
+			System.out.println("Sign in\n   1 - Cliente\n   2 - Administrador\n   3 - Master\n   4 - Entrar sem cadastro\nSign up\n   5 - Criar Cliente\n0 - Sair");
 			i = ler.nextInt();
 			switch(i)
 			{
@@ -271,6 +317,11 @@ public class TelaInicial {
 				case 5:
 				{
 					clienteDAO.criarCliente();
+					break;
+				}
+				case 0:
+				{
+					x = -1;
 					break;
 				}
 			}

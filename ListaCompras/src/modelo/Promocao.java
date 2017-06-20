@@ -1,10 +1,11 @@
 package modelo;
 
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Promocao {
+public class Promocao implements Serializable{
 	private int id;
 	private int id_preco;
 	private Calendar inicio = Calendar.getInstance();

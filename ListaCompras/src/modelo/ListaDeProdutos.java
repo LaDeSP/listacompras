@@ -1,9 +1,10 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class ListaDeProdutos {
+public class ListaDeProdutos implements Serializable{
 
 	/**
 	 * @param args

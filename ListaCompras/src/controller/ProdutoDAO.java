@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.Cliente;
 import modelo.Produto;
 import view.ViewCadastrarProduto;
 
@@ -10,6 +11,18 @@ public class ProdutoDAO extends DAO{
 	
 	private static List<Produto> listadeProdutos = new ArrayList<Produto>();
 	Produto produto = null;
+	
+	public void Escrever()
+	{
+		Escrever(Constantes.ProdutoDs, listadeProdutos);
+	}
+	
+	public boolean lerArquivo() throws ClassNotFoundException
+	{
+		this.listadeProdutos = (List<Produto>) Ler(Constantes.ProdutoDs, listadeProdutos);
+		return true;
+	}
+	
 	
 	public void criar() {
 		ViewCadastrarProduto vCP = new ViewCadastrarProduto();

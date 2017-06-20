@@ -1,13 +1,13 @@
 package controller;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-
 import modelo.ListaDeProdutos;
 import modelo.Promocao;
 
-public class ListaDeProdutosDAO {
+public class ListaDeProdutosDAO extends DAO implements Serializable{
 	int id;
 	private static final AtomicInteger count = new AtomicInteger(0);
 	private static List<ListaDeProdutos> listadepromocao = new ArrayList<ListaDeProdutos>();
@@ -16,6 +16,16 @@ public class ListaDeProdutosDAO {
 	
 	public ListaDeProdutosDAO(){
 		id = count.incrementAndGet();
+	}
+	
+	public void Escrever()
+	{
+		Escrever(Constantes.ListaDeProdutoDs, listadepromocao);
+	}
+	
+	public void lerArquivo()
+	{
+		listadepromocao = (List<ListaDeProdutos>) Ler(Constantes.ListaDeProdutoDs, listadepromocao);
 	}
 	
 	public void Inserir(Promocao promocao, int id)

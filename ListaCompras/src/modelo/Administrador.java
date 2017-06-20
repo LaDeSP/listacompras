@@ -1,8 +1,9 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Administrador {
+public class Administrador implements Serializable{
 	int id;
 	private String Senha;
 	private String Email;

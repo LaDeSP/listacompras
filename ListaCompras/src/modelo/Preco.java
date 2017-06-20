@@ -1,8 +1,9 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Preco {
+public class Preco implements Serializable{
 	private int id;
 	private int id_produto;
 	private boolean status;

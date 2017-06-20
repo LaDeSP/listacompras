@@ -1,6 +1,6 @@
 package controller;
 
-public class HistoricoPromocaoDAO {
+public class HistoricoPromocaoDAO extends DAO{
 
 	/**
 	 * @param args

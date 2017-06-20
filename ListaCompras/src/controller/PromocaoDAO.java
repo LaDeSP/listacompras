@@ -5,16 +5,29 @@ import view.ViewCadastrarPromocao;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.Cliente;
 import modelo.Promocao;
 
 
-public class PromocaoDAO {
+public class PromocaoDAO extends DAO{
 
 	private static List<Promocao> listadePromocao = new ArrayList<Promocao>();
 	private Promocao promocao = null;
 	public PromocaoDAO(){
 		
 	}
+	
+	public void Escrever()
+	{
+		Escrever(Constantes.PromocaoDs, listadePromocao);
+	}
+	
+	public boolean lerArquivo() throws ClassNotFoundException
+	{
+		this.listadePromocao = (List<Promocao>) Ler(Constantes.PromocaoDs, listadePromocao);
+		return true;
+	}
+	
 	public void criarPromocao(int id){
 		ViewCadastrarPromocao vcap = new ViewCadastrarPromocao();
 		this.promocao=vcap.criar(id);

@@ -1,8 +1,9 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Master {
+public class Master implements Serializable{
 	
 	private int id;
 	private String senha;

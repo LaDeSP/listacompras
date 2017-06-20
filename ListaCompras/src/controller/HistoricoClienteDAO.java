@@ -3,11 +3,12 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.Administrador;
 import modelo.HistoricoCliente;
 import view.ViewHistoricoCliente;
 
 
-public class HistoricoClienteDAO {
+public class HistoricoClienteDAO extends DAO{
 	private static List<HistoricoCliente> listahistorico = new ArrayList<HistoricoCliente>();
 	//private static List<Cliente> listadeclientes = new ArrayList<Cliente>();
 	
@@ -17,6 +18,17 @@ public class HistoricoClienteDAO {
 	{
 		
 	}
+	
+	public void Escrever()
+	{
+		Escrever(Constantes.HistoricoCDs, listahistorico);
+	}
+	
+	public void lerArquivo()
+	{
+		HistoricoClienteDAO.listahistorico = (List<HistoricoCliente>) Ler(Constantes.HistoricoCDs, listahistorico);
+	}
+	
 	public void Criar()
 	{
 		ViewHistoricoCliente view = new ViewHistoricoCliente();

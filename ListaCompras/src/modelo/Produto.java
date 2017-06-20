@@ -1,8 +1,9 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Produto {
+public class Produto implements Serializable{
 	private String Nome;
 	private int id;
 	private String Marca;
