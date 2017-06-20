@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,10 +28,14 @@ public class ProdutoDAO extends DAO{
 	public void criar() {
 		ViewCadastrarProduto vCP = new ViewCadastrarProduto();
 		this.produto = vCP.showAndGet();
-		if(produto != null)
+		//if(produto != null)
+		try
 		{
 			System.out.println("\nProduto criado com sucesso");
 			ProdutoDAO.listadeProdutos.add(this.produto);
+		}
+		catch(IOException e){
+			e.printStackTrace();	
 		}
 		Escrever(Constantes.ProdutoDs, listadeProdutos);
 	}

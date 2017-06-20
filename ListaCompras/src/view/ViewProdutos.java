@@ -39,6 +39,10 @@ public class ViewProdutos {
 					break;
 						
 				}
+				default: {
+					System.out.print("Opção Inexistente. Tente novamente\n");
+					break;
+				}
 			}
 		}
 			
@@ -78,6 +82,10 @@ public class ViewProdutos {
 					i = 0;
 					break;
 						
+				}
+				default:{
+					System.out.print("Opção Inexistente. Tente novamente\n");
+					break;
 				}
 			}
 		}

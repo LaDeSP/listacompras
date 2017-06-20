@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,11 +15,15 @@ public class SupermercadoDAO extends DAO{
 	public Supermercado criar(LocalDAO localDAO) {
 		ViewSupermercado vCP = new ViewSupermercado();
 		this.supermercado = vCP.showAndSet(localDAO);
-		if(supermercado != null)
+		//if(supermercado != null)
+		try
 		{
 			SupermercadoDAO.listadeSupermercados.add(this.supermercado);
 			System.out.println("\nSupermercado criado com sucesso");
 			
+		}
+		catch(IOException e){
+			e.printStackTrace();	
 		}
 		//super.Escrever(Constantes.SupermercadoDs, listadeSupermercados);
 		//EscreverArquivo();

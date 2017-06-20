@@ -125,7 +125,11 @@ public class TelaInicial {
 				case 0: 
 				{
 					i = 0;
-					System.out.println("\nAt� logo "+clienteDAO.GetCliente(id).getNome()+"!!");
+					System.out.println("\nAt� logo "+clienteDAO.GetCliente(id).getNome()+"!!");
+					break;
+				}
+				default:{
+					System.out.print("Opção Inexistente. Tente novamente\n");
 					break;
 				}
 				
@@ -163,7 +167,11 @@ public class TelaInicial {
 				}
 				case 0: {
 					i = 0;
-					System.out.println("\nAt� logo "+administradorDAO.GetAdm(id).getNome()+"!!");
+					System.out.println("\nAt� logo "+administradorDAO.GetAdm(id).getNome()+"!!");
+					break;
+				}
+				default: {
+					System.out.print("Opção Inexistente. Tente novamente\n");
 					break;
 				}
 
@@ -213,7 +221,11 @@ public class TelaInicial {
 				}
 				case 0: {
 					i = 0;
-					System.out.println("\nAt� logo Master!!");
+					System.out.println("\nAt� logo Master!!");
+					break;
+				}
+				default: {
+					System.out.print("Opção Inexistente. Tente novamente\n");
 					break;
 				}
 			}
@@ -242,7 +254,11 @@ public class TelaInicial {
 				}
 				case 0: {
 					i = 0;
-					System.out.println("\nAt� logo!!");
+					System.out.println("\nAt� logo!!");
+					break;
+				}
+				default: {
+					System.out.print("Opção Inexistente. Tente novamente\n");
 					break;
 				}
 			}
@@ -322,6 +338,10 @@ public class TelaInicial {
 				case 0:
 				{
 					x = -1;
+					break;
+				}
+				default: {
+					System.out.print("Opção Inexistente. Tente novamente\n");
 					break;
 				}
 			}

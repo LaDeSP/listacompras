@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -18,10 +19,14 @@ public class ClienteDAO extends DAO{
 	public void criarCliente(){
 		ViewCadastrarcliente viewcadastro = new ViewCadastrarcliente();
 		this.cliente = viewcadastro.view();
-		if(cliente != null)
+		//if(cliente != null)
+		try
 		{
 			ClienteDAO.listadeclientes.add(this.cliente);
 			System.out.println("\nCliente criado com sucesso");
+		}
+		catch(IOException e){
+			e.printStackTrace();	
 		}
 		Escrever();
 	}

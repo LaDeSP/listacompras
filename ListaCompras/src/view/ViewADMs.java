@@ -34,6 +34,10 @@ public class ViewADMs {
 					break;
 						
 				}
+				default:{
+					System.out.print("Opção Inexistente. Tente novamente\n");
+					break;
+				}
 			}
 		}
 	}
@@ -70,6 +74,9 @@ public class ViewADMs {
 					i = 0;
 					break;
 						
+				}
+				default:{
+					System.out.print("Opção Inexistente. Tente novamente\n");
 				}
 			}
 		}

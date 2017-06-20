@@ -23,7 +23,7 @@ public class ViewPromocoes {
 		System.out.print("\n");
 		while(i != 0)
 		{
-			System.out.print("   1 - Nova Promoção\n   2 - Listar Promoções\n   3 - Criar Pre�o\n   0 - Sair\n");
+			System.out.print("   1 - Nova Promoção\n   2 - Listar Promoções\n   3 - Criar Pre�o\n   0 - Sair\n");
 			i = ler.nextInt();
 			switch(i)
 			{
@@ -46,6 +46,10 @@ public class ViewPromocoes {
 					i = 0;
 					break;
 						
+				}
+				default: {
+					System.out.print("Opção Inexistente. Tente novamente\n");
+					break;
 				}
 			}
 		}
@@ -70,6 +74,10 @@ public class ViewPromocoes {
 					i = 0;
 					break;
 						
+				}
+				default: {
+					System.out.print("Opção Inexistente. Tente novamente\n");
+					break;
 				}
 			}
 		}

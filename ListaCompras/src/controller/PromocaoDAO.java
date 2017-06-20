@@ -2,6 +2,7 @@ package controller;
 
 import view.ViewCadastrarPromocao;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,10 +32,14 @@ public class PromocaoDAO extends DAO{
 	public void criarPromocao(int id){
 		ViewCadastrarPromocao vcap = new ViewCadastrarPromocao();
 		this.promocao=vcap.criar(id);
-		if(promocao != null)
+		//if(promocao != null)
+		try
 		{
 			PromocaoDAO.listadePromocao.add(this.promocao);
-			System.out.println("\nPromoão criada com sucesso");
+			System.out.println("\nPromoï¿½o criada com sucesso");
+		}
+		catch(IOException e){
+			e.printStackTrace();	
 		}
 	}
 	

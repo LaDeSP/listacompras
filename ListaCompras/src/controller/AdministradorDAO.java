@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,10 +18,14 @@ public class AdministradorDAO extends DAO{
 	{
 		ViewCadastrarAdministrador viewadm = new ViewCadastrarAdministrador();
 		this.adm = viewadm.show();
-		if(adm != null)
+		//if(adm != null)
+		try
 		{
 			AdministradorDAO.listadeadms.add(this.adm);
 			System.out.println("\nAdministrador criado com sucesso");
+		}
+		catch(IOException e){
+			e.printStackTrace();	
 		}
 	}
 	

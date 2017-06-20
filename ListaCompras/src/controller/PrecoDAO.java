@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,10 +28,14 @@ public class PrecoDAO extends DAO{
 	public void criarPreco(ProdutoDAO produtoDAO, int id, SupermercadoDAO supermercadoDAO) {
 		ViewCadastrarPreco vCP = new ViewCadastrarPreco();
 		this.preco = vCP.showAndSet(produtoDAO, id, supermercadoDAO);
-		if(preco != null)
+		//if(preco != null)
+		try
 		{
-			System.out.println("\nPreço criado com sucesso!!\n");
+			System.out.println("\nPreï¿½o criado com sucesso!!\n");
 			PrecoDAO.listadePrecos.add(this.preco);
+		}
+		catch(IOException e){
+			e.printStackTrace();	
 		}
 	}
 	public void criarPromocao(ProdutoDAO produtoDAO, int id, SupermercadoDAO supermercadoDAO) {
@@ -38,7 +43,7 @@ public class PrecoDAO extends DAO{
 		this.preco = vCP.showAndSetPromocao(produtoDAO, id, supermercadoDAO);
 		if(preco != null)
 		{
-			System.out.println("\nPromoção criado com sucesso!!\n");
+			System.out.println("\nPromoï¿½ï¿½o criado com sucesso!!\n");
 			PrecoDAO.listadePrecos.add(this.preco);
 		}
 	}

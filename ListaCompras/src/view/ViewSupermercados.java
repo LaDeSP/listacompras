@@ -49,6 +49,10 @@ public class ViewSupermercados {
 					i = 0;
 					break;
 				}
+				default: {
+					System.out.print("Opção Inexistente. Tente novamente\n");
+					break;
+				}
 			}
 		}
 	}

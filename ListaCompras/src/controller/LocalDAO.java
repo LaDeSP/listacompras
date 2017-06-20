@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,10 +17,13 @@ public class LocalDAO extends DAO{
 	public Local criar() {
 		ViewCadastrarLocal vCP = new ViewCadastrarLocal();
 		this.local = vCP.showAndSet();
-		if(local != null)
-		{
+		//if(local != null)
+		try {
 			LocalDAO.listadeLocal.add(this.local);
 			System.out.println("\nLocal criado com sucesso");
+		}
+		catch(IOException e){
+			e.printStackTrace();	
 		}
 		Escrever();
 		return local;

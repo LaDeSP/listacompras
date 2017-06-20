@@ -38,13 +38,21 @@ public class ViewClientes {
 					{
 						System.out.print("Existe esse Cliente\n");
 					}
+					else {
+						System.out.print("Cliente não existente\n");
+					}
 					break;
+					
 				}
 				case 0:
 				{
 					i = 0;
 					break;
 						
+				}
+				default: {
+					System.out.print("Opção Inexistente. Tente novamente\n");
+					break;
 				}
 			}
 		}
@@ -73,6 +81,9 @@ public class ViewClientes {
 					{
 						System.out.print("Existe esse Cliente\n");
 					}
+					else {
+						System.out.print("Cliente Inexistente\n");
+					}
 					break;
 				}
 				case 3:
@@ -88,6 +99,10 @@ public class ViewClientes {
 					i = 0;
 					break;
 						
+				}
+				default: {
+					System.out.print("Opção Inexistente. Tente novamente\n");
+					break;
 				}
 			}
 		}
@@ -117,6 +132,10 @@ public class ViewClientes {
 					i = 0;
 					break;
 						
+				}
+				default:{
+					System.out.print("Opção Inexistente. Tente novamente\n");
+					break;
 				}
 			}
 		}
