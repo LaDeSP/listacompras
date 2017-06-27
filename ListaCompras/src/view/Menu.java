@@ -5,69 +5,65 @@ import java.util.Scanner;
 import controller.*;
 
 
-public class Menu
-{
+public class Menu{
 	
 	Scanner ler = new Scanner(System.in);
-	ProdutoDAO produtoDAO = new ProdutoDAO();
-	ClienteDAO clienteDAO = new ClienteDAO();
-	AdministradorDAO administradorDAO = new AdministradorDAO();
+	
 	PromocaoDAO promocaoDAO = new PromocaoDAO();
-	LocalDAO localDAO = new LocalDAO();
-	PrecoDAO precoDAO = new PrecoDAO();
-	MasterDAO masterDAO = new MasterDAO();
-	SupermercadoDAO supermercadoDAO = new SupermercadoDAO();
-	HistoricoClienteDAO historicoDAO = new HistoricoClienteDAO();
 	
 	
-	int id; // id de quem est� logado
+	
+	int id; // id de quem está logado
 
-	public Menu () throws Exception
-	{
+	public int Menu () throws Exception{
 		
-		int y = 1;
+		int x = 0, y = 0;
         
 		TelaInicial telainicial = new TelaInicial();
-		while(y != 0)
-		{
-			System.out.println("Bem Vindo!! O que deseja fazer?\n   1 - Ver Promo��es\n   2 - Cadastrar\n   3 - Fazer login\n   0 - Sair");
+		while(x == 0){
+			System.out.println("\n\nBem Vindo!! O que deseja fazer?\n   1 - Ver Promoções\n   2 - Cadastrar\n   3 - Fazer login\n   0 - Sair");
 
 			y = ler.nextInt(); 
 
 			switch(y)
 			{
-				case 1:
-				{
-					PromocaoDAO.listar();
-					break;
-				}
-				case 2:
-				{
-					//ClienteDAO.criarCliente();
-					break;
+			case 1:
+			{
+				promocaoDAO.listar();
+				x = 0;
+				break;
+				
+			}
+			case 2:
+			{
+				ViewClientes viewClientes = new ViewClientes();
+				viewClientes.cadastrar();
+				telainicial.TelaLogin();
+				x = -1;
+				break;
 
-				}
-				case 0: 
-				{
-					y = 0;
-					System.out.println("\nAt� logo!!");
-					break;
-				}
-				case 3: 
-				{
-					telainicial.TelaLogin();
-					break;
-				}
-
-				default: 
-				{
-					y = 0;
-					break;
-				}
+			}
+			case 3: {
+				//telainicial.TelaLogin();
+				x = -1;
+                break;
+			 }
+			case 0: {
+				x = -1;
+				break;
+			}
+			default: 
+			{
+				x = 0;
+				System.out.println("\nN tem opcao demo");
+				break; 
+		    }
 			} 
 		}
+		return x; 
 	} 
-   
+
+	
 	/*public void MenuAll()
 	
     {
@@ -81,7 +77,7 @@ public class Menu
 	 	
 		   while(i1 != 0)
 		  {
-			System.out.println("1 - Produto\n2 - Promo��es\n3 - Supermercado\n4 - Clientes");
+			System.out.println("1 - Produto\n2 - Promoções\n3 - Supermercado\n4 - Clientes");
 			i1 = ler.nextInt();
 			
 			switch(i1)
@@ -113,11 +109,11 @@ public class Menu
 			  }
 		   if (i == 2)
 		   { 
-			   System.out.println("cu de cabrito!!");
+			   System.out.println("teste!!");
 		   }
 		  }
 	      }*/
-}
+        }
 
 
 	
