@@ -37,8 +37,12 @@ public class ClienteDAO extends DAO{
 			senha = leitura.nextLine();
 			System.out.print("\n");
 		}
+		
 		senha = MD5.criptografar(senha);
 		Cliente cliente = new Cliente(nome, senha, email);
+		if(cliente == null){
+			return false;
+		}
 		ClienteDAO.listadeclientes.add(cliente);
 		return true;
 		

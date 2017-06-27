@@ -2,6 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import modelo.Administrador;
 import modelo.Cliente;
@@ -12,16 +13,47 @@ public class AdministradorDAO extends DAO{
 	
 	private static List<Administrador> listadeadms = new ArrayList<Administrador>();
 	Administrador adm = null;
-	
-	public void criarAdministrador()
+	private static Scanner leitura;
+
+	public static boolean criarAdministrador(String Nome, String senha, String email, int id_supermercado) throws Exception
 	{
-		ViewCadastrarAdministrador viewadm = new ViewCadastrarAdministrador();
-		this.adm = viewadm.show();
-		if(adm != null)
+			leitura = new Scanner(System.in);
+		
+		
+		while(!DAO.ValidarEmail(email)) //verificamos se o email é valido
 		{
-			AdministradorDAO.listadeadms.add(this.adm);
-			System.out.println("\nAdministrador criado com sucesso");
+			System.out.println("Erro no E-mail!!");
+			System.out.print("Novo email: ");
+			email = leitura.nextLine();
+			System.out.print("\n");
 		}
+		while(!DAO.ValidarSenha(senha)) //verificamos se a senha é valida
+		{
+			System.out.println("Senha muito pequena!!");
+			System.out.print("Novo senha: ");
+			senha = leitura.nextLine();
+			System.out.print("\n");
+		}
+		//verificar se o id_supermercado existe
+		while(SupermercadoDAO.GetSupermercado(id_supermercado)==null){
+			System.out.print("Id do supermercado inexistente");
+			
+			SupermercadoDAO.getListadeSupermercados();
+			System.out.printf("Digite o id_supermercado: ");
+			id_supermercado=leitura.nextInt();
+			
+		}
+			
+		
+		senha = MD5.criptografar(senha); //criptografamos a senha
+		
+		Administrador administrador = new Administrador(Nome, senha, email, id_supermercado); //criamos o adm
+		
+		if(administrador==null)
+			return false;
+		
+		AdministradorDAO.listadeadms.add(administrador); //adicionamos o adm na lista de administradores
+		return true;
 	}
 	
 	public static void Escrever()
