@@ -1,6 +1,7 @@
 package controller;
 
 import view.TelaInicial;
+import view.Menu;
 
 /**
  * @author laboratorio
@@ -16,17 +17,18 @@ public class Sistema {
 		while(j != 0)
 		{
 			TelaInicial inicio = new TelaInicial();
-			inicio.LerArquivo();
-			i = inicio.TelaLogin();
-			if(i != -1)
-			{
-				inicio.Antesdoinicial(i);
-			}
-			else
+			Menu menus = new Menu();
+		   // inicio.LerArquivo();
+		    
+			//i = inicio.TelaLogin();
+			i = menus.Menu();
+			
+			if(i == -1)
 			{
 				j = 0;
 				System.out.println("Adeus");
 			}
+			
 			inicio.EscreverArquivo();
 			
 		}
