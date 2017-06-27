@@ -12,34 +12,34 @@ import modelo.Promocao;
 public class PromocaoDAO extends DAO{
 
 	private static List<Promocao> listadePromocao = new ArrayList<Promocao>();
-	private Promocao promocao = null;
+	private static Promocao promocao = null;
 	public PromocaoDAO(){
 		
 	}
 	
-	public void Escrever()
+	public static void Escrever()
 	{
 		Escrever(Constantes.PromocaoDs, listadePromocao);
 	}
 	
-	public boolean lerArquivo() throws ClassNotFoundException
+	public static boolean lerArquivo() throws ClassNotFoundException
 	{
-		this.listadePromocao = (List<Promocao>) Ler(Constantes.PromocaoDs, listadePromocao);
+		listadePromocao = (List<Promocao>) Ler(Constantes.PromocaoDs, listadePromocao);
 		return true;
 	}
 	
-	public void criarPromocao(int id){
+	public static void criarPromocao(int id){
 		ViewCadastrarPromocao vcap = new ViewCadastrarPromocao();
-		this.promocao=vcap.criar(id);
+		promocao=vcap.criar(id);
 		if(promocao != null)
 		{
-			PromocaoDAO.listadePromocao.add(this.promocao);
+			PromocaoDAO.listadePromocao.add(promocao);
 			System.out.println("\nPromoão criada com sucesso");
 		}
 	}
 	
-	public Promocao getLastPromocao(){
-		return this.promocao;
+	public static Promocao getLastPromocao(){
+		return promocao;
 	}
 	
 	public static List<Promocao> getListadePromocao() {
@@ -50,13 +50,13 @@ public class PromocaoDAO extends DAO{
 		PromocaoDAO.listadePromocao = listadePromocao;
 	}
 	
-	public void listar(){
+	public static void listar(){
 		for (Promocao promocao : listadePromocao) {
 			promocao.show();
 		}
 		System.out.print("\n");
 	}
-	public Promocao GetPromocao(int x){
+	public static Promocao GetPromocao(int x){
 		int z = 1;
 		for (Promocao promocao : listadePromocao) 
 		{
@@ -68,7 +68,7 @@ public class PromocaoDAO extends DAO{
 		}
 		return null;
 	}
-	public Promocao GetPromocaoPorId(int id){
+	public static Promocao GetPromocaoPorId(int id){
 		int z = 1;
 		for (Promocao promocao : listadePromocao) 
 		{

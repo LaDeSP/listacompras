@@ -12,23 +12,23 @@ public class ListaDeProdutosDAO extends DAO implements Serializable{
 	private static final AtomicInteger count = new AtomicInteger(0);
 	private static List<ListaDeProdutos> listadepromocao = new ArrayList<ListaDeProdutos>();
 	PromocaoDAO promocaoDAO = null;
-	ListaDeProdutos listadeprodutos = null;
+	static ListaDeProdutos listadeprodutos = null;
 	
 	public ListaDeProdutosDAO(){
 		id = count.incrementAndGet();
 	}
 	
-	public void Escrever()
+	public static void Escrever()
 	{
 		Escrever(Constantes.ListaDeProdutoDs, listadepromocao);
 	}
 	
-	public void lerArquivo()
+	public static void lerArquivo()
 	{
 		listadepromocao = (List<ListaDeProdutos>) Ler(Constantes.ListaDeProdutoDs, listadepromocao);
 	}
 	
-	public void Inserir(Promocao promocao, int id)
+	public static void Inserir(Promocao promocao, int id)
 	{
 		listadeprodutos = new ListaDeProdutos(promocao, id);
 		if(listadeprodutos != null)
@@ -38,12 +38,12 @@ public class ListaDeProdutosDAO extends DAO implements Serializable{
 		}
 	}
 	
-	public void Listar(int id)
+	public static void Listar(int id)
 	{
 		//for(Cliente cliente : listadeclientes)
 		for(ListaDeProdutos listadeprodutos : listadepromocao)
 		{
-			if(listadeprodutos.getId_Cliente() == this.id)
+			if(listadeprodutos.getId_Cliente() == id)
 			{
 				System.out.print("   ");
 				listadeprodutos.show();

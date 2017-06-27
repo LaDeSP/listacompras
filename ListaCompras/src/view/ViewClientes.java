@@ -92,7 +92,7 @@ public class ViewClientes {
 				case 2:
 				{
 					String Nome = ler.nextLine();
-					z = clienteDAO.OKCliente(Nome);
+					z = ClienteDAO.OKCliente(Nome);
 					if(z == true)
 					{
 						System.out.print("Existe esse Cliente\n");
@@ -101,10 +101,10 @@ public class ViewClientes {
 				}
 				case 3:
 				{
-					clienteDAO.listar();
+					ClienteDAO.listar();
 					System.out.print("Opção: ");
 					j = ler.nextInt();
-					clienteDAO.RemoverCliente(j);
+					ClienteDAO.RemoverCliente(j);
 					break;
 				}
 				case 0:

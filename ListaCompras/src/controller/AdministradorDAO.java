@@ -24,23 +24,23 @@ public class AdministradorDAO extends DAO{
 		}
 	}
 	
-	public void Escrever()
+	public static void Escrever()
 	{
 		Escrever(Constantes.AdministradorDs, listadeadms);
 	}
 	
-	public void lerArquivo()
+	public static void lerArquivo()
 	{
 		AdministradorDAO.listadeadms = (List<Administrador>) Ler(Constantes.AdministradorDs, listadeadms);
 	}
-	public void Listar()
+	public static void Listar()
 	{
 		for(Administrador adm : listadeadms)
 		{
 			adm.show();
 		}
 	}
-	public boolean OKAdm(String Nome)
+	public static boolean OKAdm(String Nome)
 	{
 		for(Administrador adm : listadeadms)
 		{
@@ -52,7 +52,7 @@ public class AdministradorDAO extends DAO{
 		return false;
 		
 	}
-	public Administrador GetAdm(String Nome)
+	public static Administrador GetAdm(String Nome)
 	{
 		for(Administrador adm : listadeadms)
 		{
@@ -64,7 +64,7 @@ public class AdministradorDAO extends DAO{
 		return null;
 		
 	}
-	public Administrador GetAdm(int id)
+	public static Administrador GetAdm(int id)
 	{
 		for(Administrador adm : listadeadms)
 		{
@@ -76,7 +76,7 @@ public class AdministradorDAO extends DAO{
 		return null;
 		
 	}
-	public void RemoverADM(int id)
+	public static void RemoverADM(int id)
 	{
 		for(Administrador adm : listadeadms)
 		{

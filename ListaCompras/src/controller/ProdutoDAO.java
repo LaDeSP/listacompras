@@ -10,33 +10,33 @@ import view.ViewCadastrarProduto;
 public class ProdutoDAO extends DAO{
 	
 	private static List<Produto> listadeProdutos = new ArrayList<Produto>();
-	Produto produto = null;
+	static Produto produto = null;
 	
-	public void Escrever()
+	public static void Escrever()
 	{
 		Escrever(Constantes.ProdutoDs, listadeProdutos);
 	}
 	
-	public boolean lerArquivo() throws ClassNotFoundException
+	public static boolean lerArquivo() throws ClassNotFoundException
 	{
-		this.listadeProdutos = (List<Produto>) Ler(Constantes.ProdutoDs, listadeProdutos);
+		listadeProdutos = (List<Produto>) Ler(Constantes.ProdutoDs, listadeProdutos);
 		return true;
 	}
 	
 	
-	public void criar() {
+	public static void criar() {
 		ViewCadastrarProduto vCP = new ViewCadastrarProduto();
-		this.produto = vCP.showAndGet();
+		produto = vCP.showAndGet();
 		if(produto != null)
 		{
 			System.out.println("\nProduto criado com sucesso");
-			ProdutoDAO.listadeProdutos.add(this.produto);
+			ProdutoDAO.listadeProdutos.add(produto);
 		}
 		Escrever(Constantes.ProdutoDs, listadeProdutos);
 	}
 	
-	public Produto getLastProduto(){
-		return this.produto;
+	public static Produto getLastProduto(){
+		return produto;
 	}
 	
 	public static List<Produto> getListadeProdutos() {
@@ -47,13 +47,13 @@ public class ProdutoDAO extends DAO{
 		ProdutoDAO.listadeProdutos = listadeProdutos;
 	}
 	
-	public void listarProdutos(){
+	public static void listarProdutos(){
 		for (Produto produto : listadeProdutos) {
 			produto.show();
 		}
 	}
 	
-	public boolean OKProduto(String Nome)
+	public static boolean OKProduto(String Nome)
 	{
 		for(Produto produto : listadeProdutos)
 		{
@@ -65,7 +65,7 @@ public class ProdutoDAO extends DAO{
 		return false;
 		
 	}
-	public Produto GetProduto(String Nome)
+	public static Produto GetProduto(String Nome)
 	{
 		for(Produto produto : listadeProdutos)
 		{
@@ -77,7 +77,7 @@ public class ProdutoDAO extends DAO{
 		return null;
 		
 	}
-	public Produto GetProduto(int id)
+	public static Produto GetProduto(int id)
 	{
 		for(Produto produto : listadeProdutos)
 		{
@@ -90,7 +90,7 @@ public class ProdutoDAO extends DAO{
 		
 	}
 	
-	public void RemoveProduto(int id)
+	public static void RemoveProduto(int id)
 	{
 		for(Produto produto : listadeProdutos)
 		{

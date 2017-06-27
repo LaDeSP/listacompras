@@ -9,7 +9,9 @@ import view.ViewSupermercado;
 
 public class SupermercadoDAO extends DAO{
 	private static List<Supermercado> listadeSupermercados = new ArrayList<Supermercado>();
-	Supermercado supermercado = null;
+	static Supermercado supermercado = null;
+	
+	
 	
 	public Supermercado criar(LocalDAO localDAO) {
 		ViewSupermercado vCP = new ViewSupermercado();
@@ -25,20 +27,20 @@ public class SupermercadoDAO extends DAO{
 		return supermercado;
 			
 	}
-	public boolean EscreverArquivo()
+	public static boolean EscreverArquivo()
 	{
 		Escrever(Constantes.SupermercadoDs, listadeSupermercados);
 		return true;
 	}
 	
-	public boolean lerArquivo() throws ClassNotFoundException
+	public static boolean lerArquivo() throws ClassNotFoundException
 	{
-		this.listadeSupermercados = (List<Supermercado>) Ler(Constantes.SupermercadoDs, listadeSupermercados);
+		listadeSupermercados = (List<Supermercado>) Ler(Constantes.SupermercadoDs, listadeSupermercados);
 		return true;
 	}
 	
-	public Supermercado getLastSupermercado(){
-		return this.supermercado;
+	public static Supermercado getLastSupermercado(){
+		return supermercado;
 	}
 	/**
 	 * @return the listadeProdutos
@@ -54,13 +56,13 @@ public class SupermercadoDAO extends DAO{
 		SupermercadoDAO.listadeSupermercados = listadeSupermercados;
 	}
 	
-	public void listar(){
+	public static void listar(){
 		for (Supermercado supermercado : listadeSupermercados) {
 			supermercado.show();
 		}
 	}
 	
-	public boolean OKSupermercado(String Nome)
+	public static boolean OKSupermercado(String Nome)
 	{
 		for(Supermercado supermercado : listadeSupermercados)
 		{
@@ -72,7 +74,7 @@ public class SupermercadoDAO extends DAO{
 		return false;
 		
 	}
-	public Supermercado GetSupermercado(String Nome)
+	public static Supermercado GetSupermercado(String Nome)
 	{
 		for(Supermercado supermercado : listadeSupermercados)
 		{
@@ -84,7 +86,7 @@ public class SupermercadoDAO extends DAO{
 		return null;
 		
 	}
-	public Supermercado GetSupermercado(int id)
+	public static Supermercado GetSupermercado(int id)
 	{
 		for(Supermercado supermercado : listadeSupermercados)
 		{
@@ -96,7 +98,7 @@ public class SupermercadoDAO extends DAO{
 		return null;
 		
 	}
-	public void RemoveSupermercado(int id)
+	public static void RemoveSupermercado(int id)
 	{
 		System.out.print("Entrou\n");
 		for(Supermercado supermercado : listadeSupermercados)

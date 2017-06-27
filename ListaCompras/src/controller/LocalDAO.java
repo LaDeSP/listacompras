@@ -9,36 +9,36 @@ import view.ViewCadastrarLocal;
 
 public class LocalDAO extends DAO{
 	private static List<Local> listadeLocal = new ArrayList<Local>();
-	Local local = null;
+	static Local local = null;
 	//FileOutputStream fos= new FileOutputStream("LocalDAO");//criar serialização. Salvar e ler dados. Output e input Stream 
 	//ObjectOutputStream oos= new ObjectOutputStream(fos);
 	
-	public Local criar() {
+	public static Local criar() {
 		ViewCadastrarLocal vCP = new ViewCadastrarLocal();
-		this.local = vCP.showAndSet();
+		local = vCP.showAndSet();
 		if(local != null)
 		{
-			LocalDAO.listadeLocal.add(this.local);
+			LocalDAO.listadeLocal.add(local);
 			System.out.println("\nLocal criado com sucesso");
 		}
 		Escrever();
 		return local;
 	}
 	
-	public void Escrever()
+	public static void Escrever()
 	{
 		Escrever(Constantes.LocalDs, listadeLocal);
 	}
 	
-	public boolean lerArquivo() throws ClassNotFoundException
+	public static boolean lerArquivo() throws ClassNotFoundException
 	{
-		this.listadeLocal = (List<Local>) Ler(Constantes.LocalDs, listadeLocal);
+		listadeLocal = (List<Local>) Ler(Constantes.LocalDs, listadeLocal);
 		return true;
 	}
 	 
 
-	public Local getLastLocal(){
-		return this.local;
+	public static Local getLastLocal(){
+		return local;
 	}
 	/**
 	 * @return the listadeProdutos
@@ -54,12 +54,12 @@ public class LocalDAO extends DAO{
 		LocalDAO.listadeLocal = listadeLocal;
 	}
 	
-	public void listar(){
+	public static void listar(){
 		for (Local local : listadeLocal) {
 			local.show();
 		}
 	}
-	public boolean OKLocal(String CEP)
+	public static boolean OKLocal(String CEP)
 	{
 		for(Local local : listadeLocal)
 		{
@@ -71,7 +71,7 @@ public class LocalDAO extends DAO{
 		return false;
 		
 	}
-	public Local GetLocal(String CEP)
+	public static Local GetLocal(String CEP)
 	{
 		for(Local local : listadeLocal)
 		{

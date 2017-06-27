@@ -1,4 +1,6 @@
 package controller;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -42,5 +44,29 @@ public class DAO{
 		}
 		return objeto;
 	}
+	
+	public static boolean ValidarEmail(String Email)
+	{
+		try 
+		{
+			InternetAddress emailAddr = new InternetAddress(Email);
+			emailAddr.validate();
+		}
+		catch(AddressException ex)
+		{
+			return false;
+		}
+		return true;
+	}
+	
+	public static boolean ValidarSenha(String senha)
+	{
+		if(senha.length() > 7)
+		{
+			return true;
+		}
+		return false;
+	}
+	
 	
 }

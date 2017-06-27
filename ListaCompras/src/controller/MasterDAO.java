@@ -9,7 +9,7 @@ import view.ViewCadastrarMaster;
 
 public class MasterDAO extends DAO{
 	
-	private Master master = null;
+	private static Master master = null;
 	private static List<Master> listademasters = new ArrayList<Master>();
 	
 	public MasterDAO()
@@ -17,24 +17,24 @@ public class MasterDAO extends DAO{
 		
 	}
 	
-	public void Escrever()
+	public static void Escrever()
 	{
 		Escrever(Constantes.MasterDs, listademasters);
 	}
 	
-	public boolean lerArquivo() throws ClassNotFoundException
+	public static boolean lerArquivo() throws ClassNotFoundException
 	{
-		this.listademasters = (List<Master>) Ler(Constantes.MasterDs, listademasters);
+		listademasters = (List<Master>) Ler(Constantes.MasterDs, listademasters);
 		return true;
 	}
 	
-	public void criarPrimeiro()
+	public static void criarPrimeiro()
 	{
 		ViewCadastrarMaster view = new ViewCadastrarMaster();
 		master = view.showPrimeiro();
 		MasterDAO.listademasters.add(master);
 	}
-	public void criar()
+	public static void criar()
 	{
 		ViewCadastrarMaster view = new ViewCadastrarMaster();
 		master = view.show();
@@ -45,7 +45,7 @@ public class MasterDAO extends DAO{
 		}
 	}
 	
-	public void Listar()
+	public static void Listar()
 	{
 		System.out.print("\n");
 		for(Master master : listademasters)
@@ -53,7 +53,7 @@ public class MasterDAO extends DAO{
 			master.show();
 		}
 	}
-	public Master getMaster(String Email) {
+	public static Master getMaster(String Email) {
 		for(Master master : listademasters)
 		{
 			if(Email.equals(master.getEmail()))

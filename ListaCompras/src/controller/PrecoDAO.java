@@ -10,41 +10,41 @@ import view.ViewCadastrarPreco;
 
 public class PrecoDAO extends DAO{
 	private static List<Preco> listadePrecos = new ArrayList<Preco>();
-	Preco preco = null;
+	static Preco preco = null;
 	
-	public void Escrever()
+	public static void Escrever()
 	{
 		Escrever(Constantes.PrecoDs, listadePrecos);
 	}
 	
-	public boolean lerArquivo() throws ClassNotFoundException
+	public static boolean lerArquivo() throws ClassNotFoundException
 	{
-		this.listadePrecos = (List<Preco>) Ler(Constantes.PrecoDs, listadePrecos);
+		listadePrecos = (List<Preco>) Ler(Constantes.PrecoDs, listadePrecos);
 		return true;
 	}
 	
 	
-	public void criarPreco(ProdutoDAO produtoDAO, int id, SupermercadoDAO supermercadoDAO) {
+	public static void criarPreco(ProdutoDAO produtoDAO, int id, SupermercadoDAO supermercadoDAO) {
 		ViewCadastrarPreco vCP = new ViewCadastrarPreco();
-		this.preco = vCP.showAndSet(produtoDAO, id, supermercadoDAO);
+		preco = vCP.showAndSet(produtoDAO, id, supermercadoDAO);
 		if(preco != null)
 		{
 			System.out.println("\nPreço criado com sucesso!!\n");
-			PrecoDAO.listadePrecos.add(this.preco);
+			PrecoDAO.listadePrecos.add(preco);
 		}
 	}
-	public void criarPromocao(ProdutoDAO produtoDAO, int id, SupermercadoDAO supermercadoDAO) {
+	public static void criarPromocao(ProdutoDAO produtoDAO, int id, SupermercadoDAO supermercadoDAO) {
 		ViewCadastrarPreco vCP = new ViewCadastrarPreco();
-		this.preco = vCP.showAndSetPromocao(produtoDAO, id, supermercadoDAO);
+		preco = vCP.showAndSetPromocao(produtoDAO, id, supermercadoDAO);
 		if(preco != null)
 		{
 			System.out.println("\nPromoção criado com sucesso!!\n");
-			PrecoDAO.listadePrecos.add(this.preco);
+			PrecoDAO.listadePrecos.add(preco);
 		}
 	}
 	
-	public Preco getLastPreco(){
-		return this.preco;
+	public static Preco getLastPreco(){
+		return preco;
 	}
 	/**
 	 * @return the listadeProdutos
@@ -60,13 +60,13 @@ public class PrecoDAO extends DAO{
 		PrecoDAO.listadePrecos = listadePrecos;
 	}
 	
-	public void listar(){
+	public static void listar(){
 		for (Preco preco : listadePrecos) {
 			preco.show();
 		}
 	}
 	
-	public boolean OKPreco(Double Preco)
+	public static boolean OKPreco(Double Preco)
 	{
 		for(Preco preco : listadePrecos)
 		{
@@ -78,7 +78,7 @@ public class PrecoDAO extends DAO{
 		return false;
 		
 	}
-	public Preco GetPreco(Double Preco)
+	public static Preco GetPreco(Double Preco)
 	{
 		for(Preco preco : listadePrecos)
 		{

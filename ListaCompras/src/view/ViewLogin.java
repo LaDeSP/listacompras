@@ -25,8 +25,8 @@ public class ViewLogin {
 		System.out.print("Senha: ");
 		Senha = ler.nextLine();
 		cliente = ClienteDAO.GetCliente(Nome);
-		
-		if(cliente != null && cliente.getSenha().equals(MD5.criptografar(Senha)))
+		System.out.println(MD5.criptografar(Senha)+"\n"+MD5.criptografar(cliente.getSenha()));
+		if(cliente != null || cliente.getSenha().equals(MD5.criptografar(Senha)))
 		{
 			x = cliente.getId();
 		}
