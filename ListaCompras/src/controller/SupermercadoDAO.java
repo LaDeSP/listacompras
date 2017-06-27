@@ -2,6 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import modelo.Supermercado;
 import view.ViewSupermercado;
@@ -10,21 +11,28 @@ import view.ViewSupermercado;
 public class SupermercadoDAO extends DAO{
 	private static List<Supermercado> listadeSupermercados = new ArrayList<Supermercado>();
 	static Supermercado supermercado = null;
+	private static Scanner leitura;
 	
 	
-	
-	public Supermercado criar(LocalDAO localDAO) {
-		ViewSupermercado vCP = new ViewSupermercado();
-		SupermercadoDAO.supermercado = vCP.showAndSet(localDAO);
-		if(supermercado != null)
-		{
-			SupermercadoDAO.listadeSupermercados.add(SupermercadoDAO.supermercado);
-			System.out.println("\nSupermercado criado com sucesso");
+	public static boolean criar(String nome, int id_local) {
+		
+		//verificar o NOME
+		if(OKSupermercado(Nome)){
+			System.out.print("Supermercado existente");
 			
 		}
-		//super.Escrever(Constantes.SupermercadoDs, listadeSupermercados);
-		//EscreverArquivo();
-		return supermercado;
+		//VERIFICAR O ID_local
+		if(LocalDAO.OKId(id_local)==false){
+			//vai ter que adicionar um local
+			
+		}	
+		
+		
+			Supermercado supermercado = new Supermercado(nome, id_local);
+			SupermercadoDAO.listadeSupermercados.add(this.supermercado);
+			System.out.println("\nSupermercado criado com sucesso");
+		return true;
+
 			
 	}
 	public static boolean EscreverArquivo()

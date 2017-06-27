@@ -13,7 +13,7 @@ public class LocalDAO extends DAO{
 	//FileOutputStream fos= new FileOutputStream("LocalDAO");//criar serialização. Salvar e ler dados. Output e input Stream 
 	//ObjectOutputStream oos= new ObjectOutputStream(fos);
 	
-	public static Local criar() {
+	public static boolean criar() {
 		ViewCadastrarLocal vCP = new ViewCadastrarLocal();
 		local = vCP.showAndSet();
 		if(local != null)
@@ -82,6 +82,14 @@ public class LocalDAO extends DAO{
 		}
 		return null;
 		
+	}
+	public static boolean OKId(int id){
+		for(Local local:listadeLocal){
+			if(id==local.getId()){
+				return true;
+			}
+		}
+		return false;
 	}
 
 }
