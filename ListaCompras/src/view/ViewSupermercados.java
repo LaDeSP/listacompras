@@ -2,6 +2,8 @@ package view;
 
 import java.util.Scanner;
 
+import modelo.Supermercado;
+
 import controller.LocalDAO;
 import controller.SupermercadoDAO;
 
@@ -13,7 +15,21 @@ public class ViewSupermercados {
 	{
 		
 	}
+	public void criar(){
+		String nome;
+		int id_local;
+		
+		System.out.print("Nome do Supermercado: ");
+		nome = ler.nextLine();
+		System.out.print("Digite o id do local: ");
+		id_local = ler.nextInt();
+		
+		SupermercadoDAO.criar(nome, id_local);
+			
+		
+	}
 	
+		
 	public void Menu(SupermercadoDAO supermercadoDAO, LocalDAO localDAO)
 	{
 		int i = 1, j;
@@ -26,8 +42,7 @@ public class ViewSupermercados {
 			{
 				case 1:
 				{
-					
-					supermercadoDAO.criar(localDAO);
+					criar();
 					supermercadoDAO.EscreverArquivo();
 					break;
 				}
