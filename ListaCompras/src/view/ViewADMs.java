@@ -2,8 +2,6 @@ package view;
 
 import java.util.Scanner;
 
-import modelo.Administrador;
-
 import controller.AdministradorDAO;
 
 public class ViewADMs {
@@ -14,27 +12,7 @@ public class ViewADMs {
 	{
 		
 	}
-	public void criar() throws Exception
-	{
-		String Senha, Email, Nome;
-		int id_supermercado;
-		System.out.print("Nome: ");
-		Nome = ler.nextLine();
-		System.out.print("Senha: ");
-		Senha = ler.nextLine();
-		System.out.print("Email: ");
-		Email = ler.nextLine();
-		System.out.print("Id Supermercado: ");
-		id_supermercado = ler.nextInt();
-		
-			if(AdministradorDAO.criarAdministrador(Nome, Senha, Email, id_supermercado)){
-				System.out.print("Administrador :"+Nome+"criado com sucesso!");
-			}else{
-				System.out.print("Erro ao cadastrar o Administrador!");
-			}
-		}
 	
-		
 	public void Menu(AdministradorDAO administradorDAO)
 	{
 		int i = 1;
@@ -59,7 +37,7 @@ public class ViewADMs {
 			}
 		}
 	}
-	public void MenuMaster(AdministradorDAO administradorDAO) throws Exception
+	public void MenuMaster(AdministradorDAO administradorDAO)
 	{
 		int i = 1, j;
 		System.out.print("\n");
@@ -76,7 +54,7 @@ public class ViewADMs {
 				}
 				case 2:
 				{
-					criar();
+					administradorDAO.criarAdministrador();
 					break;
 				}
 				case 3:

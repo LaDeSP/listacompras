@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Administrador implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	int id;
 	private String Senha;
 	private String Email;

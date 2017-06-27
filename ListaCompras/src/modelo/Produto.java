@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Produto implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String Nome;
 	private int id;
 	private String Marca;

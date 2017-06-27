@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.Scanner;
 
 import controller.*;
-import modelo.Local;
 
 public class TelaInicial {
 	Scanner ler = new Scanner(System.in);
@@ -21,7 +20,7 @@ public class TelaInicial {
 	int id; // id de quem está logado
 	
 	public TelaInicial(){
-		masterDAO.criarPrimeiro();
+		MasterDAO.criarPrimeiro();
 	}
 	
 	public void LerArquivo() throws ClassNotFoundException
@@ -29,12 +28,12 @@ public class TelaInicial {
 		File f = new File(Constantes.LocalDs);
 		if(f.exists())
 		{
-			localDAO.lerArquivo();
+			LocalDAO.lerArquivo();
 		}
 		f = new File(Constantes.AdministradorDs);
 		if(f.exists())
 		{
-			administradorDAO.lerArquivo();
+			AdministradorDAO.lerArquivo();
 		}
 		f = new File(Constantes.ClienteDs);
 		if(f.exists())
@@ -44,48 +43,48 @@ public class TelaInicial {
 		f = new File(Constantes.HistoricoCDs);
 		if(f.exists())
 		{
-			historicoDAO.lerArquivo();
+			HistoricoClienteDAO.lerArquivo();
 		}
 		f = new File(Constantes.ListaDeProdutoDs);
 		if(f.exists())
 		{
-			listaDAO.lerArquivo();
+			ListaDeProdutosDAO.lerArquivo();
 		}
 		f = new File(Constantes.MasterDs);
 		if(f.exists())
 		{
-			masterDAO.lerArquivo();
+			MasterDAO.lerArquivo();
 		}
 		
 		f = new File(Constantes.PrecoDs);
 		if(f.exists())
 		{
-			precoDAO.lerArquivo();
+			PrecoDAO.lerArquivo();
 		}
 		f = new File(Constantes.ProdutoDs);
 		if(f.exists())
 		{
-			produtoDAO.lerArquivo();
+			ProdutoDAO.lerArquivo();
 		}
 		f = new File(Constantes.PromocaoDs);
 		if(f.exists())
 		{
-			promocaoDAO.lerArquivo();
+			PromocaoDAO.lerArquivo();
 		}
 	}
 	
 	public void EscreverArquivo() throws ClassNotFoundException
 	{
-		produtoDAO.Escrever();
+		ProdutoDAO.Escrever();
 		ClienteDAO.Escrever();
-		administradorDAO.Escrever();
-		promocaoDAO.Escrever();
-		precoDAO.Escrever();
-		masterDAO.Escrever();
-		supermercadoDAO.EscreverArquivo();
-		historicoDAO.Escrever();
-		listaDAO.Escrever();
-		localDAO.Escrever();
+		AdministradorDAO.Escrever();
+		PromocaoDAO.Escrever();
+		PrecoDAO.Escrever();
+		MasterDAO.Escrever();
+		SupermercadoDAO.EscreverArquivo();
+		HistoricoClienteDAO.Escrever();
+		ListaDeProdutosDAO.Escrever();
+		LocalDAO.Escrever();
 	}
 	
 	public void MenuCliente() throws ClassNotFoundException
@@ -139,7 +138,7 @@ public class TelaInicial {
 		ViewPromocoes viewpromocoes = new ViewPromocoes();
 		ViewSupermercados viewsupermercado = new ViewSupermercados();
 		int i = 1;
-		System.out.println("Bem Vindo!! "+administradorDAO.GetAdm(id).getNome());
+		System.out.println("Bem Vindo!! "+AdministradorDAO.GetAdm(id).getNome());
 		while(i != 0)
 		{
 			System.out.println("1 - Produto\n2 - Promoções\n3 - Supermercado\n0 - Sair");
@@ -163,7 +162,7 @@ public class TelaInicial {
 				}
 				case 0: {
 					i = 0;
-					System.out.println("\nAt� logo "+administradorDAO.GetAdm(id).getNome()+"!!");
+					System.out.println("\nAt� logo "+AdministradorDAO.GetAdm(id).getNome()+"!!");
 					break;
 				}
 
@@ -238,7 +237,7 @@ public class TelaInicial {
 				}
 				case 2:
 				{
-					promocaoDAO.listar();
+					PromocaoDAO.listar();
 					break;
 				}
 				case 0: {

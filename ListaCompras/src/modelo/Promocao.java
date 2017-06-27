@@ -6,6 +6,10 @@ import java.util.Calendar;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Promocao implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private int id_preco;
 	private Calendar inicio = Calendar.getInstance();

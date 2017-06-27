@@ -3,7 +3,6 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import modelo.Cliente;
 import modelo.Preco;
 import view.ViewCadastrarPreco;
 
@@ -29,7 +28,7 @@ public class PrecoDAO extends DAO{
 		preco = vCP.showAndSet(produtoDAO, id, supermercadoDAO);
 		if(preco != null)
 		{
-			System.out.println("\nPreço criado com sucesso!!\n");
+			System.out.println("\nPreï¿½o criado com sucesso!!\n");
 			PrecoDAO.listadePrecos.add(preco);
 		}
 	}
@@ -38,7 +37,7 @@ public class PrecoDAO extends DAO{
 		preco = vCP.showAndSetPromocao(produtoDAO, id, supermercadoDAO);
 		if(preco != null)
 		{
-			System.out.println("\nPromoção criado com sucesso!!\n");
+			System.out.println("\nPromoï¿½ï¿½o criado com sucesso!!\n");
 			PrecoDAO.listadePrecos.add(preco);
 		}
 	}

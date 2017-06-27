@@ -4,7 +4,11 @@ import java.io.Serializable;
 
 /*aaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
 public class HistoricoCliente implements Serializable{
-    private int Id;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int Id;
     private int Id_produto;
     private int Id_cliente;
     

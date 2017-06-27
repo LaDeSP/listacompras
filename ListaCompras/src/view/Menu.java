@@ -20,17 +20,17 @@ public class Menu
 	HistoricoClienteDAO historicoDAO = new HistoricoClienteDAO();
 	
 	
-	int id; // id de quem está logado
+	int id; // id de quem estï¿½ logado
 
 	public Menu () throws Exception
 	{
 		
-		int x = 0, y = 1;
+		int y = 1;
         
 		TelaInicial telainicial = new TelaInicial();
 		while(y != 0)
 		{
-			System.out.println("Bem Vindo!! O que deseja fazer?\n   1 - Ver Promoções\n   2 - Cadastrar\n   3 - Fazer login\n   0 - Sair");
+			System.out.println("Bem Vindo!! O que deseja fazer?\n   1 - Ver Promoï¿½ï¿½es\n   2 - Cadastrar\n   3 - Fazer login\n   0 - Sair");
 
 			y = ler.nextInt(); 
 
@@ -38,7 +38,7 @@ public class Menu
 			{
 				case 1:
 				{
-					promocaoDAO.listar();
+					PromocaoDAO.listar();
 					break;
 				}
 				case 2:
@@ -50,7 +50,7 @@ public class Menu
 				case 0: 
 				{
 					y = 0;
-					System.out.println("\nAté logo!!");
+					System.out.println("\nAtï¿½ logo!!");
 					break;
 				}
 				case 3: 
@@ -81,7 +81,7 @@ public class Menu
 	 	
 		   while(i1 != 0)
 		  {
-			System.out.println("1 - Produto\n2 - Promoções\n3 - Supermercado\n4 - Clientes");
+			System.out.println("1 - Produto\n2 - Promoï¿½ï¿½es\n3 - Supermercado\n4 - Clientes");
 			i1 = ler.nextInt();
 			
 			switch(i1)

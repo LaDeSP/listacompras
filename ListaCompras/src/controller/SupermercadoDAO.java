@@ -15,10 +15,10 @@ public class SupermercadoDAO extends DAO{
 	
 	public Supermercado criar(LocalDAO localDAO) {
 		ViewSupermercado vCP = new ViewSupermercado();
-		this.supermercado = vCP.showAndSet(localDAO);
+		SupermercadoDAO.supermercado = vCP.showAndSet(localDAO);
 		if(supermercado != null)
 		{
-			SupermercadoDAO.listadeSupermercados.add(this.supermercado);
+			SupermercadoDAO.listadeSupermercados.add(SupermercadoDAO.supermercado);
 			System.out.println("\nSupermercado criado com sucesso");
 			
 		}

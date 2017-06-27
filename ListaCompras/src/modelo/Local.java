@@ -4,6 +4,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.io.Serializable;
 
 public class Local implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String CEP;
 	private int id;
 	private String Cidade;

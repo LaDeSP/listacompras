@@ -7,6 +7,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ListaDeProdutos implements Serializable{
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
 	 * @param args
 	 */
 	private int id;

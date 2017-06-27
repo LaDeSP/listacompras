@@ -5,6 +5,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Supermercado implements Serializable {
    
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String nome;
 	private int id_local;

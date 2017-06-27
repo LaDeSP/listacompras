@@ -8,6 +8,10 @@ import modelo.ListaDeProdutos;
 import modelo.Promocao;
 
 public class ListaDeProdutosDAO extends DAO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	int id;
 	private static final AtomicInteger count = new AtomicInteger(0);
 	private static List<ListaDeProdutos> listadepromocao = new ArrayList<ListaDeProdutos>();

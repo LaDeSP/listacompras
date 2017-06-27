@@ -37,12 +37,8 @@ public class ClienteDAO extends DAO{
 			senha = leitura.nextLine();
 			System.out.print("\n");
 		}
-		
 		senha = MD5.criptografar(senha);
 		Cliente cliente = new Cliente(nome, senha, email);
-		if(cliente == null){
-			return false;
-		}
 		ClienteDAO.listadeclientes.add(cliente);
 		return true;
 		
@@ -119,7 +115,7 @@ public class ClienteDAO extends DAO{
 		ViewListarPromocoes viewlistarpromocoes = new ViewListarPromocoes();
 		int i;
 		
-		if(promocaoDAO.GetPromocaoPorId(1) == null)
+		if(PromocaoDAO.GetPromocaoPorId(1) == null)
 		{
 			System.out.print("Não existe nenhuma promoção\n");
 			return ;
@@ -134,8 +130,8 @@ public class ClienteDAO extends DAO{
 		i = leitura.nextInt();
 		
 		//Inserir a promoção no Cliente
-		System.out.println("Nome: " +GetCliente(id).getNome()+ " Promocao: " +promocaoDAO.GetPromocao(i).getId());
-		GetCliente(id).InserirNaLista( promocaoDAO.GetPromocao(i) , id);
+		System.out.println("Nome: " +GetCliente(id).getNome()+ " Promocao: " +PromocaoDAO.GetPromocao(i).getId());
+		GetCliente(id).InserirNaLista( PromocaoDAO.GetPromocao(i) , id);
 	}
 	
 }
