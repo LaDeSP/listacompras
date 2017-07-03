@@ -11,13 +11,15 @@ public class Produto implements Serializable{
 	private String Nome;
 	private int id;
 	private String Marca;
-	private int Preco[];
+	private float Preco;
 	private static final AtomicInteger count = new AtomicInteger(0);
 	
 	
-	public Produto() {
-		super();
+	public Produto(String nome, String marca, float preco) {
 		id = count.incrementAndGet();
+		this.Nome = nome;
+		this.Marca = marca;
+		this.Preco=preco;
 	}
 	/**
 	 * @param args
@@ -40,10 +42,10 @@ public class Produto implements Serializable{
 	public void setMarca(String marca) {
 		Marca = marca;
 	}
-	public int[] getPreco() {
+	public float getPreco() {
 		return Preco;
 	}
-	public void setPreco(int[] preco) {
+	public void setPreco(float preco) {
 		Preco = preco;
 	}
 	public void show() {
