@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Produto;
-import view.ViewCadastrarProduto;
 
 public class ProdutoDAO extends DAO{
 	
@@ -23,15 +22,21 @@ public class ProdutoDAO extends DAO{
 	}
 	
 	
-	public static void criar() {
-		ViewCadastrarProduto vCP = new ViewCadastrarProduto();
-		produto = vCP.showAndGet();
+	public static boolean criar(String nome, String marca, float preco) {
+		
+		//verificar se os dados inseridos estão corretos
+		
+		Produto produto = new Produto(nome, marca, preco);
+		
 		if(produto != null)
 		{
-			System.out.println("\nProduto criado com sucesso");
 			ProdutoDAO.listadeProdutos.add(produto);
+			Escrever(Constantes.ProdutoDs, listadeProdutos);
+			return true;
+		} else {
+			return false;
 		}
-		Escrever(Constantes.ProdutoDs, listadeProdutos);
+		
 	}
 	
 	public static Produto getLastProduto(){
