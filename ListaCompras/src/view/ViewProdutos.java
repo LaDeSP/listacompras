@@ -3,6 +3,7 @@ package view;
 import java.util.Scanner;
 
 import controller.ProdutoDAO;
+import controller.DAO;
 import modelo.Produto;
 
 public class ViewProdutos {
@@ -10,6 +11,25 @@ public class ViewProdutos {
 	
 	public ViewProdutos()
 	{
+		
+	}
+	public void criar(){
+		String nome, marca;
+		float preco;
+		
+		
+		System.out.print("| CADASTRAR PRODUTO |");
+		System.out.print("Nome : ");
+		nome = ler.nextLine();
+		System.out.print("Marca : ");
+		marca = ler.nextLine();
+		System.out.print("Preço : ");
+		preco = ler.nextFloat();
+		
+		if(ProdutoDAO.criar(nome, marca, preco))
+			System.out.println("\nProduto criado com sucesso");
+		else
+			System.out.println("\nO produto não pode ser criado");
 		
 	}
 	public void Menu(ProdutoDAO produtoDAO)
@@ -24,13 +44,12 @@ public class ViewProdutos {
 			{
 				case 1:
 				{
-					produtoDAO.criar();
-					Produto produto = produtoDAO.getLastProduto();
+					criar();
 					break;
 				}
 				case 2:
 				{
-					produtoDAO.listarProdutos();
+					ProdutoDAO.listarProdutos();
 					break;
 				}
 				case 0:
@@ -56,8 +75,8 @@ public class ViewProdutos {
 			{
 				case 1:
 				{
-					produtoDAO.criar();
-					Produto produto = produtoDAO.getLastProduto();
+					criar();
+				
 					break;
 				}
 				case 2:
