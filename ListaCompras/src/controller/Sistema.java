@@ -18,10 +18,12 @@ public class Sistema {
 		{
 			TelaInicial inicio = new TelaInicial();
 			Menu menus = new Menu();
+			//Menu menus = new Menu();
 		   // inicio.LerArquivo();
 		    
 			//i = inicio.TelaLogin();
-			i = menus.Menu();
+			i = menus.showEnum();
+			//i = menus.Menu();
 			
 			if(i == -1)
 			{
