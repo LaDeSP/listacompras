@@ -15,12 +15,46 @@ public class Menu{
 	
 	int id; // id de quem está logado
 
-	public int Menu () throws Exception{
+	public int Menu (int x) throws Exception{
 		
-		int x = 0, y = 0;
+		int w = 0, y = 0, z = 0, v = 0;
         
 		TelaInicial telainicial = new TelaInicial();
-		while(x == 0){
+		return v;
+	}	
+	public enum menuprincipal{
+          promocoes("1", "Ver Promoções"),
+		  cadastro("2", "Cadastrar"),
+		  login("3", "Fazer Login"),
+		  sair("0", "Sair");
+	
+	private final String codigo; 
+	private final String nome; 
+	
+	menuprincipal(String opcao, String name){
+	 
+		codigo = opcao; 	
+		nome = name;
+		
+	}
+	
+	public String getCodigo(){
+		return codigo;
+	}
+	public String getNome(){
+	    return nome;
+	}
+   //colocar leitura
+	}
+	public int showEnum() {
+		// TODO Auto-generated method stub
+		for(menuprincipal copcao: menuprincipal.values())
+    		System.out.printf("%s %s", copcao.codigo, copcao.nome);
+		return -1;
+	}
+}
+		/*
+		while(w == 0){
 			System.out.println("\n\nBem Vindo!! O que deseja fazer?\n   1 - Ver Promoções\n   2 - Cadastrar\n   3 - Fazer login\n   0 - Sair");
 
 			y = ler.nextInt(); 
@@ -30,7 +64,7 @@ public class Menu{
 			case 1:
 			{
 				promocaoDAO.listar();
-				x = 0;
+				w = 0;
 				break;
 				
 			}
@@ -39,28 +73,34 @@ public class Menu{
 				ViewClientes viewClientes = new ViewClientes();
 				viewClientes.cadastrar();
 				telainicial.TelaLogin();
-				x = -1;
+				w = -1;
 				break;
 
 			}
 			case 3: {
-				//telainicial.TelaLogin();
-				x = -1;
+				telainicial.TelaLogin();
+				w = -1;
                 break;
 			 }
 			case 0: {
-				x = -1;
+				w = -1;
 				break;
 			}
 			default: 
 			{
-				x = 0;
+				w = 0;
 				System.out.println("\nN tem opcao demo");
 				break; 
 		    }
 			} 
 		}
-		return x; 
+		while(z == 0){
+			switch(x){
+			   case 1: { 
+				   
+			   }
+			}
+		}
 	} 
 
 	
@@ -110,10 +150,7 @@ public class Menu{
 		   if (i == 2)
 		   { 
 			   System.out.println("teste!!");
-		   }
-		  }
-	      }*/
-        }
-
+	
+*/
 
 	

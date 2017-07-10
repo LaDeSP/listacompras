@@ -89,43 +89,54 @@ public class TelaInicial {
 	
 	public int TelaLogin() throws Exception
 	{
+		ViewLogin view = new ViewLogin();
+		int i = 0, x = 0;
+		while(x == 0)
 		{
-			
-			   ViewProdutos viewprodutos = new ViewProdutos();
-			   ViewPromocoes viewpromocoes = new ViewPromocoes();
-			   ViewSupermercados viewsupermercado = new ViewSupermercados();
-		       ViewClientes viewclientes = new ViewClientes(); 
-		       ViewLogin view = new ViewLogin(); 
-				
-		        int i = 0, y = 1, x = 0;
-		        
-		        
-			/*
-				z = x;
-			
-				if(i == 1) {
-					
-			    	id = view.ViewloginCliente();
-			    	  
-			    	if(id != 0)
-					  {
+			System.out.println("Sign in\n   1 - Cliente\n   2 - Administrador\n   3 - Master\n");
+			i = ler.nextInt();
+		
+			switch(i)
+			{
+				case 1:
+				{
+					id = view.ViewloginCliente();
+					if(id != 0)
+					{
 						x = 1;
-					  
-			    	
-			    	    if (z == 1) {
-			    	       y = 0;
-			    	            System.out.println("Bem Vindo!! "+clienteDAO.GetCliente(id).getNome()+"\n\n\n");
-			    	    }
-			    	   /* if (i <= 0){
-			    			System.out.println("Com que conta deseja logar?\n    1 - Administrador \n    2 - Master\n");
-			    		    i = ler.nextInt();
-			    	        }*/
-			    	    System.out.print("\n");
-		      }
-		return id;
-		 
-		   }
-     	}
-	
+					}
+					break;
+				}
+				case 2:
+				{
+					id = view.ViewloginADM(administradorDAO);
+					if(id != 0)
+					{
+						x = 2;
+					}
+					break;
+				}
+				case 3:
+				{
+					id = view.ViewloginMaster(masterDAO);
+					if(id != 0)
+					{
+						x = 3;
+					}
+					break;
+				}
+				case 4:
+				{
+					x = 4;
+					break;
+				}
+				default: {
+					System.out.println("Opção inválida, tente de novo!");
+				}
+			}
+			System.out.print("\n");
+		}
+		return x;
+	}
 
-			
+}
