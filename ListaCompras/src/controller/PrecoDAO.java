@@ -1,10 +1,10 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import modelo.Preco;
-import view.ViewCadastrarPreco;
 
 
 public class PrecoDAO extends DAO{
@@ -23,20 +23,21 @@ public class PrecoDAO extends DAO{
 	}
 	
 	
-	public static void criarPreco(ProdutoDAO produtoDAO, int id, SupermercadoDAO supermercadoDAO) {
-		ViewCadastrarPreco vCP = new ViewCadastrarPreco();
-		preco = vCP.showAndSet(produtoDAO, id, supermercadoDAO);
+	public static void criarPreco(int id_produto, boolean status, 
+			int id_supermercado, int id_cliente, double precoProduto) {
+		preco = new Preco(id_produto, status, id_supermercado, id_cliente, precoProduto);
 		if(preco != null)
 		{
 			System.out.println("\nPre�o criado com sucesso!!\n");
 			PrecoDAO.listadePrecos.add(preco);
 		}
 	}
-	public static void criarPromocao(ProdutoDAO produtoDAO, int id, SupermercadoDAO supermercadoDAO) {
-		ViewCadastrarPreco vCP = new ViewCadastrarPreco();
-		preco = vCP.showAndSetPromocao(produtoDAO, id, supermercadoDAO);
+	public static void criarPromocao(int id_produto, boolean status, int id_supermercado, 
+			int id_cliente, double precoProduto, Calendar inicio, Calendar fim) {
+		preco = new Preco(id_produto, status, id_supermercado, id_cliente, precoProduto);
 		if(preco != null)
 		{
+			PromocaoDAO.criarPromocao(preco.getId(), inicio, fim);
 			System.out.println("\nPromo��o criado com sucesso!!\n");
 			PrecoDAO.listadePrecos.add(preco);
 		}

@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import modelo.Supermercado;
-import view.ViewSupermercado;
 
 
 public class SupermercadoDAO extends DAO{
@@ -17,19 +16,21 @@ public class SupermercadoDAO extends DAO{
 	public static boolean criar(String nome, int id_local) {
 		
 		//verificar o NOME
-		if(OKSupermercado(Nome)){
+		if(OKSupermercado(nome)){
 			System.out.print("Supermercado existente");
+			return false;
 			
 		}
 		//VERIFICAR O ID_local
 		if(LocalDAO.OKId(id_local)==false){
 			//vai ter que adicionar um local
+			return false;
 			
 		}	
 		
 		
 			Supermercado supermercado = new Supermercado(nome, id_local);
-			SupermercadoDAO.listadeSupermercados.add(this.supermercado);
+			SupermercadoDAO.listadeSupermercados.add(supermercado);
 			System.out.println("\nSupermercado criado com sucesso");
 		return true;
 

@@ -1,8 +1,8 @@
 package controller;
 
-import view.ViewCadastrarPromocao;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import modelo.Cliente;
@@ -28,9 +28,8 @@ public class PromocaoDAO extends DAO{
 		return true;
 	}
 	
-	public static void criarPromocao(int id){
-		ViewCadastrarPromocao vcap = new ViewCadastrarPromocao();
-		promocao=vcap.criar(id);
+	public static void criarPromocao(int id_preco, Calendar inicio, Calendar fim){
+		promocao = new Promocao(id_preco, inicio, fim);
 		if(promocao != null)
 		{
 			PromocaoDAO.listadePromocao.add(promocao);

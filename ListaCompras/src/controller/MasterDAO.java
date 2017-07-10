@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Master;
-import view.ViewCadastrarMaster;
 
 public class MasterDAO extends DAO{
 	
@@ -25,23 +24,6 @@ public class MasterDAO extends DAO{
 	{
 		listademasters = (List<Master>) Ler(Constantes.MasterDs, listademasters);
 		return true;
-	}
-	
-	public static void criarPrimeiro()
-	{
-		ViewCadastrarMaster view = new ViewCadastrarMaster();
-		master = view.showPrimeiro();
-		MasterDAO.listademasters.add(master);
-	}
-	public static void criar()
-	{
-		ViewCadastrarMaster view = new ViewCadastrarMaster();
-		master = view.show();
-		if(master != null)
-		{
-			MasterDAO.listademasters.add(master);
-			System.out.println("\nMaster criado com sucesso");
-		}
 	}
 	
 	public static void Listar()
