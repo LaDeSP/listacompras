@@ -1,7 +1,7 @@
 package view;
 
 import java.util.Scanner;
-
+import view.MenuLogin;
 import controller.*;
 
 
@@ -22,39 +22,11 @@ public class Menu{
 		TelaInicial telainicial = new TelaInicial();
 		return v;
 	}	
-	public enum menuprincipal{
-          promocoes("1", "Ver Promoções"),
-		  cadastro("2", "Cadastrar"),
-		  login("3", "Fazer Login"),
-		  sair("0", "Sair");
 	
-	private final String codigo; 
-	private final String nome; 
 	
-	menuprincipal(String opcao, String name){
-	 
-		codigo = opcao; 	
-		nome = name;
-		
-	}
-	
-	public String getCodigo(){
-		return codigo;
-	}
-	public String getNome(){
-	    return nome;
-	}
-   //colocar leitura
-	}
-	public int showEnum() {
-		// TODO Auto-generated method stub
-		for(menuprincipal copcao: menuprincipal.values())
-    		System.out.printf("%s %s", copcao.codigo, copcao.nome);
-		return -1;
-	}
-}
+
 		/*
-		while(w == 0){
+			while(w == 0){
 			System.out.println("\n\nBem Vindo!! O que deseja fazer?\n   1 - Ver Promoções\n   2 - Cadastrar\n   3 - Fazer login\n   0 - Sair");
 
 			y = ler.nextInt(); 
