@@ -89,8 +89,13 @@ public class TelaInicial {
 	
 	public int TelaLogin() throws Exception
 	{
+		return id;
+		
+		
+	}
+	
 		ViewLogin view = new ViewLogin();
-		int i = 0, x = 0;
+		/*int i = 0, x = 0;
 		while(x == 0)
 		{
 			System.out.println("Sign in\n   1 - Cliente\n   2 - Administrador\n   3 - Master\n");
@@ -137,6 +142,6 @@ public class TelaInicial {
 			System.out.print("\n");
 		}
 		return x;
-	}
+	}*/
 
 }

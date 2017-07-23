@@ -19,8 +19,8 @@ public enum MenuPrincipal{
 	  login("3", "Fazer Login"),
 	  sair("0", "Sair");
 
-   private final String codigo; 
-   private final String nome; 
+   final String codigo; 
+   final String nome; 
 
    MenuPrincipal(String opcao, String name){
 
@@ -36,9 +36,7 @@ public String getNome(){
   return nome;
 }
 
-
-
-public int showEnum() throws Exception {
+/*public int showEnum() throws Exception {
 	// TODO Auto-generated method stub
 	for(MenuPrincipal copcao: MenuPrincipal.values()){
 		System.out.printf("%s %s\n", copcao.codigo, copcao.nome);
@@ -46,10 +44,9 @@ public int showEnum() throws Exception {
 	
     Scanner ler = new Scanner(System.in);
 	PromocaoDAO promocaoDAO = new PromocaoDAO();
-	
-	int i = ler.nextInt();
-	
 	int w = 0, y = 0; 
+	
+	y = ler.nextInt();
 	
 	while (w == 0){
 		switch (y)
@@ -88,6 +85,6 @@ public int showEnum() throws Exception {
 		 }
 	  }
 	return y;  
-   }
+   }*/
 }
 	

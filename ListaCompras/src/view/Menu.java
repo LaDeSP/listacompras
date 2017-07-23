@@ -22,6 +22,8 @@ public class Menu{
 		TelaInicial telainicial = new TelaInicial();
 		return v;
 	}	
+}
+
 	
 	
 
