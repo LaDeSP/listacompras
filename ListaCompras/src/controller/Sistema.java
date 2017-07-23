@@ -2,6 +2,8 @@ package controller;
 
 import view.TelaInicial;
 import view.Menu;
+import view.MenuPrincipal;
+import view.ShowEnum;
 
 /**
  * @author laboratorio
@@ -13,17 +15,15 @@ public class Sistema {
 	 * @throws Exception 
 	 */
 	public static void main(String[] args) throws Exception{
-		int i = 0, j = 1;
+		int i = 0;
+		int j = 1;
 		while(j != 0)
 		{
 			TelaInicial inicio = new TelaInicial();
 			Menu menus = new Menu();
-			//Menu menus = new Menu();
-		   // inicio.LerArquivo();
-		    
-			//i = inicio.TelaLogin();
-			i = menus.showEnum();
-			//i = menus.Menu();
+			ShowEnum show = new ShowEnum();
+			
+			i = show.showEnumMP();
 			
 			if(i == -1)
 			{
@@ -34,7 +34,6 @@ public class Sistema {
 			inicio.EscreverArquivo();
 			
 		}
-		//inicio.Inicial(i);
 	}
 
 }
