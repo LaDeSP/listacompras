@@ -2,147 +2,102 @@ package view;
 
 import java.util.Scanner;
 
-import modelo.Cliente;
-
 import controller.ClienteDAO;
-import controller.PromocaoDAO;
+import controller.DAO;
 
 public class ViewClientes {
 	
-	Scanner ler = new Scanner(System.in);
-
-	public ViewClientes()
+	static Scanner ler = new Scanner(System.in);
+	
+	public static void Criar() throws Exception
 	{
+		String nome, senha, email;
+		boolean resposta; 
+		System.out.print("Digite o nome da conta: ");
+		nome = ler.nextLine();
+		System.out.print("Digite uma senha: ");
+		senha = ler.nextLine();
+		System.out.print("Digite um email: ");
+		email = ler.nextLine();
 		
-	}
-			
+		resposta = ClienteDAO.criarCliente(nome, email, senha);
 		
-		public void cadastrar() throws Exception
+		if(resposta == false)
 		{
-			String nome, senha, email;
-			
-			System.out.print("Nome: ");
+			System.out.println("Erro ao criar o cliente");
+		}
+		else
+		{
+			System.out.println("Cliente criado com sucesso");
+		}
+	}
+	
+	public static void Excluir()
+	{
+		int id;
+		boolean resposta;
+		ClienteDAO.listar();
+		System.out.print("Digite o id da conta que quer excluir: ");
+		id = ler.nextInt();
+		resposta = ClienteDAO.RemoverCliente(id);
+		if(resposta == false)
+		{
+			System.out.println("Erro ao excluir o cliente");
+		}
+		else
+		{
+			System.out.println("Cliente excluido com sucesso");
+		}
+	}
+	
+	public static void Alterar_Nome(int id)
+	{
+		String nome;
+		System.out.print("Digite o novo nome: ");
+		nome = ler.nextLine();
+		while(ClienteDAO.OKCliente(nome) == true)
+		{
+			System.out.println("Esse nome j� existe");
+			System.out.print("Digite o novo nome: ");
 			nome = ler.nextLine();
-			System.out.print("Senha: ");
+		}
+		ClienteDAO.Renomear_Nome(nome, id);
+		System.out.println("Nome alterado com sucesso!!");
+	}
+	
+	public static void Aterar_Senha(int id)
+	{
+		String senha;
+		System.out.print("Digite a novo senha: ");
+		senha = ler.nextLine();
+		while(!DAO.ValidarSenha(senha))
+		{
+			System.out.println("Senha muito pequena!!");
+			System.out.print("Novo senha: ");
 			senha = ler.nextLine();
-			System.out.print("Email: ");
+		}
+		ClienteDAO.Renomear_Senha(senha, id);
+		System.out.println("Senha alterada com sucesso!!");
+	}
+	
+	public static void Aterar_Email(int id)
+	{
+		String email;
+		System.out.print("Digite o novo email: ");
+		email = ler.nextLine();
+		while(!DAO.ValidarEmail(email))
+		{
+			System.out.println("Erro no E-mail!!");
+			System.out.print("Novo email: ");
 			email = ler.nextLine();
-			
-			if(ClienteDAO.criarCliente(nome, email, senha)){
-				System.out.println("Cliente cadastrado com sucesso");
-			}else{
-				System.out.println("Erro ao cadastrar cliente");
-			}
-			
-			
+			System.out.print("\n");
+		}
+		ClienteDAO.Renomear_Email(email, id);
+		System.out.println("Email alterado com sucesso!!");
 	}
 	
-	
-	public void Menu(ClienteDAO clienteDAO)
+	public static void Listar()
 	{
-		int i = 1;
-		boolean z;
-		System.out.print("\n");
-		while(i != 0)
-		{
-			System.out.print("   1 - listar Clientes\n   2 - Procurar Cliente\n   0 - Sair\n");
-			i = ler.nextInt();
-			switch(i)
-			{
-				case 1:
-				{
-					clienteDAO.listar();
-					break;
-				}
-				case 2:
-				{
-					String Nome = ler.nextLine();
-					z = clienteDAO.OKCliente(Nome);
-					if(z == true)
-					{
-						System.out.print("Existe esse Cliente\n");
-					}
-					break;
-				}
-				case 0:
-				{
-					i = 0;
-					break;
-						
-				}
-			}
-		}
-	}
-	public void MenuMaster()
-	{
-		int i = 1, j;
-		boolean z;
-		System.out.print("\n");
-		while(i != 0)
-		{
-			System.out.print("   1 - listar Clientes\n   2 - Procurar Cliente\n   3 - Excluir Cliente\n   0 - Sair\n");
-			i = ler.nextInt();
-			switch(i)
-			{
-				case 1:
-				{
-					ClienteDAO.listar();
-					break;
-				}
-				case 2:
-				{
-					String Nome = ler.nextLine();
-					z = ClienteDAO.OKCliente(Nome);
-					if(z == true)
-					{
-						System.out.print("Existe esse Cliente\n");
-					}
-					break;
-				}
-				case 3:
-				{
-					ClienteDAO.listar();
-					System.out.print("Opção: ");
-					j = ler.nextInt();
-					ClienteDAO.RemoverCliente(j);
-					break;
-				}
-				case 0:
-				{
-					i = 0;
-					break;
-						
-				}
-			}
-		}
-	}
-	public void MenuCliente(int id, PromocaoDAO promocaoDAO)
-	{
-		int i = 1;
-		System.out.print("\n");
-		while(i != 0)
-		{
-			System.out.print("   1 - Inserir na Lista\n   2 - Ver a Lista\n   0 - Sair\n");
-			i = ler.nextInt();
-			switch(i)
-			{
-				case 1:
-				{
-					ClienteDAO.InserirNaLista(promocaoDAO, id);
-					break;
-				}
-				case 2:
-				{
-					ClienteDAO.GetCliente(id).show(id);
-					break;
-				}
-				case 0:
-				{
-					i = 0;
-					break;
-						
-				}
-			}
-		}
+		ClienteDAO.listar();
 	}
 }

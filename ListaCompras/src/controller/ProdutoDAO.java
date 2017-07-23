@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.ListaDeProdutos;
 import modelo.Produto;
 
 public class ProdutoDAO extends DAO{
@@ -22,20 +23,20 @@ public class ProdutoDAO extends DAO{
 	}
 	
 	
-	public static boolean criar(String nome, String marca, float preco) {
+	public static boolean criar(String nome, String marca, int id_Cliente) {
 		
 		//verificar se os dados inseridos estão corretos
 		
-		Produto produto = new Produto(nome, marca, preco);
+		Produto produto = new Produto(nome, marca, id_Cliente);
 		
 		if(produto != null)
 		{
 			ProdutoDAO.listadeProdutos.add(produto);
 			Escrever(Constantes.ProdutoDs, listadeProdutos);
 			return true;
-		} else {
-			return false;
 		}
+		
+		return false;
 		
 	}
 	
@@ -57,7 +58,32 @@ public class ProdutoDAO extends DAO{
 		}
 	}
 	
-	public static boolean OKProduto(String Nome)
+	public static boolean OKProduto(int id)
+	{
+		for(Produto produto : listadeProdutos)
+		{
+			if(produto.getId() == id)
+			{
+				return true;
+			}
+		}
+		return false;
+		
+	}
+	
+	public static boolean OKProduto(String Nome, String marca)
+	{
+		for(Produto produto : listadeProdutos)
+		{
+			if(Nome.equals(produto.getNome()) && marca.equals(produto.getMarca()))
+			{
+				return true;
+			}
+		}
+		return false;
+		
+	}
+	public static boolean OKProdutoNome(String Nome)
 	{
 		for(Produto produto : listadeProdutos)
 		{
@@ -69,6 +95,7 @@ public class ProdutoDAO extends DAO{
 		return false;
 		
 	}
+	
 	public static Produto GetProduto(String Nome)
 	{
 		for(Produto produto : listadeProdutos)
@@ -94,17 +121,17 @@ public class ProdutoDAO extends DAO{
 		
 	}
 	
-	public static void RemoveProduto(int id)
+	public static boolean RemoveProduto(int id)
 	{
 		for(Produto produto : listadeProdutos)
 		{
 			if(id == produto.getId())
 			{
 				ProdutoDAO.listadeProdutos.remove(produto);
-				return ;
+				return true;
 			}
 		}
-		
+		return false;
 	}
 
 }

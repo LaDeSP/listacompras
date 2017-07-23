@@ -12,9 +12,9 @@ public class LocalDAO extends DAO{
 	//FileOutputStream fos= new FileOutputStream("LocalDAO");//criar serialização. Salvar e ler dados. Output e input Stream 
 	//ObjectOutputStream oos= new ObjectOutputStream(fos);
 	
-	public static boolean criar(String cEP, String cidade, String estado) {
+	public static boolean criar(String cEP, String cidade, String estado, String Rua) {
 		
-		local = new Local(cEP, cidade, estado);
+		local = new Local(cEP, cidade, estado, Rua);
 		if(local != null)
 		{
 			LocalDAO.listadeLocal.add(local);

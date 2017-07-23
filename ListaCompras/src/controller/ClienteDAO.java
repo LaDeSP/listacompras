@@ -99,16 +99,17 @@ public class ClienteDAO extends DAO{
 		return null;
 		
 	}
-	public static void RemoverCliente(int id)
+	public static boolean RemoverCliente(int id)
 	{
 		for(Cliente cliente : listadeclientes)
 		{
 			if(id == cliente.getId())
 			{
 				ClienteDAO.listadeclientes.remove(cliente);
-				return ;
+				return true;
 			}
 		}
+		return false;
 	}
 	public static void InserirNaLista(PromocaoDAO promocaoDAO, int id)
 	{
@@ -133,5 +134,16 @@ public class ClienteDAO extends DAO{
 		System.out.println("Nome: " +GetCliente(id).getNome()+ " Promocao: " +PromocaoDAO.GetPromocao(i).getId());
 		GetCliente(id).InserirNaLista( PromocaoDAO.GetPromocao(i) , id);
 	}
-	
+	public static void Renomear_Nome(String nome, int id)
+	{
+		GetCliente(id).setNome(nome);
+	}
+	public static void Renomear_Senha(String senha, int id)
+	{
+		GetCliente(id).setSenha(senha);
+	}
+	public static void Renomear_Email(String email, int id)
+	{
+		GetCliente(id).setEmail(email);
+	}
 }

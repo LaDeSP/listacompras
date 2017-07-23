@@ -12,15 +12,23 @@ public class Local implements Serializable{
 	private int id;
 	private String Cidade;
 	private String Estado;
+	private String Rua;
 	private static final AtomicInteger count = new AtomicInteger(0);
 	
-	public Local(String cEP, String cidade, String estado) {
+	public Local(String cEP, String cidade, String estado, String Rua) {
 		CEP = cEP;
 		this.id = count.incrementAndGet();
 		Cidade = cidade;
 		Estado = estado;
+		this.Rua = Rua;
+	}
+	public String getRua() {
+		return Rua;
 	}
 
+	public void setRua(String rua) {
+		Rua = rua;
+	}
 	public Local() {
 		this.id = count.incrementAndGet();
 	}

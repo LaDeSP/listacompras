@@ -50,6 +50,18 @@ public class Cliente implements Serializable{
 		listadeprodutoDAO.Listar(id);
 		
 	}
+	public ListaDeProdutosDAO getListadeprodutoDAO() {
+		return listadeprodutoDAO;
+	}
+
+	public void setListadeprodutoDAO(ListaDeProdutosDAO listadeprodutoDAO) {
+		this.listadeprodutoDAO = listadeprodutoDAO;
+	}
+
+	public void setNome(String nome) {
+		Nome = nome;
+	}
+
 	public void show() {
 		
 		System.out.print("Nome: "+Nome+"\nSenha: "+Senha+"\nEmail: "+Email+"\nId: "+id+"\n");
