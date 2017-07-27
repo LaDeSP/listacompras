@@ -49,13 +49,25 @@ public class AdministradorDAO extends DAO{
 		
 		Administrador administrador = new Administrador(Nome, senha, email, id_supermercado); //criamos o adm
 		
-		if(administrador==null)
+		if(administrador==null) {
 			return false;
+		}
 		
 		AdministradorDAO.listadeadms.add(administrador); //adicionamos o adm na lista de administradores
 		return true;
 	}
-	
+	public static boolean RemoverAdm(int id)
+	{
+		for(Administrador administrador : listadeadms)
+		{
+			if(id == administrador.getId())
+			{
+				AdministradorDAO.listadeadms.remove(administrador);
+				return true;
+			}
+		}
+		return false;
+	}
 	public static void Escrever()
 	{
 		Escrever(Constantes.AdministradorDs, listadeadms);
@@ -119,5 +131,18 @@ public class AdministradorDAO extends DAO{
 			}
 		}
 		
+	}
+	public static void Renomear_Nome(String nome, int id) //renomear nome
+	{
+		GetAdm(id).setNome(nome);
+	}
+	
+	public static void Renomear_Senha(String senha, int id)//renomear senha
+	{
+		GetAdm(id).setSenha(senha);
+	}
+	public static void Renomear_Email(String email, int id) //renomear email
+	{
+		GetAdm(id).setEmail(email);
 	}
 }
