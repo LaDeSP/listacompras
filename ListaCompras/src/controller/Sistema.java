@@ -15,13 +15,18 @@ public class Sistema {
 	 * @throws Exception 
 	 */
 	public static void main(String[] args) throws Exception{
+		
+		TelaInicial inicio = new TelaInicial();
+		Menu menus = new Menu();
+		ShowEnum show = new ShowEnum();
 		int i = 0;
 		int j = 1;
+		
+		inicio.LerArquivo();
+		
 		while(j != 0)
 		{
-			TelaInicial inicio = new TelaInicial();
-			Menu menus = new Menu();
-			ShowEnum show = new ShowEnum();
+		
 			
 			i = show.showEnumMP();
 			
@@ -31,9 +36,10 @@ public class Sistema {
 				System.out.println("Adeus");
 			}
 			
-			inicio.EscreverArquivo();
 			
 		}
+		
+		inicio.EscreverArquivo();
 	}
 
 }
