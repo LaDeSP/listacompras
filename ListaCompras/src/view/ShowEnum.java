@@ -34,15 +34,22 @@ public class ShowEnum {
 		y = ler.nextInt();
 		
 		while (i == 0){
+			
 			switch (y)
 			{
 				case 1: 
 				{   System.out.printf("Prestando");
-					//promocaoDAO.listar();
-					i = 0;
+					listaDAO.Listar(i);
+					i = -1;
 					break;
 				}
-				case 2:
+				case 2: 
+				{   System.out.printf("Prestando");
+					//promocaoDAO.listar();
+					i = -1;
+					break;
+				}
+				case 3:
 				{
 					ViewClientes viewClientes = new ViewClientes();
 					viewClientes.cadastrar();
@@ -50,10 +57,9 @@ public class ShowEnum {
 					break;
 
 				}
-				case 3:
+				case 4:
 				{
 					showEnumML();
-					//w = -1;
 	                break;
 				}
 				case 0: {
@@ -72,6 +78,7 @@ public class ShowEnum {
 	   }
 	
 	public int showEnumML() throws Exception{
+		
 		for(MenuLogin copcao: MenuLogin.values()){
 			System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
 	 	}
@@ -81,15 +88,23 @@ public class ShowEnum {
 		{
 			
 			i = ler.nextInt();
+			
 			switch(i)
 			{
 				case 1:
 				{
 					id = viewlogin.ViewloginCliente();
+					System.out.println("ID: "+id);
 				
 					if(id != 0)
 					{
 						x = 1;
+						System.out.println("ID -> "+id+"  Entrou");
+						showEnumMC();
+					}
+					else
+					{
+						System.out.println("Saiu");
 					}
 					break;
 				}
@@ -124,26 +139,28 @@ public class ShowEnum {
 		}
 	
 
-	public int showEnumMC(){
+	public int showEnumMC() throws Exception{
 		
 		ViewProdutos viewprodutos = new ViewProdutos();
 		ViewPromocoes viewpromocoes = new ViewPromocoes();
 		ViewSupermercados viewsupermercado = new ViewSupermercados();
 		ViewClientes viewclientes = new ViewClientes();
 		
-		int i = 1;
+		int i = 0, y = 0;
 		
+		System.out.println(id);
+		ClienteDAO.listar();
 		System.out.println("Bem Vindo!! "+ClienteDAO.GetCliente(id).getNome());
 		
 		for(MenuCliente copcao: MenuCliente.values()){
 			System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
 	 	}
 		
-		while(i != 0)
+		while(i == 0)
 		{	
-			i = ler.nextInt();
+			y = ler.nextInt();
 			
-			switch(i)
+			switch(y)
 			{
 				case 1:
 				{
@@ -167,14 +184,15 @@ public class ShowEnum {
 				}
 				case 0: 
 				{
-					i = 0;
-					System.out.println("\nAté logo "+ClienteDAO.GetCliente(id).getNome()+"!!");
+					System.out.println("\nAté logo !!");//+ClienteDAO.GetCliente(id).getNome()+"!!");
+					i = -1;
+					showEnumMP();
 					break;
 				}
 				
 			}
 		}
-		return 0;
+		return i;
 		}
 	
        }

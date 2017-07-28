@@ -22,6 +22,7 @@ public enum MenuLogin{
 	MenuLogin(String opcao, String name){
 		codigo1 = opcao; 	
 	    nome1 = name;
+	    
 	    }
 	
 	public String getCodigo(){
