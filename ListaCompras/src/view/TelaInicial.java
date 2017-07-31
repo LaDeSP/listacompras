@@ -20,7 +20,7 @@ public class TelaInicial {
 	int id; // id de quem está logado
 	
 	public TelaInicial(){
-		MasterDAO.criarPrimeiro();
+		//MasterDAO.criarPrimeiro();
 	}
 	
 	public void LerArquivo() throws ClassNotFoundException
@@ -43,7 +43,7 @@ public class TelaInicial {
 		f = new File(Constantes.HistoricoCDs);
 		if(f.exists())
 		{
-			HistoricoClienteDAO.lerArquivo();
+			HistoricoClienteDAO.LerArquivo();
 		}
 		f = new File(Constantes.ListaDeProdutoDs);
 		if(f.exists())
