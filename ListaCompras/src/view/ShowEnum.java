@@ -3,6 +3,7 @@ package view;
 import view.MenuPrincipal;
 import java.util.Scanner;
 import controller.*;
+import modelo.Produto;
 
 public class ShowEnum {
 	
@@ -21,7 +22,9 @@ public class ShowEnum {
 	int id;
 	
 	public int showEnumMP() throws Exception {
+		
 		// TODO Auto-generated method stub
+		
 		for(MenuPrincipal copcao: MenuPrincipal.values()){
 			System.out.printf("%s %s\n", copcao.codigo, copcao.nome);
 		}
@@ -52,7 +55,7 @@ public class ShowEnum {
 				case 3:
 				{
 					ViewClientes viewClientes = new ViewClientes();
-					viewClientes.Criar();
+					viewClientes.cadastrar();
 					showEnumMC();
 					break;
 
@@ -82,14 +85,14 @@ public class ShowEnum {
 		for(MenuLogin copcao: MenuLogin.values()){
 			System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
 	 	}
-		int i = 0, x = 0;
+		int i = 0, y = 0, x = 0;
 		
-		while(x == 0)
+		while(i == 0)
 		{
 			
-			i = ler.nextInt();
+			y = ler.nextInt();
 			
-			switch(i)
+			switch(y)
 			{
 				case 1:
 				{
@@ -128,13 +131,13 @@ public class ShowEnum {
 				}
 				case 0:
 				{
-					x = -1;
+					i = -1;
+					showEnumMP();
 					break;
 				}
 			}
-			System.out.print("\n");
 		}
-		return x;
+		return i;
 
 		}
 	
@@ -148,9 +151,9 @@ public class ShowEnum {
 		
 		int i = 0, y = 0;
 		
-		System.out.println(id);
-		ClienteDAO.listar();
-		System.out.println("Bem Vindo!! "+ClienteDAO.GetCliente(id).getNome());
+		//System.out.println(id);
+		//ClienteDAO.listar();
+		System.out.println("Bem Vindo!!");// "+ClienteDAO.GetCliente(id).getNome());
 		
 		for(MenuCliente copcao: MenuCliente.values()){
 			System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
@@ -164,7 +167,7 @@ public class ShowEnum {
 			{
 				case 1:
 				{
-					viewprodutos.Menu(produtoDAO);
+					showEnumMPro(produtoDAO);
 					break;
 				}
 				case 2:
@@ -195,4 +198,46 @@ public class ShowEnum {
 		return i;
 		}
 	
-       }
+	public int showEnumMPro(ProdutoDAO produtoDAO)
+	{
+		int y = 0, i = 1;
+		
+		ViewProdutos viewprodutos = new ViewProdutos();
+	//	ViewPromocoes viewprs = new ViewPrecos();
+		ViewSupermercado viewsupermercado = new ViewSupermercado();
+		
+		for(MenuProduto copcao: MenuProduto.values()){
+			System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
+	 	}
+		
+		while(i != 0)
+		{	
+			y = ler.nextInt();
+			
+			switch(y)
+			{
+				case 1:
+				{
+					int id_Cliente = 0;
+					viewprodutos.Criar(id_Cliente);
+					//viewsupermercado.showAndSet(localDAO);
+					Produto produto = produtoDAO.getLastProduto();
+					break;
+				}
+				case 2:
+				{
+					viewprodutos.Listar();
+					//produtoDAO.listarProdutos();
+					break;
+				}
+				case 0:
+				{
+					i = 0;
+					break;
+						
+				}
+			}
+		}
+		return i;
+      }
+}
