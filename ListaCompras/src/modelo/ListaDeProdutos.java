@@ -14,13 +14,13 @@ public class ListaDeProdutos implements Serializable{
 	 * @param args
 	 */
 	private int id;
-	private Promocao promocao;
+	private Produto produto;
 	int id_Cliente;
 	private static final AtomicInteger count = new AtomicInteger(0);
 	
-	public ListaDeProdutos(Promocao promocao, int id_cliente) {
+	public ListaDeProdutos(Produto produto, int id_cliente) {
 		this.id = count.incrementAndGet();
-		this.promocao = promocao;
+		this.produto = produto;
 		this.id_Cliente = id_cliente;
 	}
 
@@ -32,12 +32,12 @@ public class ListaDeProdutos implements Serializable{
 		this.id_Cliente = id_Cliente;
 	}
 
-	public Promocao getPromocao() {
-		return promocao;
+	public Produto getProduto() {
+		return produto;
 	}
 
-	public void setPromocao(Promocao promocao) {
-		this.promocao = promocao;
+	public void setProduto(Produto produto) {
+		this.produto = produto;
 	}
 
 	public int getId() {
@@ -49,8 +49,9 @@ public class ListaDeProdutos implements Serializable{
 	}
 	public void show()
 	{
-		System.out.print(id+" - ID_Promocao: " +promocao.getId()+"   id_preco: "+promocao.getId_preco()+" Começo da promoção: "+promocao.getInicio().get(Calendar.DAY_OF_MONTH)+"/"+promocao.getInicio().get(Calendar.MONTH)+"/"+promocao.getInicio().get(Calendar.YEAR));
-		System.out.println(" Fim da promoção: "+promocao.getFim().get(Calendar.DAY_OF_MONTH)+"/"+promocao.getFim().get(Calendar.MONTH)+"/"+promocao.getFim().get(Calendar.YEAR));
+		System.out.println("ID_Promocao: " +produto.getId());
+		//+"   id_preco: "+promocao.getId_preco()+" Começo da promoção: "+promocao.getInicio().get(Calendar.DAY_OF_MONTH)+"/"+promocao.getInicio().get(Calendar.MONTH)+"/"+promocao.getInicio().get(Calendar.YEAR)
+		//System.out.println(" Fim da promoção: "+promocao.getFim().get(Calendar.DAY_OF_MONTH)+"/"+promocao.getFim().get(Calendar.MONTH)+"/"+promocao.getFim().get(Calendar.YEAR));
 	}
 
 	

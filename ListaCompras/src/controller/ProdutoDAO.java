@@ -33,6 +33,7 @@ public class ProdutoDAO extends DAO{
 		{
 			ProdutoDAO.listadeProdutos.add(produto);
 			Escrever(Constantes.ProdutoDs, listadeProdutos);
+			HistoricoClienteDAO.Criar(produto.getId(), id_Cliente);
 			return true;
 		}
 		

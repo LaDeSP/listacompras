@@ -14,7 +14,6 @@ public class Cliente implements Serializable{
 	private String Nome;
 	private String Senha;
 	private String Email;
-	private ListaDeProdutosDAO listadeprodutoDAO;
 	private static final AtomicInteger count = new AtomicInteger(0);
 	
 	public Cliente(String nome, String senha, String email) {
@@ -22,7 +21,6 @@ public class Cliente implements Serializable{
 		Nome = nome;
 		Senha = senha;
 		Email = email;
-		listadeprodutoDAO = new ListaDeProdutosDAO();
 	}
 
 	public String getSenha() {
@@ -45,18 +43,6 @@ public class Cliente implements Serializable{
 		Email = email;
 	}
 
-	public void show(int id) {
-		
-		listadeprodutoDAO.Listar(id);
-		
-	}
-	public ListaDeProdutosDAO getListadeprodutoDAO() {
-		return listadeprodutoDAO;
-	}
-
-	public void setListadeprodutoDAO(ListaDeProdutosDAO listadeprodutoDAO) {
-		this.listadeprodutoDAO = listadeprodutoDAO;
-	}
 
 	public void setNome(String nome) {
 		Nome = nome;
@@ -70,10 +56,5 @@ public class Cliente implements Serializable{
 
 	public String getNome() {
 		return this.Nome;
-	}
-	
-	public void InserirNaLista(Promocao promocao, int id)
-	{
-		listadeprodutoDAO.Inserir(promocao, id);
 	}
 }

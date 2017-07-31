@@ -1,29 +1,35 @@
 package view;
 
 import java.util.Scanner;
-import modelo.HistoricoCliente;
+
+import controller.HistoricoClienteDAO;
 
 
 public class ViewHistoricoCliente {
-    HistoricoCliente hc;
-    Scanner ler = new Scanner(System.in);
-    int id_produto, id_cliente; 
+    static Scanner ler = new Scanner(System.in); 
 	
-    public ViewHistoricoCliente()
-    {
-    	
-    }
-	public HistoricoCliente criar(){
-			
-		
-		System.out.println("Id Produto");
-		this.id_produto = ler.nextInt(); ler.nextLine();
-		
-		System.out.println("Id Cliente:");
-		this.id_cliente = ler.nextInt(); ler.nextLine();
-		
-		this.hc = new HistoricoCliente(id_produto, id_cliente);
-	
-		return this.hc;
+	public static void Listar()
+	{
+		HistoricoClienteDAO.Listar();
 	}
+	public static void Listar(int id)
+	{
+		HistoricoClienteDAO.Listar(id);
+	}
+	
+	public static void Excluir()
+	{
+		HistoricoClienteDAO.Listar();
+		int id;
+		id = ler.nextInt(); ler.nextLine();
+		if(HistoricoClienteDAO.RemoverHistorico(id))
+		{
+			System.out.println("Historico removido com sucesso");
+		}
+		else
+		{
+			System.out.println("Erro ao excluir historico");
+		}
+	}
+	
 }

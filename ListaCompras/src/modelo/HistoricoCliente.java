@@ -1,6 +1,8 @@
 package modelo;
 
 import java.io.Serializable;
+import java.util.concurrent.atomic.AtomicInteger;
+
 
 /*aaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
 public class HistoricoCliente implements Serializable{
@@ -11,19 +13,12 @@ public class HistoricoCliente implements Serializable{
 	private int Id;
     private int Id_produto;
     private int Id_cliente;
-    
-   
-    public HistoricoCliente (){ 
-    	
-    
-    }
+    private static final AtomicInteger count = new AtomicInteger(0);
 
     public HistoricoCliente(int id_produto, int id_cliente) {
-    	
         this.Id_produto = id_produto;
         this.Id_cliente = id_cliente;
-        
-        
+        Id = count.incrementAndGet();
     }
 
     public int getId() {
@@ -52,6 +47,6 @@ public class HistoricoCliente implements Serializable{
 
 	public void show() {
 		System.out.println("Produto: "+Id_produto+"    Cliente: "+Id_cliente);
-		
 	}
+	
 }

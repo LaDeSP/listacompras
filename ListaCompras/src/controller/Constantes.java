@@ -12,6 +12,7 @@ public class Constantes {
 	public static String PrecoDs = "PrecoDAO";
 	public static String PromocaoDs = "PromocaoDAO";
 	public static String HistoricoCDs = "HistoricoClienteDAO";
+	public static String HistoricoPs = "HistoricoPromocaoDAO";
 	public static String ListaDeProdutoDs = "ListaDeProdutpDAO";
 	
 	//Login

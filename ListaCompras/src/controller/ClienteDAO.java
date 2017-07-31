@@ -111,29 +111,6 @@ public class ClienteDAO extends DAO{
 		}
 		return false;
 	}
-	public static void InserirNaLista(PromocaoDAO promocaoDAO, int id)
-	{
-		ViewListarPromocoes viewlistarpromocoes = new ViewListarPromocoes();
-		int i;
-		
-		if(PromocaoDAO.GetPromocaoPorId(1) == null)
-		{
-			System.out.print("Não existe nenhuma promoção\n");
-			return ;
-		}
-		
-		System.out.println("Nome: " +GetCliente(id).getNome());
-		
-		//Listar as Promoções
-		viewlistarpromocoes.Show(promocaoDAO);
-		
-		//Escolher a Promoção
-		i = leitura.nextInt();
-		
-		//Inserir a promoção no Cliente
-		System.out.println("Nome: " +GetCliente(id).getNome()+ " Promocao: " +PromocaoDAO.GetPromocao(i).getId());
-		GetCliente(id).InserirNaLista( PromocaoDAO.GetPromocao(i) , id);
-	}
 	public static void Renomear_Nome(String nome, int id)
 	{
 		GetCliente(id).setNome(nome);
