@@ -55,7 +55,7 @@ public class ShowEnum {
 				case 3:
 				{
 					ViewClientes viewClientes = new ViewClientes();
-					viewClientes.cadastrar();
+					viewClientes.Criar();
 					showEnumMC();
 					break;
 

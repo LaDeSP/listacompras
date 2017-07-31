@@ -18,7 +18,7 @@ public class ViewProdutos {
 		
 		if(!ProdutoDAO.OKProduto(nome, marca))
 		{
-			System.out.println("Produto já existe");
+			System.out.println("Produto jï¿½ existe");
 		}
 		else
 		{
@@ -41,7 +41,7 @@ public class ViewProdutos {
 		id = ler.nextInt();
 		while(!ProdutoDAO.OKProduto(id))
 		{
-			System.out.print("Não existe um produto com esse numero");
+			System.out.print("Nï¿½o existe um produto com esse numero");
 			System.out.print("Produto que deve ser excluido: ");
 			id = ler.nextInt();
 		}
@@ -66,13 +66,13 @@ public class ViewProdutos {
 		ProdutoDAO.listarProdutos();
 		System.out.println("Digite 1 se quiser adicionar algum produto");
 		System.out.println("Digite 0 - Sair");
-		System.out.print("Opção: ");
+		System.out.print("Opï¿½ï¿½o: ");
 		opcao = ler.nextInt();
 		//pode ser que de erro aqui na ora de ler o inteiro
 		while(opcao != 0 && opcao != 1)
 		{
-			System.out.println("Não existe essa opcao");
-			System.out.print("Opção: ");
+			System.out.println("Nï¿½o existe essa opcao");
+			System.out.print("Opï¿½ï¿½o: ");
 			opcao = ler.nextInt();
 		}
 		if(opcao == 1)
