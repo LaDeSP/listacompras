@@ -7,12 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
-
-import controller.ClienteDAO;
-import controller.PrecoDAO;
-import controller.ProdutoDAO;
 import controller.PromocaoDAO;
-import controller.SupermercadoDAO;
 
 public class ViewPromocoes {
 	static Scanner ler = new Scanner(System.in);
@@ -22,7 +17,12 @@ public class ViewPromocoes {
 	{
 		
 	}
+	public static void InicioCriar(int id)
+	{
+		ViewPreco.criar(id);
+	}
 	public void criar(int id_preco) {
+		
 		String dataI;
 		Calendar inicio = new GregorianCalendar();
 		Calendar fim = new GregorianCalendar();

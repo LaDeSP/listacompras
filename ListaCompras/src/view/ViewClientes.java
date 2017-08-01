@@ -65,7 +65,7 @@ public class ViewClientes {
 		System.out.println("Nome alterado com sucesso!!");
 	}
 	
-	public static void Aterar_Senha(int id)
+	public static void Alterar_Senha(int id)
 	{
 		String senha;
 		System.out.print("Digite a novo senha: ");
@@ -80,7 +80,7 @@ public class ViewClientes {
 		System.out.println("Senha alterada com sucesso!!");
 	}
 	
-	public static void Aterar_Email(int id)
+	public static void Alterar_Email(int id)
 	{
 		String email;
 		System.out.print("Digite o novo email: ");

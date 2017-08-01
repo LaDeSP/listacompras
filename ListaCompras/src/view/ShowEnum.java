@@ -203,8 +203,6 @@ public class ShowEnum {
 		
 		int i = 0, y = 0;
 		
-		ViewClientes viewcliente = new ViewClientes();
-		
 		for(SubMenuC copcao: SubMenuC.values()){
 			System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
 	 	}
@@ -218,17 +216,17 @@ public class ShowEnum {
 			
 				case 1:
 				{
-					viewcliente.Alterar_Nome(id);
+					ViewClientes.Alterar_Nome(id);
 					break;
 				}
 				case 2:
 				{
-					viewcliente.Alterar_Email(id);;
+					ViewClientes.Alterar_Email(id);;
 					break;
 				}
 				case 3:
 				{
-					viewcliente.Alterar_Senha(id);;
+					ViewClientes.Alterar_Senha(id);;
 					break;
 				} 
 				case 0: 
@@ -270,14 +268,15 @@ public class ShowEnum {
 				case 1:
 				{
 					int id_Cliente = 0;
-					viewprodutos.Criar(id_Cliente);
+					ViewProdutos.Criar(id_Cliente);
+					//de onde veio esse localDAO
 					viewsupermercado.showAndSet(localDAO);
 					//Produto produto = produtoDAO.getLastProduto();
 					break;
 				}
 				case 2:
 				{
-					viewprodutos.Listar();
+					ViewProdutos.Listar();
 					//produtoDAO.listarProdutos();
 					break;
 				}
@@ -306,19 +305,20 @@ public class ShowEnum {
 		
 	switch(y)
 	{
+		//A primeira opção está escrito inserir promoção, a terceira opção está escrito criar promoção, está meio redundante
 		case 1:
 		{
-			precoDAO.criarPromocao(i, false, i, i, i, null, null);
+			ViewPromocoes.InicioCriar(id);
 			break;
 		}
 		case 2:
 		{
-			promocaoDAO.listar();
+			PromocaoDAO.listar();
 			break;
 		}
 		case 3:
 		{
-			precoDAO.criarPreco(i, false, i, i, i);
+			//precoDAO.criarPreco(i, false, i, i, i);
 		}
 		case 0:
 		{
