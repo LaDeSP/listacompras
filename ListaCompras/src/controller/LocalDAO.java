@@ -127,4 +127,35 @@ public class LocalDAO extends DAO{
         return false;
     }
 
+    public static boolean Renomear_Cidade(String cidade, String CEP) {
+
+        Local local = GetLocal(CEP);
+        if (local != null) {
+            local.setCidade(cidade);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean Renomear_Estado(String estado, String CEP) {
+        Local local = GetLocal(CEP);
+        if (local != null) {
+            local.setEstado(estado);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean Renomear_Rua(String rua, String CEP) {
+        Local local = GetLocal(CEP);
+        if (local != null) {
+            local.setRua(rua);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

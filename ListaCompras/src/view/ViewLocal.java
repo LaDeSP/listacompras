@@ -45,4 +45,58 @@ public class ViewLocal {
             System.out.println("Erro ao remover local.");
         }
     }
+
+    public static void Alterar_Cidade() {
+        String cep, cidade;
+
+        System.out.println("Digite o CEP do local: ");
+        cep = ler.nextLine();
+        while (LocalDAO.OKLocal(cep) == false) {
+            System.out.println("CEP invalido!\nDigite um CEP válido: ");
+            cep = ler.nextLine();
+            System.out.println("Digite nome da cidade: ");
+            cidade = ler.nextLine();
+        }
+        if (LocalDAO.Renomear_Cidade(cidade, cep)) {
+            System.out.println("Cidade alterada com sucesso.");
+        } else {
+            System.out.println("Erro para alterar.");
+        }
+    }
+
+    public static void Alterar_Estado() {
+        String cep, estado;
+
+        System.out.println("Digite o CEP do local: ");
+        cep = ler.nextLine();
+        while (LocalDAO.OKLocal(cep) == false) {
+            System.out.println("CEP invalido!\nDigite um CEP válido: ");
+            cep = ler.nextLine();
+            System.out.println("Digite nome do estado: ");
+            estado = ler.nextLine();
+        }
+        if (LocalDAO.Renomear_Estado(estado, cep)) {
+            System.out.println("Estado alterado com sucesso.");
+        } else {
+            System.out.println("Erro ao alterar.");
+        }
+    }
+
+    public static void Alterar_Rua() {
+        String cep, rua;
+
+        System.out.println("Digite o CEP do local: ");
+        cep = ler.nextLine();
+        while (LocalDAO.OKLocal(cep) == false) {
+            System.out.println("CEP invalido!\nDigite um CEP válido: ");
+            cep = ler.nextLine();
+            System.out.println("Digite nome da rua: ");
+            rua = ler.nextLine();
+        }
+        if (LocalDAO.Renomear_Rua(rua, cep)) {
+            System.out.println("Rua alterada com sucesso.");
+        } else {
+            System.out.println("Erro para alterar.");
+        }
+    }
 }
