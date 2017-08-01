@@ -26,7 +26,7 @@ public class ViewADMs {
 	email = ler.nextLine();
 	
 	//falta ver como pegar id_supermercado
-	
+
 		if(AdministradorDAO.criarAdministrador(nome, email, senha, id_supermercado))
 		{
 			System.out.println("Administrador criado com sucesso");
