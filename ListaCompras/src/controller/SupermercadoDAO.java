@@ -1,10 +1,10 @@
 package controller;
 
+import modelo.Supermercado;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-import modelo.Supermercado;
 
 
 public class SupermercadoDAO extends DAO{
@@ -107,18 +107,25 @@ public class SupermercadoDAO extends DAO{
 		return null;
 		
 	}
-	public static void RemoveSupermercado(int id)
-	{
-		System.out.print("Entrou\n");
-		for(Supermercado supermercado : listadeSupermercados)
-		{
-			if(id == supermercado.getId())
-			{
-				SupermercadoDAO.listadeSupermercados.remove(supermercado);
-				return ;
-			}
+
+    public static boolean RemoveSupermercado(int id) {
+        System.out.print("Entrou\n");
+        for (Supermercado supermercado : listadeSupermercados) {
+            if (id == supermercado.getId()) {
+                SupermercadoDAO.listadeSupermercados.remove(supermercado);
+                return true;
+            }
 		}
-	}
-	
+        return false;
+    }
+
+    public static boolean Renomear_Nome(int id, String nome) {
+        Supermercado supermercado = GetSupermercado(id);
+        if (supermercado != null) {
+            supermercado.setNome(nome);
+            return true;
+        }
+        return false;
+    }
 
 }

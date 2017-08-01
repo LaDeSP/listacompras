@@ -1,27 +1,39 @@
 package controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import modelo.Local;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class LocalDAO extends DAO{
 	private static List<Local> listadeLocal = new ArrayList<Local>();
 	static Local local = null;
 	//FileOutputStream fos= new FileOutputStream("LocalDAO");//criar serialização. Salvar e ler dados. Output e input Stream 
 	//ObjectOutputStream oos= new ObjectOutputStream(fos);
-	
+    public static boolean verificaCEP(String cep) {
+        String padrao = "^\\d{5}-\\d{3}%";
+
+
+        if (cep.matches(padrao)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 	public static boolean criar(String cEP, String cidade, String estado, String Rua) {
-		
-		local = new Local(cEP, cidade, estado, Rua);
-		if(local != null)
-		{
-			LocalDAO.listadeLocal.add(local);
-			System.out.println("\nLocal criado com sucesso");
-			return true;
-		}
-		return false;
+
+        if (OKLocal(cEP, cidade, estado, Rua)) { //verifica se o local já existe
+
+            local = new Local(cEP, cidade, estado, Rua);
+            if (local != null) {
+                LocalDAO.listadeLocal.add(local);
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
 	}
 	
 	public static void Escrever()
@@ -70,7 +82,18 @@ public class LocalDAO extends DAO{
 		return false;
 		
 	}
-	public static Local GetLocal(String CEP)
+
+    public static boolean OKLocal(String CEP, String cidade, String estado, String rua) {
+        for (Local local : listadeLocal) {
+            if (CEP.equals(local.getCEP()) && cidade.equals(local.getCidade()) && estado.equals(local.getEstado()) && rua.equals(local.getRua())) {
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+    public static Local GetLocal(String CEP)
 	{
 		for(Local local : listadeLocal)
 		{
@@ -90,5 +113,18 @@ public class LocalDAO extends DAO{
 		}
 		return false;
 	}
+
+    public static boolean RemoverLocal(String CEP) {
+        //VERIFICA SE EXISTE CEP
+        if (OKLocal(CEP)) {
+            for (Local local : listadeLocal) {
+                if (CEP.equals(local.getCEP())) {
+                    LocalDAO.listadeLocal.remove(local);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
 }
