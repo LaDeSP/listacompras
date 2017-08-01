@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import modelo.Preco;
@@ -23,25 +22,29 @@ public class PrecoDAO extends DAO{
 	}
 	
 	
-	public static void criarPreco(int id_produto, boolean status, 
+	public static boolean criarPreco(int id_produto, boolean status, 
 			int id_supermercado, int id_cliente, double precoProduto) {
 		preco = new Preco(id_produto, status, id_supermercado, id_cliente, precoProduto);
 		if(preco != null)
 		{
-			System.out.println("\nPre�o criado com sucesso!!\n");
 			PrecoDAO.listadePrecos.add(preco);
-		}
+			return true;
+		}else
+			return false;
 	}
-	public static void criarPromocao(int id_produto, boolean status, int id_supermercado, 
-			int id_cliente, double precoProduto, Calendar inicio, Calendar fim) {
-		preco = new Preco(id_produto, status, id_supermercado, id_cliente, precoProduto);
-		if(preco != null)
-		{
-			PromocaoDAO.criarPromocao(preco.getId(), inicio, fim);
-			System.out.println("\nPromo��o criado com sucesso!!\n");
-			PrecoDAO.listadePrecos.add(preco);
+	
+	public static boolean renomear_preco(int id, double precoProduto) {
+		for(Preco preco: listadePrecos) {
+			if(preco.getId()==id) {
+				preco.setPrecoProduto(precoProduto);
+				return true;
+			}
 		}
+		return false;	
+		
 	}
+	
+	
 	
 	public static Preco getLastPreco(){
 		return preco;
