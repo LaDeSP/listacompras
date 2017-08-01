@@ -1,16 +1,16 @@
 package view;
 
-public enum MenuCliente{ 
-	produtos("1", "Produtos"),
-	promocoes("2", "Promoções"),
-	supermercado("3", "Supermercados"),
-	clientes("4", "Minha Conta"),
+public enum MenuPromo{ 
+	
+	novapromocao("1", "Nova Promoção"),
+	listarpromocoes("2", "Listar Promoção"),
+	criarpromocao("3", "Criar promoção"),
 	sair("0", "Sair");
 	
 	final String codigo1; 
 	final String nome1; 
 
-	MenuCliente(String opcao, String name){
+	MenuPromo(String opcao, String name){
 		codigo1 = opcao; 	
 	    nome1 = name;
 	    }
@@ -23,3 +23,4 @@ public enum MenuCliente{
       }
 }
 
+	

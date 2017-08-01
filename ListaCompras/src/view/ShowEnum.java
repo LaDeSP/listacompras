@@ -29,9 +29,6 @@ public class ShowEnum {
 			System.out.printf("%s %s\n", copcao.codigo, copcao.nome);
 		}
 		
-		PromocaoDAO promocaoDAO = new PromocaoDAO();
-	
-		
 		int i = 0, y = 0; 
 		
 		y = ler.nextInt();
@@ -41,15 +38,13 @@ public class ShowEnum {
 			switch (y)
 			{
 				case 1: 
-				{   System.out.printf("Prestando");
+				{   
 					listaDAO.Listar(i);
-					i = -1;
 					break;
 				}
 				case 2: 
-				{   System.out.printf("Prestando");
-					//promocaoDAO.listar();
-					i = -1;
+				{   
+					promocaoDAO.listar();
 					break;
 				}
 				case 3:
@@ -97,17 +92,17 @@ public class ShowEnum {
 				case 1:
 				{
 					id = viewlogin.ViewloginCliente();
-					System.out.println("ID: "+id);
+					//System.out.println("ID: "+id);
 				
 					if(id != 0)
 					{
 						x = 1;
-						System.out.println("ID -> "+id+"  Entrou");
+						System.out.println("\n\nID -> "+id+"  Entrou");
 						showEnumMC();
 					}
 					else
 					{
-						System.out.println("Saiu");
+						System.out.println("\nCliente não existe!\n\n1 Tentar Novamente\n0 Voltar");
 					}
 					break;
 				}
@@ -135,6 +130,10 @@ public class ShowEnum {
 					showEnumMP();
 					break;
 				}
+				default:
+				{
+				  System.out.println("Opção inválida!");
+				}
 			}
 		}
 		return i;
@@ -142,7 +141,8 @@ public class ShowEnum {
 		}
 	
 
-	public int showEnumMC() throws Exception{
+	public int showEnumMC() throws Exception
+	{
 		
 		ViewProdutos viewprodutos = new ViewProdutos();
 		ViewPromocoes viewpromocoes = new ViewPromocoes();
@@ -172,7 +172,7 @@ public class ShowEnum {
 				}
 				case 2:
 				{
-					viewpromocoes.Menu(precoDAO, promocaoDAO, id, supermercadoDAO, produtoDAO);
+					showEnumMPromo();
 					break;
 				}
 				case 3:
@@ -181,8 +181,9 @@ public class ShowEnum {
 					break;
 				}
 				case 4:
-				{
-					viewclientes.MenuCliente(id, promocaoDAO);
+				{    
+					showEnumSMC();
+					// era listar alguma coisa viewclientes.MenuCliente(id, promocaoDAO);
 					break;
 				}
 				case 0: 
@@ -198,19 +199,69 @@ public class ShowEnum {
 		return i;
 		}
 	
+	public int showEnumSMC(){
+		
+		int i = 0, y = 0;
+		
+		ViewClientes viewcliente = new ViewClientes();
+		
+		for(SubMenuC copcao: SubMenuC.values()){
+			System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
+	 	}
+		
+		while(i == 0)
+		{	
+			y = ler.nextInt();
+			
+			switch(y)
+			{
+			
+				case 1:
+				{
+					viewcliente.Alterar_Nome(id);
+					break;
+				}
+				case 2:
+				{
+					viewcliente.Alterar_Email(id);;
+					break;
+				}
+				case 3:
+				{
+					viewcliente.Alterar_Senha(id);;
+					break;
+				} 
+				case 0: 
+				{
+					i = -1; 
+					break; 
+			    }
+			  }
+		  }
+		return i;
+	   }
+	
+	
 	public int showEnumMPro(ProdutoDAO produtoDAO)
-	{
-		int y = 0, i = 1;
+	{   
+		boolean flag; 
+		
+	    int y = 0, i = 0;
 		
 		ViewProdutos viewprodutos = new ViewProdutos();
-	//	ViewPromocoes viewprs = new ViewPrecos();
+	//	ViewPromocoes viewprecos = new ViewPrecos();
 		ViewSupermercado viewsupermercado = new ViewSupermercado();
+		
+		//if (flag = true){
+		//	viewsupermercado.showAndSet(localDAO);
+		//}
+		
 		
 		for(MenuProduto copcao: MenuProduto.values()){
 			System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
 	 	}
 		
-		while(i != 0)
+		while(i == 0)
 		{	
 			y = ler.nextInt();
 			
@@ -220,8 +271,8 @@ public class ShowEnum {
 				{
 					int id_Cliente = 0;
 					viewprodutos.Criar(id_Cliente);
-					//viewsupermercado.showAndSet(localDAO);
-					Produto produto = produtoDAO.getLastProduto();
+					viewsupermercado.showAndSet(localDAO);
+					//Produto produto = produtoDAO.getLastProduto();
 					break;
 				}
 				case 2:
@@ -232,7 +283,7 @@ public class ShowEnum {
 				}
 				case 0:
 				{
-					i = 0;
+					i = -1;
 					break;
 						
 				}
@@ -240,4 +291,45 @@ public class ShowEnum {
 		}
 		return i;
       }
+	
+	public int showEnumMPromo(){
+	
+	int y = 0, i = 0;
+	
+	for(MenuPromo copcao: MenuPromo.values()){
+		System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
+ 	}
+	
+	while(i == 0)
+	{	
+		y = ler.nextInt();
+		
+	switch(y)
+	{
+		case 1:
+		{
+			precoDAO.criarPromocao(i, false, i, i, i, null, null);
+			break;
+		}
+		case 2:
+		{
+			promocaoDAO.listar();
+			break;
+		}
+		case 3:
+		{
+			precoDAO.criarPreco(i, false, i, i, i);
+		}
+		case 0:
+		{
+			i = -1;
+			break;
+				
+	   	}
+     }
+    }
+	return i;
+   }
 }
+
+	
