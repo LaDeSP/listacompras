@@ -1,7 +1,6 @@
 package controller;
 
 import view.TelaInicial;
-import view.Menu;
 import view.MenuPrincipal;
 import view.ShowEnum;
 
@@ -17,7 +16,6 @@ public class Sistema {
 	public static void main(String[] args) throws Exception{
 		
 		TelaInicial inicio = new TelaInicial();
-		Menu menus = new Menu();
 		ShowEnum show = new ShowEnum();
 		int i = 0;
 		int j = 1;
