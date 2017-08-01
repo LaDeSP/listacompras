@@ -24,11 +24,11 @@ public class ViewClientes {
 		
 		if(resposta == false)
 		{
-			System.out.println("Erro ao criar o cliente");
+			System.out.println("\n\nErro ao criar o cliente\n\n");
 		}
 		else
 		{
-			System.out.println("Cliente criado com sucesso");
+			System.out.println("\n\nCliente criado com sucesso\n\n");
 		}
 	}
 	
@@ -42,11 +42,11 @@ public class ViewClientes {
 		resposta = ClienteDAO.RemoverCliente(id);
 		if(resposta == false)
 		{
-			System.out.println("Erro ao excluir o cliente");
+			System.out.println("\n\nErro ao excluir o cliente\n\n");
 		}
 		else
 		{
-			System.out.println("Cliente excluido com sucesso");
+			System.out.println("\n\nCliente excluido com sucesso\n\n");
 		}
 	}
 	
@@ -57,12 +57,12 @@ public class ViewClientes {
 		nome = ler.nextLine();
 		while(ClienteDAO.OKCliente(nome) == true)
 		{
-			System.out.println("Esse nome j· existe");
+			System.out.println("Esse nome j√° existe");
 			System.out.print("Digite o novo nome: ");
 			nome = ler.nextLine();
 		}
 		ClienteDAO.Renomear_Nome(nome, id);
-		System.out.println("Nome alterado com sucesso!!");
+		System.out.println("\n\nNome alterado com sucesso!!\n\n");
 	}
 	
 	public static void Alterar_Senha(int id)
@@ -77,7 +77,7 @@ public class ViewClientes {
 			senha = ler.nextLine();
 		}
 		ClienteDAO.Renomear_Senha(senha, id);
-		System.out.println("Senha alterada com sucesso!!");
+		System.out.println("\n\nSenha alterada com sucesso!!\n\n");
 	}
 	
 	public static void Alterar_Email(int id)
@@ -93,7 +93,7 @@ public class ViewClientes {
 			System.out.print("\n");
 		}
 		ClienteDAO.Renomear_Email(email, id);
-		System.out.println("Email alterado com sucesso!!");
+		System.out.println("\n\nEmail alterado com sucesso!!\n\n");
 	}
 	
 	public static void Listar()

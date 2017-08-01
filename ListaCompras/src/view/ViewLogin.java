@@ -31,8 +31,6 @@ public class ViewLogin {
 			x = cliente.getId();
 			System.out.println(x);
 			
-		}else{
-			System.out.print("Nome ou senha incorretos!");
 		}
 		
 		return x;

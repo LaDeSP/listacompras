@@ -1,15 +1,15 @@
 package view;
 
-public enum SubMenuC {
-	altnome("1", "Alterar nome"),
-	altemail("2", "Alterar email"),
-	altsenha("3", "Alterar senha"),
-	sair("0", "Voltar");
+public enum MenuADMs{ 
+	produtos("1", "Produtos"),
+	promocoes("2", "Promoções"),
+	supermercado("3", "Supermercados"),
+	sair("0", "Sair");
 	
 	final String codigo1; 
 	final String nome1; 
 
-	SubMenuC(String opcao, String name){
+	MenuADMs(String opcao, String name){
 		codigo1 = opcao; 	
 	    nome1 = name;
 	    }
@@ -20,4 +20,5 @@ public enum SubMenuC {
 	public String getNome(){
 		return nome1;
       }
-  }
+}
+
