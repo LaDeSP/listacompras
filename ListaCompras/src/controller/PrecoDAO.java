@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Preco;
+import view.ViewPromocoes;
 
 
 public class PrecoDAO extends DAO{
@@ -28,6 +29,17 @@ public class PrecoDAO extends DAO{
 		if(preco != null)
 		{
 			PrecoDAO.listadePrecos.add(preco);
+			return true;
+		}else
+			return false;
+	}
+	public static boolean criarPromocao(int id_produto, boolean status, 
+			int id_supermercado, int id_cliente, double precoProduto) {
+		preco = new Preco(id_produto, status, id_supermercado, id_cliente, precoProduto);
+		if(preco != null)
+		{
+			PrecoDAO.listadePrecos.add(preco);
+			ViewPromocoes.InicioCriar(preco.getId());
 			return true;
 		}else
 			return false;
