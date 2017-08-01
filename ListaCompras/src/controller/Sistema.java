@@ -17,7 +17,7 @@ public class Sistema {
 		
 		TelaInicial inicio = new TelaInicial();
 		ShowEnum show = new ShowEnum();
-		int i = 0;
+		int i = 1;
 		int j = 1;
 		
 		inicio.LerArquivo();
