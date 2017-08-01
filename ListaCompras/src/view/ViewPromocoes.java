@@ -22,9 +22,8 @@ public class ViewPromocoes {
 	{
 		
 	}
-	public void criar() {
+	public void criar(int id_preco) {
 		String dataI;
-		int id_preco;
 		Calendar inicio = new GregorianCalendar();
 		Calendar fim = new GregorianCalendar();
 		try {
@@ -112,7 +111,7 @@ public class ViewPromocoes {
 		PromocaoDAO.Renomear_Fim(fim, id);
 		System.out.println("Data inicio alterada com sucesso!!");
 	}
-
+	/*
 	public void Menu(PrecoDAO precoDAO, PromocaoDAO promocaoDAO, int id, SupermercadoDAO supermercadoDAO, ProdutoDAO produtoDAO)
 	{
 		int i = 1;
@@ -170,5 +169,5 @@ public class ViewPromocoes {
 			}
 		}
 	}
-
+	*/
 }

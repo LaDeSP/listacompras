@@ -1,22 +1,18 @@
 package view;
 
-import controller.ClienteDAO;
 import controller.PrecoDAO;
-import controller.ProdutoDAO;
-import controller.PromocaoDAO;
-import controller.SupermercadoDAO;
 import java.util.Scanner;
 
 public class ViewPreco {
 	static Scanner ler = new Scanner(System.in);
 	
 	//criar
-	public void criar() {
+	public void criar(int id_produto, int id_supermercado, int id_cliente) {
 		double preco;
 		System.out.println("Digite o preço: ");
 		preco=ler.nextDouble();
 		
-		if(PrecoDAO.criarPreco(id_produto, status, id_supermercado, id_cliente, preco))
+		if(PrecoDAO.criarPreco(id_produto, true, id_supermercado, id_cliente, preco))
 			System.out.println("Preço ok");
 		else
 			System.out.println("Erro preço");

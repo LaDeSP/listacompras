@@ -1,10 +1,6 @@
 package view;
 
 import java.util.Scanner;
-
-import modelo.Supermercado;
-
-import controller.LocalDAO;
 import controller.SupermercadoDAO;
 
 public class ViewSupermercados {
@@ -25,11 +21,9 @@ public class ViewSupermercados {
 		id_local = ler.nextInt();
 		
 		SupermercadoDAO.criar(nome, id_local);
-			
-		
 	}
 	
-		
+	/*
 	public void Menu(SupermercadoDAO supermercadoDAO, LocalDAO localDAO)
 	{
 		int i = 1, j;
@@ -66,6 +60,6 @@ public class ViewSupermercados {
 				}
 			}
 		}
-	}
+	}*/
 
 }
