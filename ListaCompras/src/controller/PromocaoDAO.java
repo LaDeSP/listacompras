@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import modelo.Cliente;
+import modelo.Produto;
 import modelo.Promocao;
 
 
@@ -14,7 +15,6 @@ public class PromocaoDAO extends DAO{
 	private static List<Promocao> listadePromocao = new ArrayList<Promocao>();
 	private static Promocao promocao = null;
 	public PromocaoDAO(){
-		
 	}
 	
 	public static void Escrever()
@@ -28,12 +28,14 @@ public class PromocaoDAO extends DAO{
 		return true;
 	}
 	
-	public static void criarPromocao(int id_preco, Calendar inicio, Calendar fim){
+	public static boolean criar(int id_preco, Calendar inicio, Calendar fim){
 		promocao = new Promocao(id_preco, inicio, fim);
 		if(promocao != null)
 		{
 			PromocaoDAO.listadePromocao.add(promocao);
-			System.out.println("\nPromoão criada com sucesso");
+			return true;
+		}else {
+			return false;
 		}
 	}
 	
@@ -68,15 +70,36 @@ public class PromocaoDAO extends DAO{
 		return null;
 	}
 	public static Promocao GetPromocaoPorId(int id){
-		int z = 1;
+
 		for (Promocao promocao : listadePromocao) 
 		{
 			if(id == promocao.getId())
 			{
 				return promocao;
 			}
-			z++;
+		
 		}
 		return null;
 	}
+	public static boolean RemovePromocao(int id)
+	{
+		for(Promocao promocao : listadePromocao)
+		{
+			if(id == promocao.getId())
+			{
+				PromocaoDAO.listadePromocao.remove(promocao);
+				return true;
+			}
+		}
+		return false;
+	}
+	public static void Renomear_Inicio(Calendar inicio, int id)
+	{
+		GetPromocaoPorId(id).setInicio(inicio);
+	}
+	public static void Renomear_Fim(Calendar fim, int id)
+	{
+		GetPromocaoPorId(id).setFim(fim);
+	}
+	
 }

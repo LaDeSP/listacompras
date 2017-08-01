@@ -8,7 +8,6 @@ import modelo.Administrador;
 import modelo.Cliente;
 import modelo.HistoricoCliente;
 
-
 public class AdministradorDAO extends DAO{
 	
 	private static List<Administrador> listadeadms = new ArrayList<Administrador>();
