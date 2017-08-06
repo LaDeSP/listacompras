@@ -54,6 +54,7 @@ public class ViewPromocoes {
 	}
 	
 	public void excluir()	{
+
 		int id;
 		PromocaoDAO.listar();
 		System.out.print("ID da Promocao que deve ser excluido: ");
@@ -73,7 +74,8 @@ public class ViewPromocoes {
 			System.out.print("Promocao excluido com sucesso!!");
 		}
 	}
-	public static void alterar_Inicio(int id)
+	
+public static void alterar_Inicio(int id)
 	{
 		String dataI;
 		Calendar inicio= new GregorianCalendar();
@@ -89,10 +91,14 @@ public class ViewPromocoes {
 				e.printStackTrace();
 			}
 			
-		PromocaoDAO.Renomear_Inicio(inicio, id);
+		if(PromocaoDAO.Renomear_Inicio(inicio, id)) {
 		System.out.println("Data inicio alterada com sucesso!!");
+		}else {
+			System.out.println("Erro ao alterar...");
+		}
 	}
-	public static void alterar_Fim(int id)
+
+public static void alterar_Fim(int id)
 	{
 		String dataI;
 		Calendar fim= new GregorianCalendar();
@@ -108,8 +114,11 @@ public class ViewPromocoes {
 				e.printStackTrace();
 			}
 			
-		PromocaoDAO.Renomear_Fim(fim, id);
+		if(PromocaoDAO.Renomear_Fim(fim, id)) {
 		System.out.println("Data inicio alterada com sucesso!!");
+		}else {
+			System.out.println("Erro ao alterar..");
+		}
 	}
 	/*
 	public void Menu(PrecoDAO precoDAO, PromocaoDAO promocaoDAO, int id, SupermercadoDAO supermercadoDAO, ProdutoDAO produtoDAO)

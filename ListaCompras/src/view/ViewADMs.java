@@ -18,14 +18,16 @@ public class ViewADMs {
 	String nome, senha, email; int id_supermercado = 0;
 	 
 	
-	System.out.print("Digite o nome da conta: ");
+	System.out.println("Digite o nome da conta: ");
 	nome = ler.nextLine();
-	System.out.print("Digite uma senha: ");
+	System.out.println("Digite uma senha: ");
 	senha = ler.nextLine();
-	System.out.print("Digite um email: ");
+	System.out.println("Digite um email: ");
 	email = ler.nextLine();
+	AdministradorDAO.Listar();
+	System.out.println("\n Digite o ID do supermercado: ");
+	id_supermercado = ler.nextInt();
 	
-	//falta ver como pegar id_supermercado
 
 		if(AdministradorDAO.criarAdministrador(nome, email, senha, id_supermercado))
 		{
@@ -41,16 +43,16 @@ public class ViewADMs {
 		int id;
 		
 		AdministradorDAO.Listar();
-		System.out.print("Digite o id da conta que quer excluir: ");
+		System.out.print("Digite o id da conta que deseja excluir: ");
 		id = ler.nextInt();
 		
 		if(AdministradorDAO.RemoverAdm(id))
 		{
-			System.out.println("Administrador excluido com sucesso");
+			System.out.println("Administrador excluido com sucesso!");
 		}
 		else
 		{
-			System.out.println("Erro ao excluir o Administrador");
+			System.out.println("Erro ao excluir o Administrador...");
 		}
 	}
 	public static void alterar_Nome(int id)
@@ -147,7 +149,7 @@ public class ViewADMs {
 					AdministradorDAO.Listar();
 					System.out.print("Opção: ");
 					j = ler.nextInt();
-					AdministradorDAO.RemoverADM(j);
+					AdministradorDAO.RemoverAdm(j);
 					break;
 				}
 				case 0:
