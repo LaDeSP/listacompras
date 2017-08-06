@@ -36,17 +36,16 @@ public class AdministradorDAO extends DAO{
 		//verificar se o id_supermercado existe
 		while(SupermercadoDAO.GetSupermercado(id_supermercado)==null){
 			System.out.print("Id do supermercado inexistente");
-			
-			SupermercadoDAO.getListadeSupermercados();
+			Listar();
 			System.out.printf("Digite o id_supermercado: ");
 			id_supermercado=leitura.nextInt();
 			
 		}
 			
-		
-		senha = MD5.criptografar(senha); //criptografamos a senha
+		senha = MD5.criptografar(senha); //criptografar a senha
 		
 		Administrador administrador = new Administrador(Nome, senha, email, id_supermercado); //criamos o adm
+		
 		
 		if(administrador==null) {
 			return false;
@@ -57,14 +56,24 @@ public class AdministradorDAO extends DAO{
 	}
 	public static boolean RemoverAdm(int id)
 	{
-		for(Administrador administrador : listadeadms)
-		{
-			if(id == administrador.getId())
-			{
-				AdministradorDAO.listadeadms.remove(administrador);
-				return true;
-			}
+				
+		while(OKId(id)==false) {//verifica se o id existe
+			System.out.println("Id inexistente!");
+			Listar();
+			System.out.println("Digite o ID do Adm: ");
+			id=leitura.nextInt();
 		}
+		
+			for(Administrador administrador : listadeadms)
+			{
+				if(id == administrador.getId())
+				{
+					AdministradorDAO.listadeadms.remove(administrador);
+					return true;
+				}
+			}
+		
+		
 		return false;
 	}
 	public static void Escrever()
@@ -95,6 +104,16 @@ public class AdministradorDAO extends DAO{
 		return false;
 		
 	}
+	public static boolean OKId(int id_adm) {
+		for(Administrador adm : listadeadms)
+		{
+			if(id_adm==adm.getId())
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 	public static Administrador GetAdm(String Nome)
 	{
 		for(Administrador adm : listadeadms)
@@ -119,18 +138,7 @@ public class AdministradorDAO extends DAO{
 		return null;
 		
 	}
-	public static void RemoverADM(int id)
-	{
-		for(Administrador adm : listadeadms)
-		{
-			if(id == adm.getId())
-			{
-				AdministradorDAO.listadeadms.remove(adm);
-				return ;
-			}
-		}
-		
-	}
+	
 	public static void Renomear_Nome(String nome, int id) //renomear nome
 	{
 		GetAdm(id).setNome(nome);

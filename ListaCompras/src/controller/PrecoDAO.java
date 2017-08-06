@@ -25,6 +25,7 @@ public class PrecoDAO extends DAO{
 	
 	public static boolean criarPreco(int id_produto, boolean status, 
 			int id_supermercado, int id_cliente, double precoProduto) {
+		
 		preco = new Preco(id_produto, status, id_supermercado, id_cliente, precoProduto);
 		if(preco != null)
 		{
@@ -45,15 +46,26 @@ public class PrecoDAO extends DAO{
 			return false;
 	}
 	
-	public static boolean renomear_preco(int id, double precoProduto) {
-		for(Preco preco: listadePrecos) {
-			if(preco.getId()==id) {
-				preco.setPrecoProduto(precoProduto);
+	public static boolean renomear_preco(int id_supermercado, int id_produto, double preco) {
+		for(Preco p: listadePrecos) {
+			if(p.getId_supermercado()==id_supermercado && p.getId_produto()==id_produto) {
+				p.setPrecoProduto(preco);
 				return true;
 			}
 		}
 		return false;	
+	}
+	public static boolean remover(int id_supermercado, int id_produto) {
 		
+		for(Preco p : listadePrecos) {
+			if(p.getId_supermercado()==id_supermercado && p.getId_produto()==id_produto) {
+				PrecoDAO.listadePrecos.remove(p);
+				return true;
+			}
+		}
+		
+		
+		return false;
 	}
 	
 	
