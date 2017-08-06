@@ -3,6 +3,8 @@ package modelo;
 import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import controller.ClienteDAO;
+
 public class Produto implements Serializable{
 	/**
 	 * 
@@ -52,7 +54,7 @@ public class Produto implements Serializable{
 	}
 	public void show() {
 		// TODO Auto-generated method stub
-		System.out.println(this.id+"- "+this.Nome+" "+this.Marca+"  Cliente que criou esse produto: "+id_Cliente);
+		System.out.println(this.id+"- "+this.Nome+" "+this.Marca+"  Criador desse produto: "+id_Cliente);
 		
 	}
 	

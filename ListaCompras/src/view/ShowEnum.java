@@ -32,16 +32,15 @@ public class ShowEnum {
 
 		// TODO Auto-generated method stub
 
-		for(MenuPrincipal copcao: MenuPrincipal.values()){
-			System.out.printf("%s %s\n", copcao.codigo, copcao.nome);
-		}
-
 		int i = 0, y = 0; 
 
 		y = ler.nextInt();
 
 		while (i == 0){
-
+			
+			for(MenuPrincipal copcao: MenuPrincipal.values()){
+				System.out.printf("%s %s\n", copcao.codigo, copcao.nome);
+			}
 			switch (y)
 			{
 			case 1: 
@@ -86,14 +85,13 @@ public class ShowEnum {
 
 	public int showEnumML() throws Exception{
 
-		for(MenuLogin copcao: MenuLogin.values()){
-			System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
-		}
 		int i = 0, y = 0, x = 0;
 
 		while(i == 0)
 		{
-
+			for(MenuLogin copcao: MenuLogin.values()){
+				System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
+			}
 			y = ler.nextInt();
 
 			switch(y)
@@ -163,12 +161,12 @@ public class ShowEnum {
 		//ClienteDAO.listar();
 		System.out.println("Bem Vindo!!");// "+ClienteDAO.GetCliente(id).getNome());
 
-		for(MenuCliente copcao: MenuCliente.values()){
-			System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
-		}
 
 		while(i == 0)
 		{	
+			for(MenuCliente copcao: MenuCliente.values()){
+				System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
+			}
 			y = ler.nextInt();
 
 			switch(y)
@@ -218,12 +216,11 @@ public class ShowEnum {
 
 		int i = 0, y = 0;
 
-		for(SubMenuC copcao: SubMenuC.values()){
-			System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
-		}
-
 		while(i == 0)
 		{	
+			for(SubMenuC copcao: SubMenuC.values()){
+				System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
+			}
 			y = ler.nextInt();
 
 			switch(y)
@@ -268,12 +265,11 @@ public class ShowEnum {
 
 		int y = 0, i = 0;
 
-		for(MenuProduto copcao: MenuProduto.values()){
-			System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
-		}
-
 		while(i == 0)
 		{	
+			for(MenuProduto copcao: MenuProduto.values()){
+				System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
+			}
 			y = ler.nextInt();
 
 			switch(y)
@@ -368,12 +364,12 @@ public class ShowEnum {
 
 		int i = 0, y = 0;
 		
-		for(MenuADMs copcao: MenuADMs.values()){
-			System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
-		}
 
 		while(i == 0)
 		{	
+			for(MenuADMs copcao: MenuADMs.values()){
+				System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
+			}
 			y = ler.nextInt();
 
 			switch(y)

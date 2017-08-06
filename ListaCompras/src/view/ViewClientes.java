@@ -15,10 +15,29 @@ public class ViewClientes {
 		boolean resposta; 
 		System.out.print("Digite o nome da conta: ");
 		nome = ler.nextLine();
+		while(ClienteDAO.OKCliente(nome) == true)
+		{
+			System.out.println("\nEsse nome já existe");
+			System.out.print("Digite o nome da conta: ");
+			nome = ler.nextLine();
+		}
 		System.out.print("Digite uma senha: ");
 		senha = ler.nextLine();
+		while(!DAO.ValidarSenha(senha))
+		{
+			System.out.println("Senha muito pequena!!");
+			System.out.print("Novo senha: ");
+			senha = ler.nextLine();
+			System.out.print("\n");
+		}
 		System.out.print("Digite um email: ");
 		email = ler.nextLine();
+		while(ClienteDAO.OKClienteE(email) == true || !DAO.ValidarEmail(email))
+		{
+			System.out.println("\nEsse email ja está sendo usado ou está invalido");
+			System.out.print("Digite um email: ");
+			email = ler.nextLine();
+		}
 		
 		resposta = ClienteDAO.criarCliente(nome, email, senha);
 		

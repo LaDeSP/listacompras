@@ -23,20 +23,6 @@ public class ClienteDAO extends DAO{
 	public static boolean criarCliente(String nome, String email, String senha) throws Exception{
 		
 		//provavelmente deve ter uma validação dos dados 
-		while(!DAO.ValidarEmail(email))
-		{
-			System.out.println("Erro no E-mail!!");
-			System.out.print("Novo email: ");
-			email = leitura.nextLine();
-			System.out.print("\n");
-		}
-		while(!DAO.ValidarSenha(senha))
-		{
-			System.out.println("Senha muito pequena!!");
-			System.out.print("Novo senha: ");
-			senha = leitura.nextLine();
-			System.out.print("\n");
-		}
 		senha = MD5.criptografar(senha);
 		Cliente cliente = new Cliente(nome, senha, email);
 		ClienteDAO.listadeclientes.add(cliente);
@@ -68,6 +54,18 @@ public class ClienteDAO extends DAO{
 		for(Cliente cliente : listadeclientes)
 		{
 			if(Nome.equals(cliente.getNome()))
+			{
+				return true;
+			}
+		}
+		return false;
+		
+	}
+	public static boolean OKClienteE(String email)
+	{
+		for(Cliente cliente : listadeclientes)
+		{
+			if(email.equals(cliente.getEmail()) == true)
 			{
 				return true;
 			}

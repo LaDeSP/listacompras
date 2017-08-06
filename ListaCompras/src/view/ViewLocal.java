@@ -47,7 +47,7 @@ public class ViewLocal {
     }
 
     public static void Alterar_Cidade() {
-        String cep, cidade;
+        String cep, cidade = null;
 
         System.out.println("Digite o CEP do local: ");
         cep = ler.nextLine();
@@ -65,7 +65,7 @@ public class ViewLocal {
     }
 
     public static void Alterar_Estado() {
-        String cep, estado;
+        String cep, estado = null;
 
         System.out.println("Digite o CEP do local: ");
         cep = ler.nextLine();
@@ -83,7 +83,7 @@ public class ViewLocal {
     }
 
     public static void Alterar_Rua() {
-        String cep, rua;
+        String cep, rua = null;
 
         System.out.println("Digite o CEP do local: ");
         cep = ler.nextLine();

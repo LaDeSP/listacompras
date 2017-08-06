@@ -16,7 +16,7 @@ public class ViewProdutos {
 		System.out.print("Digite a marca do produto: ");
 		marca = ler.nextLine();
 		
-		if(!ProdutoDAO.OKProduto(nome, marca))
+		if(ProdutoDAO.OKProduto(nome, marca))
 		{
 			System.out.println("Produto j� existe");
 		}
