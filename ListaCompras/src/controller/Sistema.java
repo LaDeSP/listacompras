@@ -27,14 +27,12 @@ public class Sistema {
 		
 			
 			i = show.showEnumMP();
-			
+			System.out.println("Variavel i:"+i);
 			if(i == -1)
 			{
 				j = 0;
 				System.out.println("Adeus");
 			}
-			
-			
 		}
 		
 		inicio.EscreverArquivo();

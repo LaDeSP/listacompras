@@ -38,45 +38,43 @@ public class ShowEnum {
 		
 		int i = 0, y = 0; 
 
-		y = ler.nextInt();
-
-		while (i == 0){
-			
-			switch (y)
+		while (i == 0)
+		{
+			y = ler.nextInt(); ler.nextLine();
+			switch(y)
 			{
-			case 1: 
-			{   
-				ListaDeProdutosDAO.Listar(id);
-				break;
-			}
-			case 2: 
-			{   
-				PromocaoDAO.listar();
-				break;
-			}
-			case 3:
-			{
-				
-				ViewClientes.Criar();
-				showEnumMC();
-				break;
-
-			}
-			case 4:
-			{
-				showEnumML();
-				break;
-			}
-			case 0: {
-				i = -1;
-				break;
-			}
-			default: 
-			{
-				System.out.println("\n\nOpção inválida!\n\n");
-				showEnumMP();
-				break; 
-			}
+				case 1: 
+				{   
+					ViewProdutos.Listar();
+					break;
+				}
+				case 2: 
+				{   
+					PromocaoDAO.listar();
+					break;
+				}
+				case 3:
+				{
+					ViewClientes.Criar();
+					showEnumMC();
+					break;
+				}
+				case 4:
+				{
+					showEnumML();
+					break;
+				}
+				case 0: 
+				{
+					i = -1;
+					break;
+				}
+				default: 
+				{
+					System.out.println("\n\nOpção inválida!\n\n");
+					showEnumMP();
+					break; 
+				}
 			}
 		}
 		return i;  
