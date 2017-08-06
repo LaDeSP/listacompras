@@ -31,16 +31,17 @@ public class ShowEnum {
 	public int showEnumMP() throws Exception {
 
 		// TODO Auto-generated method stub
-
+		
+		for(MenuPrincipal copcao: MenuPrincipal.values()){
+			System.out.printf("%s %s\n", copcao.codigo, copcao.nome);
+		}
+		
 		int i = 0, y = 0; 
 
 		y = ler.nextInt();
 
 		while (i == 0){
 			
-			for(MenuPrincipal copcao: MenuPrincipal.values()){
-				System.out.printf("%s %s\n", copcao.codigo, copcao.nome);
-			}
 			switch (y)
 			{
 			case 1: 
