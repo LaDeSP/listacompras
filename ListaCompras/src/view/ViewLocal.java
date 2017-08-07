@@ -2,34 +2,41 @@ package view;
 
 
 import controller.LocalDAO;
+import modelo.Local;
 
 import java.util.Scanner;
 
 public class ViewLocal {
     static Scanner ler = new Scanner(System.in);
 
-    public static void criar() {
+    public static Local criar() {
         String cep, cidade, estado, rua;
 
 
         System.out.println("Digite o CEP: ");
         cep = ler.nextLine();
-        while (!LocalDAO.verificaCEP(cep)) {
+        /*while (LocalDAO.verificaCEP(cep) == false) {
 
             System.out.println("CEP invalido!\nDigite o CEP: ");
             cep = ler.nextLine();
-        }
+        }*/
         System.out.println("Informe a cidade: ");
         cidade = ler.nextLine();
         System.out.println("Digite o estado: ");
         estado = ler.nextLine();
         System.out.println("Informe a rua: ");
         rua = ler.nextLine();
-
-        if (LocalDAO.criar(cep, cidade, estado, rua)) {
+        
+        Local local = LocalDAO.criar(cep, cidade, estado, rua);
+        if (local != null) 
+        {
             System.out.println("\nLocal criado com sucesso");
-        } else {
+            return local;
+        }
+        else 
+        {
             System.out.println("Erro ao cadastrar local.");
+            return null;
         }
     }
 

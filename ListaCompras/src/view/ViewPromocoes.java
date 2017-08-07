@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 import controller.PromocaoDAO;
+import modelo.Preco;
 
 public class ViewPromocoes {
 	static Scanner ler = new Scanner(System.in);
@@ -21,36 +22,41 @@ public class ViewPromocoes {
 	{
 		ViewPreco.criar(id);
 	}
-	public void criar(int id_preco) {
+	public static void criar(int id_cliente) {
 		
 		String dataI;
 		Calendar inicio = new GregorianCalendar();
 		Calendar fim = new GregorianCalendar();
-		try {
-			System.out.println("Inicio da promocao: ");
-		    System.out.println("dd/MM/yyyy");
-			dataI = ler.nextLine();
-			DateFormat df = new SimpleDateFormat("dd/MM/yyyy");  
-			inicio.setTime(df.parse(dataI));
-	    } catch (Exception ex) {
-	        ex.printStackTrace();
-	    }
-		try {
-		    ler = new Scanner(System.in);
-		    	    System.out.println("Fim da promocao: ");
-		    	    System.out.println("dd/MM/yyyy");
-	
-			dataI = ler.nextLine();
-			DateFormat df = new SimpleDateFormat("dd/MM/yyyy");  
-			fim.setTime(df.parse(dataI));
-	    } catch (Exception ex) {
-	        ex.printStackTrace();
-	    }
 		
-    		 if(PromocaoDAO.criar(id_preco, inicio, fim))
-    			 System.out.println("Promocao cadastrada com sucesso!");
-    		 else
-    			 System.out.println("Erro ao cadastrar promoção");
+		Preco preco = ViewPreco.criar(id_cliente);
+		if(preco != null)
+		{
+			try {
+				System.out.println("Inicio da promocao: ");
+			    System.out.println("dd/MM/yyyy");
+				dataI = ler.nextLine();
+				DateFormat df = new SimpleDateFormat("dd/MM/yyyy");  
+				inicio.setTime(df.parse(dataI));
+		    } catch (Exception ex) {
+		        ex.printStackTrace();
+		    }
+			try {
+			    ler = new Scanner(System.in);
+			    	    System.out.println("Fim da promocao: ");
+			    	    System.out.println("dd/MM/yyyy");
+		
+				dataI = ler.nextLine();
+				DateFormat df = new SimpleDateFormat("dd/MM/yyyy");  
+				fim.setTime(df.parse(dataI));
+		    } catch (Exception ex) {
+		        ex.printStackTrace();
+		    }
+			
+	    		 if(PromocaoDAO.criar(preco.getId(), inicio, fim))
+	    			 System.out.println("Promocao cadastrada com sucesso!");
+	    		 else
+	    			 System.out.println("Erro ao cadastrar promoção");
+		}
 	}
 	
 	public void excluir()	{

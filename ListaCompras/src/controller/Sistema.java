@@ -18,15 +18,15 @@ public class Sistema {
 		ShowEnum show = new ShowEnum();
 		int i = 1;
 		int j = 1;
-		
+		//MasterDAO.Criar("123456", "Master@gmail.com");
 		inicio.LerArquivo();
-		
+		//MasterDAO.Listar();
 		while(j != 0)
 		{
 		
 			
 			i = show.showEnumMP();
-			System.out.println("Variavel i:"+i);
+			//System.out.println("Variavel i:"+i);
 			if(i == -1)
 			{
 				j = 0;

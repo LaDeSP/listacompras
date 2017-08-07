@@ -3,8 +3,6 @@ package modelo;
 import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import controller.ClienteDAO;
-
 public class Produto implements Serializable{
 	/**
 	 * 

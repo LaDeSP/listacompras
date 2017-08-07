@@ -21,19 +21,19 @@ public class LocalDAO extends DAO{
         }
     }
 
-	public static boolean criar(String cEP, String cidade, String estado, String Rua) {
+	public static Local criar(String cEP, String cidade, String estado, String Rua) {
 
-        if (OKLocal(cEP, cidade, estado, Rua)) { //verifica se o local já existe
+        if (!OKLocal(cEP, cidade, estado, Rua)) { //verifica se o local já existe
 
             local = new Local(cEP, cidade, estado, Rua);
             if (local != null) {
                 LocalDAO.listadeLocal.add(local);
-                return true;
+                return local;
             } else {
-                return false;
+                return null;
             }
         }
-        return false;
+        return null;
 	}
 	
 	public static void Escrever()

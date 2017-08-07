@@ -1,6 +1,7 @@
 package view;
 
 import controller.SupermercadoDAO;
+import modelo.Local;
 
 import java.util.Scanner;
 
@@ -18,13 +19,14 @@ public class ViewSupermercados {
 		
 		System.out.print("Nome do Supermercado: ");
 		nome = ler.nextLine();
-		System.out.print("Digite o id do local: ");
-		id_local = ler.nextInt();
-
-        if (SupermercadoDAO.criar(nome, id_local))
-            System.out.println("Supermercado excluido com sucesso...");
-        else
-            System.out.println("Erro ao excluir supermercado");
+		Local local = ViewLocal.criar();
+		if(local != null)
+		{
+			if (SupermercadoDAO.criar(nome, local.getId()))
+	            System.out.println("Supermercado criado com sucesso");
+	        else
+	            System.out.println("Erro ao criar o supermercado");
+		}
     }
 
     public void excluir() {

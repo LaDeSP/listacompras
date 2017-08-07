@@ -3,6 +3,7 @@ package view;
 import controller.PrecoDAO;
 import controller.ProdutoDAO;
 import controller.SupermercadoDAO;
+import modelo.Preco;
 
 import java.util.Scanner;
 
@@ -10,39 +11,60 @@ public class ViewPreco {
 	static Scanner ler = new Scanner(System.in);
 	
 	//criar o preço
-	public static void criar(int id_cliente) {
+	public static Preco criar(int id_cliente) {
 		double preco;
-		int id_produto, id_supermercado;
+		int id_produto, id_supermercado, quantidadeP = 0;
 		
 		System.out.println("Digite o preço: ");
 		preco=ler.nextDouble();
 		
-		System.out.println("Digite o id do produto: ");
-		ProdutoDAO.listarProdutos();
-		id_produto = ler.nextInt();
-		
-		while(ProdutoDAO.OKProduto(id_produto)==false) { //verifica se o id é valido
-			System.out.println("Id do produto inexistente!\nDigite um id valido");
-			id_produto = ler.nextInt();
-		}
-		System.out.println("Id do supermercado.");
-			SupermercadoDAO.listar();
-		id_supermercado = ler.nextInt();
-		
-		//verifica o id do supermercado
-		
-		while(SupermercadoDAO.GetSupermercado(id_supermercado)==null) {
-			System.out.println("Id do supermercado inexistente!\nDigite um id valido");
-			id_supermercado=ler.nextInt();
-		}
-			//ja verificou todos os campos
-		
-		if(PrecoDAO.criarPreco(id_produto, true, id_supermercado, id_cliente, preco))
+		quantidadeP = ProdutoDAO.listarProdutos();
+		if(quantidadeP != 0)
 		{
-			System.out.println("Preço ok");
+			System.out.println("Digite o id do produto: ");
+			id_produto = ler.nextInt();
+			
+			while(ProdutoDAO.OKProduto(id_produto)==false) { //verifica se o id é valido
+				System.out.println("Id do produto inexistente!\nDigite um id valido");
+				id_produto = ler.nextInt();
+			}
+			quantidadeP = SupermercadoDAO.listar();
+			
+			if(quantidadeP != 0)
+			{
+				System.out.println("Id do supermercado.");
+				id_supermercado = ler.nextInt();
+				
+				//verifica o id do supermercado
+				
+				while(SupermercadoDAO.GetSupermercado(id_supermercado)==null) {
+					System.out.println("Id do supermercado inexistente!\nDigite um id valido");
+					id_supermercado=ler.nextInt();
+				}
+					//ja verificou todos os campos
+				Preco precoM = PrecoDAO.criarPreco(id_produto, true, id_supermercado, id_cliente, preco);
+				if(precoM != null)
+				{
+					System.out.println("Preço ok");
+					return precoM;
+				}
+				else
+				{
+					System.out.println("Erro preço");
+					return null;
+				}
+			}
+			else
+			{
+				System.out.println("Não existe supermercados cadastrados");
+				return null;
+			}
 		}
 		else
-			System.out.println("Erro preço");
+		{
+			System.out.println("Não existe produtos");
+			return null;
+		}
 		
 	}
 	//excluir

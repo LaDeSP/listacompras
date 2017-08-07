@@ -80,6 +80,12 @@ public class TelaInicial {
 			PromocaoDAO.lerArquivo();
 			PromocaoDAO.Incrementar();
 		}
+		f = new File(Constantes.SupermercadoDs);
+		if(f.exists())
+		{
+			SupermercadoDAO.lerArquivo();
+			SupermercadoDAO.Incrementar();
+		}
 	}
 	
 	public void EscreverArquivo() throws ClassNotFoundException

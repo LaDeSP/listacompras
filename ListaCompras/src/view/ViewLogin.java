@@ -1,5 +1,6 @@
 package view;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
 import controller.AdministradorDAO;
@@ -35,7 +36,7 @@ public class ViewLogin {
 		
 		return x;
 	}
-	public int ViewloginADM(AdministradorDAO administradorDAO) 
+	public int ViewloginADM(AdministradorDAO administradorDAO) throws NoSuchAlgorithmException 
 	{
 		Administrador administrador;
 		int x = 0;
@@ -45,13 +46,13 @@ public class ViewLogin {
 		System.out.print("Senha: ");
 		Senha = ler.nextLine();
 		administrador = administradorDAO.GetAdm(Nome);
-		if(administrador != null && administrador.getSenha().equals(Senha))
+		if(administrador != null && administrador.getSenha().equals(MD5.criptografar(Senha)))
 		{
 			x = administrador.getId();
 		}
 		return x;
 	}
-	public int ViewloginMaster(MasterDAO masterDAO) 
+	public int ViewloginMaster(MasterDAO masterDAO) throws NoSuchAlgorithmException 
 	{
 		Master master;
 		int x = 0;
@@ -61,7 +62,7 @@ public class ViewLogin {
 		System.out.print("Senha: ");
 		Senha = ler.nextLine();
 		master = masterDAO.getMaster(Email);
-		if(master != null && master.getSenha().equals(Senha))
+		if(master != null && master.getSenha().equals(MD5.criptografar(Senha)))
 		{
 			x = master.getId();
 		}

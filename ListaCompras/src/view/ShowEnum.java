@@ -68,7 +68,7 @@ public class ShowEnum {
 				case 0: 
 				{
 					i = -1;
-					System.out.println("Entrou "+i);
+					//System.out.println("Entrou "+i);
 					break;
 				}
 				default: 
@@ -105,7 +105,7 @@ public class ShowEnum {
 				if(id != 0)
 				{
 					x = 1;
-					System.out.println("\n\nID -> "+id+"  Entrou");
+					//System.out.println("\n\nID -> "+id+"  Entrou");
 					i = showEnumMC();
 				}
 				else
@@ -120,6 +120,11 @@ public class ShowEnum {
 				if(id != 0)
 				{
 					x = 2;
+					i = showEnumMADMs();
+				}
+				else
+				{
+					System.out.println("\nAdministrador n�o existe!");
 				}
 				break;
 			}
@@ -129,6 +134,11 @@ public class ShowEnum {
 				if(id != 0)
 				{
 					x = 3;
+					System.out.println("\nEsse Master Existe!");
+				}
+				else
+				{
+					System.out.println("\nEsse master n�o existe!");
 				}
 				break;
 			}
@@ -322,13 +332,8 @@ public class ShowEnum {
 			{
 			case 1:
 			{
-				double precoProduto = 0;
-				int id_cliente = 0;
-				int id_supermercado = 0;
-				boolean status = false;
-				int id_produto = 0;
-
-				PrecoDAO.criarPreco(id_produto, status, id_supermercado, id_cliente, precoProduto);
+				ViewPromocoes.criar(id);
+				//PrecoDAO.criarPreco(id_produto, status, id_supermercado, id_cliente, precoProduto);
 
 				break;
 			}
@@ -375,36 +380,36 @@ public class ShowEnum {
 			switch(y)
 			{
 
-			case 1:
-			{
-				showEnumMPro(produtoDAO);
-				break;
+				case 1:
+				{
+					showEnumMPro(produtoDAO);
+					break;
+				}
+				case 2:
+				{
+					showEnumMPromo();
+					break;
+				}
+				case 3:
+				{
+					//viewsupermercado.Menu(supermercadoDAO, localDAO);
+					break;
+				}
+				case 0: 
+				{
+					i = -1; 
+					break; 
+				}
+				default: 
+				{
+					System.out.println("\nOpção inválida!");
+					showEnumMADMs();
+					break; 
+				}
 			}
-			case 2:
-			{
-				showEnumMPromo();
-				break;
-			}
-			case 3:
-			{
-				//viewsupermercado.Menu(supermercadoDAO, localDAO);
-				break;
-			}
-			case 0: 
-			{
-				i = -1; 
-				break; 
-			}
-			default: 
-			{
-				System.out.println("\nOpção inválida!");
-				showEnumMADMs();
-				break; 
-		    }
-	    }
-    }
-  return i;
-}
+		}
+		return i;
+	}
 
 	//MENU SUPERMERCADOS
 

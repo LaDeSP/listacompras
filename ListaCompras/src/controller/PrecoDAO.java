@@ -23,16 +23,16 @@ public class PrecoDAO extends DAO{
 	}
 	
 	
-	public static boolean criarPreco(int id_produto, boolean status, 
+	public static Preco criarPreco(int id_produto, boolean status, 
 			int id_supermercado, int id_cliente, double precoProduto) {
 		
 		preco = new Preco(id_produto, status, id_supermercado, id_cliente, precoProduto);
 		if(preco != null)
 		{
 			PrecoDAO.listadePrecos.add(preco);
-			return true;
+			return preco;
 		}else
-			return false;
+			return null;
 	}
 	public static boolean criarPromocao(int id_produto, boolean status, 
 			int id_supermercado, int id_cliente, double precoProduto) {

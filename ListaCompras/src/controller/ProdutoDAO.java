@@ -53,10 +53,13 @@ public class ProdutoDAO extends DAO{
 		ProdutoDAO.listadeProdutos = listadeProdutos;
 	}
 	
-	public static void listarProdutos(){
+	public static int listarProdutos(){
+		int cont = 0;
 		for (Produto produto : listadeProdutos) {
 			produto.show();
+			cont++;
 		}
+		return cont;
 	}
 	
 	public static boolean OKProduto(int id)

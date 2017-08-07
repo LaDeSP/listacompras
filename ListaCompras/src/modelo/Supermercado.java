@@ -54,7 +54,7 @@ public class Supermercado implements Serializable {
 	public void show() {
 		// TODO Auto-generated method stub
 		System.out.println("Dados do Supermercado");
-		System.out.println(id+"\n"+this.nome+"\n"+this.id_local);
+		System.out.println(id+" "+this.nome+" "+this.id_local);
 		
 	}
 

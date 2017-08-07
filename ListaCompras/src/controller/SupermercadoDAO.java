@@ -30,11 +30,14 @@ public class SupermercadoDAO extends DAO{
 		
 		
 			Supermercado supermercado = new Supermercado(nome, id_local);
-			SupermercadoDAO.listadeSupermercados.add(supermercado);
-			System.out.println("\nSupermercado criado com sucesso");
-		return true;
-
+			if(supermercado != null)
+			{
+				SupermercadoDAO.listadeSupermercados.add(supermercado);
+				//System.out.println("\nSupermercado criado com sucesso");
+				return true;
+			}
 			
+	return false;
 	}
 	public static boolean EscreverArquivo()
 	{
@@ -65,10 +68,13 @@ public class SupermercadoDAO extends DAO{
 		SupermercadoDAO.listadeSupermercados = listadeSupermercados;
 	}
 	
-	public static void listar(){
+	public static int listar(){
+		int cont = 0;
 		for (Supermercado supermercado : listadeSupermercados) {
 			supermercado.show();
+			cont++;
 		}
+		return cont;
 	}
 	
 	public static boolean OKSupermercado(String Nome)

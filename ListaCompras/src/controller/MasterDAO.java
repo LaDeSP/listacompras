@@ -1,5 +1,6 @@
 package controller;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,9 +11,9 @@ public class MasterDAO extends DAO{
 	private static Master master = null;
 	private static List<Master> listademasters = new ArrayList<Master>();
 	
-	public static void Criar(String senha, String email)
+	public static void Criar(String senha, String email) throws NoSuchAlgorithmException
 	{
-		Master master = new Master(senha, email);
+		Master master = new Master(MD5.criptografar(senha), email);
 		if(master == null)
 		{
 			System.out.println("Erro ao cadastrar Master");
