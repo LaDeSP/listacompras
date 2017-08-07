@@ -213,7 +213,7 @@ public class ShowEnum {
 
 	//SUBMENU CLIENTE
 
-	public int showEnumSMC(int id){
+	public int showEnumSMC(int id) throws Exception{
 
 		int i = 0, y = 0;
 

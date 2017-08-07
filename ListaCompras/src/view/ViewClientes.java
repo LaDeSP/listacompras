@@ -84,7 +84,7 @@ public class ViewClientes {
 		System.out.println("\n\nNome alterado com sucesso!!\n\n");
 	}
 	
-	public static void Alterar_Senha(int id)
+	public static void Alterar_Senha(int id) throws Exception
 	{
 		String senha;
 		System.out.print("Digite a novo senha: ");

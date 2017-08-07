@@ -113,9 +113,9 @@ public class ClienteDAO extends DAO{
 	{
 		GetCliente(id).setNome(nome);
 	}
-	public static void Renomear_Senha(String senha, int id)
+	public static void Renomear_Senha(String senha, int id) throws Exception
 	{
-		GetCliente(id).setSenha(senha);
+		GetCliente(id).setSenha(MD5.criptografar(senha));
 	}
 	public static void Renomear_Email(String email, int id)
 	{
