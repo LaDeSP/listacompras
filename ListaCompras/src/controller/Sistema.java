@@ -14,7 +14,6 @@ public class Sistema {
 	 * @throws Exception 
 	 */
 	public static void main(String[] args) throws Exception{
-		
 		TelaInicial inicio = new TelaInicial();
 		ShowEnum show = new ShowEnum();
 		int i = 1;

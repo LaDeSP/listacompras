@@ -10,9 +10,18 @@ public class MasterDAO extends DAO{
 	private static Master master = null;
 	private static List<Master> listademasters = new ArrayList<Master>();
 	
-	public MasterDAO()
+	public static void Criar(String senha, String email)
 	{
-		
+		Master master = new Master(senha, email);
+		if(master == null)
+		{
+			System.out.println("Erro ao cadastrar Master");
+		}
+		else
+		{
+			System.out.println("Master cadastrado com sucesso");
+			MasterDAO.listademasters.add(master);
+		}
 	}
 	
 	public static void Escrever()
