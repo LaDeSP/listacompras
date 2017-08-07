@@ -1,15 +1,15 @@
 package view;
 
-public enum MenuSupermercados{ 
+public enum SubMenuSPM{ 
 	
-	novosupermercado("1", "Novo Supermercado"),
-	listarsupermercados("2", "Listar Supermercados"),
+	altnomsupermercado("1", "Alterar nome de supermercado"),
+	altlocal("2", "Alterar local"),
 	sair("0", "Sair");
 	
 	final String codigo1; 
 	final String nome1; 
 
-	MenuSupermercados(String opcao, String name){
+	SubMenuSPM(String opcao, String name){
 		codigo1 = opcao; 	
 	    nome1 = name;
 	    }
@@ -21,4 +21,3 @@ public enum MenuSupermercados{
 		return nome1;
       }
 }
-

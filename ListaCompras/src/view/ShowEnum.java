@@ -100,12 +100,11 @@ public class ShowEnum {
 			case 1:
 			{
 				id = viewlogin.ViewloginCliente();
-				//System.out.println("ID: "+id);
+			
 
 				if(id != 0)
 				{
 					x = 1;
-					//System.out.println("\n\nID -> "+id+"  Entrou");
 					i = showEnumMC();
 				}
 				else
@@ -124,7 +123,7 @@ public class ShowEnum {
 				}
 				else
 				{
-					System.out.println("\nAdministrador n�o existe!");
+					System.out.println("\nAdministrador n�o existe!");
 				}
 				break;
 			}
@@ -134,11 +133,13 @@ public class ShowEnum {
 				if(id != 0)
 				{
 					x = 3;
-					System.out.println("\nEsse Master Existe!");
+					System.out.println("\n\nEsse Master Existe!\n\n");
+					showEnumMaster();
+				
 				}
 				else
 				{
-					System.out.println("\nEsse master n�o existe!");
+					System.out.println("\nEsse master n�o existe!");
 				}
 				break;
 			}
@@ -460,5 +461,148 @@ public class ShowEnum {
 	 }
 	return i;
    }
-}
+
+	//SUBMENU SUPERMERCADO
+	
+		public int showEnumSSPM() throws Exception {
+
+		// TODO Auto-generated method stub
+		
+		
+		int i = 0, y = 0; 
+
+		while (i == 0)
+		{
+			for(SubMenuSPM copcao: SubMenuSPM.values()){
+				System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
+			}
+			y = ler.nextInt();
+			//System.out.println("Y: "+y);
+			switch(y)
+			{
+				case 1: 
+				{   
+					ViewProdutos.Listar();
+					break;
+				}
+				case 2: 
+				{   
+					PromocaoDAO.listar();
+					break;
+				}
+				case 3:
+				{
+					ViewClientes.Criar();
+					showEnumMC();
+					break;
+				}
+				case 4:
+				{
+					showEnumML();
+					break;
+				}
+				case 0: 
+				{
+					i = -1;
+					//System.out.println("Entrou "+i);
+					break;
+				}
+				default: 
+				{
+					System.out.println("\n\nOpção inválida!\n\n");
+					i = -1;
+					break; 
+				}
+			}
+		}
+		return i;  
+	}
+		//MENU MASTER
+
+		public int showEnumMaster() throws Exception {
+
+		// TODO Auto-generated method stub
+		
+		
+		int i = 0, y = 0; 
+
+		while (i == 0)
+		{
+			for(MenuMaster copcao: MenuMaster.values()){
+				System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
+			}
+			y = ler.nextInt();
+			//System.out.println("Y: "+y);
+			switch(y)
+			{
+				case 1: 
+				{   
+					//listar clientes
+					ViewClientes.Listar();
+					break;
+				}
+				case 2: 
+				{   
+					//listar adms
+				
+					break;
+				}
+				case 3:
+				{
+					//listar masters
+					MasterDAO.Listar();
+					break;
+				}
+				case 4:
+				{
+					//criar adm
+					ViewADMs.criar();
+					break;
+				}
+				
+				case 5:
+				{
+					//criar master
+					String email = null;
+					String senha = null;
+					MasterDAO.Criar(senha, email);
+					break;
+				}
+				case 6:
+				{
+					//excluir clientes
+					ViewClientes.Excluir();
+					break;
+				}
+				case 7:
+				{
+					//excluir adms
+					ViewADMs.excluir();
+					break;
+				}
+				case 8:
+				{
+					//excluir masters
+					
+					break;
+				}
+				case 0: 
+				{
+					i = -1;
+					//System.out.println("Entrou "+i);
+					break;
+				}
+				default: 
+				{
+					System.out.println("\n\nOpção inválida!\n\n");
+					//showEnumMP();
+					break; 
+				}
+			}
+		}
+		return i;  
+	} 
+		
+	}
+
 
