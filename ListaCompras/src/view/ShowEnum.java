@@ -40,7 +40,8 @@ public class ShowEnum {
 
 		while (i == 0)
 		{
-			y = ler.nextInt(); ler.nextLine();
+			y = ler.nextInt();
+			//System.out.println("Y: "+y);
 			switch(y)
 			{
 				case 1: 
@@ -67,6 +68,7 @@ public class ShowEnum {
 				case 0: 
 				{
 					i = -1;
+					System.out.println("Entrou "+i);
 					break;
 				}
 				default: 
@@ -104,11 +106,11 @@ public class ShowEnum {
 				{
 					x = 1;
 					System.out.println("\n\nID -> "+id+"  Entrou");
-					showEnumMC();
+					i = showEnumMC();
 				}
 				else
 				{
-					System.out.println("\nCliente não existe!\n\n1 Tentar Novamente\n0 Voltar");
+					System.out.println("\nCliente não existe!");
 				}
 				break;
 			}
@@ -133,7 +135,7 @@ public class ShowEnum {
 			case 0:
 			{
 				i = -1;
-				showEnumMP();
+				//showEnumMP();
 				break;
 			}
 			default: 
@@ -195,13 +197,13 @@ public class ShowEnum {
 			{
 				System.out.println("\nAté logo !!");//+ClienteDAO.GetCliente(id).getNome()+"!!");
 				i = -1;
-				showEnumMP();
+				//showEnumMP();
 				break;
 			}
 			default: 
 			{
 				System.out.println("\nOpção inválida!");
-				showEnumMC();
+				//showEnumMC();
 				break; 
 			}
 			}
