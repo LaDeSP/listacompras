@@ -23,6 +23,10 @@ public class Promocao implements Serializable{
 		this.inicio = inicio;
 		this.fim = fim;
 	}
+	public void Incrementar()
+	{
+		count.incrementAndGet();
+	}
 
 	public int getId() {
 		return id;

@@ -29,47 +29,56 @@ public class TelaInicial {
 		if(f.exists())
 		{
 			LocalDAO.lerArquivo();
+			LocalDAO.Incrementar();
 		}
 		f = new File(Constantes.AdministradorDs);
 		if(f.exists())
 		{
 			AdministradorDAO.lerArquivo();
+			AdministradorDAO.IncrementarID();
 		}
 		f = new File(Constantes.ClienteDs);
 		if(f.exists())
 		{
 			ClienteDAO.lerArquivo();
+			ClienteDAO.AtualizarID();
 		}
 		f = new File(Constantes.HistoricoCDs);
 		if(f.exists())
 		{
 			HistoricoClienteDAO.LerArquivo();
+			HistoricoClienteDAO.Incrementar();
 		}
 		f = new File(Constantes.ListaDeProdutoDs);
 		if(f.exists())
 		{
 			ListaDeProdutosDAO.lerArquivo();
+			ListaDeProdutosDAO.Incrementar();
 		}
 		f = new File(Constantes.MasterDs);
 		if(f.exists())
 		{
 			MasterDAO.lerArquivo();
+			MasterDAO.Incrementar();
 		}
 		
 		f = new File(Constantes.PrecoDs);
 		if(f.exists())
 		{
 			PrecoDAO.lerArquivo();
+			PrecoDAO.Incrementar();
 		}
 		f = new File(Constantes.ProdutoDs);
 		if(f.exists())
 		{
 			ProdutoDAO.lerArquivo();
+			ProdutoDAO.AtualizarID();
 		}
 		f = new File(Constantes.PromocaoDs);
 		if(f.exists())
 		{
 			PromocaoDAO.lerArquivo();
+			PromocaoDAO.Incrementar();
 		}
 	}
 	

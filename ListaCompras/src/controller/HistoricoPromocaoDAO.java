@@ -60,4 +60,11 @@ public class HistoricoPromocaoDAO extends DAO{
 		}
 		return false;
 	}
+	public static void Incrementar()
+	{
+		for(HistoricoPromocao HP : listahistoricoP)
+		{
+			HP.Incrementar();
+		}
+	}
 }

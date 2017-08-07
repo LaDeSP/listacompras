@@ -66,4 +66,11 @@ public class ListaDeProdutosDAO extends DAO implements Serializable{
 		}
 		return false;
 	}
+	public static void Incrementar()
+	{
+		for(ListaDeProdutos listadeprodutos : listadepromocao)
+		{
+			listadeprodutos.Incrementar();
+		}
+	}
 }

@@ -22,6 +22,11 @@ public class Administrador implements Serializable{
 		this.Nome = Nome;
 		id = count.incrementAndGet();
 	}
+	
+	public void Incrementar()
+	{
+		count.incrementAndGet();
+	}
 
 	public int getId() {
 		return id;

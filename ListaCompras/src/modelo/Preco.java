@@ -24,6 +24,10 @@ public class Preco implements Serializable{
 		this.id_cliente = id_cliente;
 		this.precoProduto = precoProduto;
 	}
+	public void Incrementar()
+	{
+		count.incrementAndGet();
+	}
 
 	public Preco() {
 		id = count.incrementAndGet();

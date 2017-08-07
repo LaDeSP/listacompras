@@ -134,5 +134,13 @@ public class ProdutoDAO extends DAO{
 		}
 		return false;
 	}
+	
+	public static void AtualizarID()
+	{
+		for(Produto produto : listadeProdutos)
+		{
+			produto.Incrementar();
+		}
+	}
 
 }

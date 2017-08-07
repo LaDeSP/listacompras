@@ -74,7 +74,7 @@ public class ShowEnum {
 				default: 
 				{
 					System.out.println("\n\nOpção inválida!\n\n");
-					showEnumMP();
+					//showEnumMP();
 					break; 
 				}
 			}
@@ -277,8 +277,7 @@ public class ShowEnum {
 			{
 			case 1:
 			{
-				int id_Cliente = 0;
-				ViewProdutos.Criar(id_Cliente);
+				ViewProdutos.Criar(id);
 				ProdutoDAO.getLastProduto();
 				break;
 			}
@@ -311,12 +310,12 @@ public class ShowEnum {
 
 		int y = 0, i = 0;
 
-		for(MenuPromo copcao: MenuPromo.values()){
-			System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
-		}
 
 		while(i == 0)
 		{	
+			for(MenuPromo copcao: MenuPromo.values()){
+				System.out.printf("%s %s\n", copcao.codigo1, copcao.nome1);
+			}
 			y = ler.nextInt();
 
 			switch(y)

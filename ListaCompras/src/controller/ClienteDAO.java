@@ -121,4 +121,11 @@ public class ClienteDAO extends DAO{
 	{
 		GetCliente(id).setEmail(email);
 	}
+	public static void AtualizarID()
+	{
+		for(Cliente cliente : listadeclientes)
+		{
+			cliente.Incrementar();
+		}
+	}
 }

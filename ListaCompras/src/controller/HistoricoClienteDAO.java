@@ -71,5 +71,12 @@ public class HistoricoClienteDAO extends DAO{
 		}
 		return null;
 	}
+	public static void Incrementar()
+	{
+		for(HistoricoCliente HC : listahistorico)
+		{
+			HC.Incrementar();
+		}
+	}
 	
 }

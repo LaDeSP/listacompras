@@ -44,4 +44,11 @@ public class MasterDAO extends DAO{
 		}
 		return null;
 	}
+	public static void Incrementar()
+	{
+		for(Master master : listademasters)
+		{
+			master.Incrementar();
+		}
+	}
 }

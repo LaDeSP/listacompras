@@ -152,4 +152,11 @@ public class AdministradorDAO extends DAO{
 	{
 		GetAdm(id).setEmail(email);
 	}
+	public static void IncrementarID()
+	{
+		for(Administrador adm : listadeadms)
+		{
+			adm.Incrementar();
+		}
+	}
 }

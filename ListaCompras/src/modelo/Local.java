@@ -22,6 +22,10 @@ public class Local implements Serializable{
 		Estado = estado;
 		this.Rua = Rua;
 	}
+	public void Incrementar()
+	{
+		count.incrementAndGet();
+	}
 	public String getRua() {
 		return Rua;
 	}

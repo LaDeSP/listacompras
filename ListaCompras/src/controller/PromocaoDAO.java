@@ -115,4 +115,12 @@ public class PromocaoDAO extends DAO{
 		return false;
 	}
 	
+	public static void Incrementar()
+	{
+		for(Promocao promocao : listadePromocao)
+		{
+			promocao.Incrementar();
+		}
+	}
+	
 }

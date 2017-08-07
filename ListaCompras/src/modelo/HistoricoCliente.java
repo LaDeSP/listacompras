@@ -20,6 +20,10 @@ public class HistoricoCliente implements Serializable{
         this.Id_cliente = id_cliente;
         Id = count.incrementAndGet();
     }
+    public void Incrementar()
+	{
+		count.incrementAndGet();
+	}
 
     public int getId() {
         return Id;

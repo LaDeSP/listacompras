@@ -117,5 +117,12 @@ public class PrecoDAO extends DAO{
 		return null;
 		
 	}
-
+	
+	public static void Incrementar()
+	{
+		for(Preco preco : listadePrecos)
+		{
+			preco.Incrementar();
+		}
+	}
 }

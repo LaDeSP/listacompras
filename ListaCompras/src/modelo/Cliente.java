@@ -22,6 +22,11 @@ public class Cliente implements Serializable{
 		Senha = senha;
 		Email = email;
 	}
+	
+	public void Incrementar()
+	{
+		count.incrementAndGet();
+	}
 
 	public String getSenha() {
 		return Senha;

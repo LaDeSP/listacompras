@@ -19,6 +19,10 @@ public class Produto implements Serializable{
 	
 	
 	//Metodos
+	public void Incrementar()
+	{
+		count.incrementAndGet();
+	}
 	public int getId_Cliente() {
 		return id_Cliente;
 	}

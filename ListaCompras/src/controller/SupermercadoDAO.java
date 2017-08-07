@@ -127,5 +127,13 @@ public class SupermercadoDAO extends DAO{
         }
         return false;
     }
+    
+    public static void Incrementar()
+    {
+    	for (Supermercado supermercado : listadeSupermercados) 
+    	{
+            supermercado.Incrementar();
+		}
+    }
 
 }

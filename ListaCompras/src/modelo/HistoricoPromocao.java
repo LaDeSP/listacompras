@@ -16,6 +16,10 @@ public class HistoricoPromocao {
         this.Id_cliente = Id_Cliente;
         Id = count.incrementAndGet();
     }
+    public void Incrementar()
+	{
+		count.incrementAndGet();
+	}
 
 	public int getId() {
 		return Id;

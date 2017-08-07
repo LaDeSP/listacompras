@@ -19,6 +19,10 @@ public class Supermercado implements Serializable {
 		this.nome = nome;
 		this.id_local = id_local;
 	}
+	public void Incrementar()
+	{
+		count.incrementAndGet();
+	}
 
 	public Supermercado() {
 		id = count.incrementAndGet();

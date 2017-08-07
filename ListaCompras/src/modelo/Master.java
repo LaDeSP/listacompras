@@ -21,6 +21,10 @@ public class Master implements Serializable{
 	this.id_supermercado = id_supermercado;
 	id = count.incrementAndGet();
 	}
+	public void Incrementar()
+	{
+		count.incrementAndGet();
+	}
 	
 	public int getId() {
 		return id;

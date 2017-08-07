@@ -23,6 +23,10 @@ public class ListaDeProdutos implements Serializable{
 		this.produto = produto;
 		this.id_Cliente = id_cliente;
 	}
+	public void Incrementar()
+	{
+		count.incrementAndGet();
+	}
 
 	public int getId_Cliente() {
 		return id_Cliente;

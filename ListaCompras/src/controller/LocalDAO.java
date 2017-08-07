@@ -157,5 +157,13 @@ public class LocalDAO extends DAO{
             return false;
         }
     }
+    
+    public static void Incrementar()
+    {
+    	for(Local local : listadeLocal)
+    	{
+			local.Incrementar();
+		}
+    }
 
 }
