@@ -53,7 +53,7 @@ public class ListaDeProdutos implements Serializable{
 	}
 	public void show()
 	{
-		System.out.println("ID_Promocao: " +produto.getId());
+		System.out.print("Produto: "); produto.show();
 		//+"   id_preco: "+promocao.getId_preco()+" Começo da promoção: "+promocao.getInicio().get(Calendar.DAY_OF_MONTH)+"/"+promocao.getInicio().get(Calendar.MONTH)+"/"+promocao.getInicio().get(Calendar.YEAR)
 		//System.out.println(" Fim da promoção: "+promocao.getFim().get(Calendar.DAY_OF_MONTH)+"/"+promocao.getFim().get(Calendar.MONTH)+"/"+promocao.getFim().get(Calendar.YEAR));
 	}
