@@ -32,14 +32,14 @@ public class ShowEnum {
 
 		// TODO Auto-generated method stub
 		
-		for(MenuPrincipal copcao: MenuPrincipal.values()){
-			System.out.printf("%s %s\n", copcao.codigo, copcao.nome);
-		}
 		
 		int i = 0, y = 0; 
 
 		while (i == 0)
 		{
+			for(MenuPrincipal copcao: MenuPrincipal.values()){
+				System.out.printf("%s %s\n", copcao.codigo, copcao.nome);
+			}
 			y = ler.nextInt();
 			//System.out.println("Y: "+y);
 			switch(y)
