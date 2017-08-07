@@ -8,11 +8,11 @@ import controller.HistoricoClienteDAO;
 public class ViewHistoricoCliente {
     static Scanner ler = new Scanner(System.in); 
 	
-	public static void Listar()
+	public static void Listar()//master ver o historico de todos os clientes
 	{
 		HistoricoClienteDAO.Listar();
 	}
-	public static void Listar(int id)
+	public static void Listar(int id)//O cliente conseguir ver o seu historico
 	{
 		HistoricoClienteDAO.Listar(id);
 	}

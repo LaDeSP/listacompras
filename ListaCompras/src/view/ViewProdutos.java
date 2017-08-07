@@ -63,30 +63,46 @@ public class ViewProdutos {
 	public static void Listar_Add(int id)//Usado pelo Cliente
 	{
 		int opcao, numero;
-		ProdutoDAO.listarProdutos();
-		System.out.println("Digite 1 se quiser adicionar algum produto");
-		System.out.println("Digite 0 - Sair");
-		System.out.print("Opï¿½ï¿½o: ");
-		opcao = ler.nextInt();
-		//pode ser que de erro aqui na ora de ler o inteiro
-		while(opcao != 0 && opcao != 1)
+		System.out.println("Digite 1 - Listar todos os produtos");
+		System.out.println("Digite 2 - Listar os produtos da sua lista");
+		opcao = ler.nextInt();ler.nextLine();
+		while(opcao != 1 && opcao != 2)
 		{
-			System.out.println("Nï¿½o existe essa opcao");
-			System.out.print("Opï¿½ï¿½o: ");
+			System.out.println("\nOpção invalida\nDigite 1 - Listar todos os produtos");
+			System.out.println("Digite 2 - Listar os produtos da sua lista");
 			opcao = ler.nextInt();
 		}
 		if(opcao == 1)
 		{
-			System.out.print("Produto que quer add na lista: ");
-			numero = ler.nextInt();
-			if(ListaDeProdutosDAO.Inserir(ProdutoDAO.GetProduto(numero), id))
+			ProdutoDAO.listarProdutos();
+			System.out.println("Digite 1 se quiser adicionar algum produto");
+			System.out.println("Digite 0 - Sair");
+			System.out.print("Opï¿½ï¿½o: ");
+			opcao = ler.nextInt(); ler.nextLine();
+			//pode ser que de erro aqui na ora de ler o inteiro
+			while(opcao != 0 && opcao != 1)
 			{
-				System.out.println("Produto adicioando com sucesso");
+				System.out.println("Nï¿½o existe essa opcao");
+				System.out.print("Opï¿½ï¿½o: ");
+				opcao = ler.nextInt();
 			}
-			else
+			if(opcao == 1)
 			{
-				System.out.println("Erro ao adicionar produto");
+				System.out.print("Produto que quer add na lista: ");
+				numero = ler.nextInt();
+				if(ListaDeProdutosDAO.Inserir(ProdutoDAO.GetProduto(numero), id))
+				{
+					System.out.println("Produto adicioando com sucesso");
+				}
+				else
+				{
+					System.out.println("Erro ao adicionar produto");
+				}
 			}
+		}
+		else
+		{
+			ListaDeProdutosDAO.Listar(id);
 		}
 	}
 

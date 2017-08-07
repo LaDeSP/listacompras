@@ -293,7 +293,7 @@ public class ShowEnum {
 			}
 			case 2:
 			{
-				ViewProdutos.Listar();
+				ViewProdutos.Listar_Add(id);
 				//produtoDAO.listarProdutos();
 				break;
 			}
