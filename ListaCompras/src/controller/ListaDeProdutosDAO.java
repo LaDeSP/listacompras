@@ -34,7 +34,7 @@ public class ListaDeProdutosDAO extends DAO implements Serializable{
 		if(listadeprodutos != null)
 		{
 			ListaDeProdutosDAO.listadepromocao.add(listadeprodutos);
-			System.out.println("\nProduto inserido com sucesso");
+			//System.out.println("\nProduto inserido com sucesso");
 			return true;
 		}
 		return false;
